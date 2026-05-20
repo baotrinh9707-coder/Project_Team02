@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmx1pkbm5gpoi"]
+
+[ext_resource type="PackedScene" uid="uid://cioswdsjun2jw" path="res://scenes/player/player.tscn" id="1_8cg7g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8cg7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syyn5"]
+size = Vector2(518, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wxeb"]
+size = Vector2(185.5, 70.5)
+
+[node name="Stage" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8cg7g")]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="World"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Icon"]
+physics_material_override = SubResource("PhysicsMaterial_8cg7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Icon/StaticBody2D"]
+position = Vector2(309, 131)
+shape = SubResource("RectangleShape2D_syyn5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="World"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Sprite2D2/StaticBody2D"]
+position = Vector2(83, 297)
+shape = SubResource("RectangleShape2D_7wxeb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
