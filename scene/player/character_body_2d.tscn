@@ -1,7 +1,288 @@
-[gd_scene format=3 uid="uid://byojc3ocn5ua3"]
+[gd_scene format=3 uid="uid://dw0brs8diijer"]
+
+[ext_resource type="Texture2D" uid="uid://m4di78taixns" path="res://assets/foxy/fox_hat/fox_defeat_1.png" id="1_tucgm"]
+[ext_resource type="Script" uid="uid://bbpo2er2ypwxi" path="res://scripts/player.gd" id="1_yj246"]
+[ext_resource type="Texture2D" uid="uid://dnt7n2db610ps" path="res://assets/foxy/fox_hat_blade/fox_atk_1.png" id="2_fpayr"]
+[ext_resource type="Texture2D" uid="uid://b6jgthsrynctr" path="res://assets/foxy/fox_hat/fox_defeat_2.png" id="2_swkpg"]
+[ext_resource type="Texture2D" uid="uid://bkabwrpxdc7cc" path="res://assets/foxy/fox_hat_blade/fox_atk_2.png" id="3_7w8bo"]
+[ext_resource type="Texture2D" uid="uid://fii540ugfj5n" path="res://assets/foxy/fox_hat/fox_defeat_3.png" id="3_elbti"]
+[ext_resource type="Texture2D" uid="uid://yom7r0j05to2" path="res://assets/foxy/fox_hat/fox_hit_1.png" id="4_73q1l"]
+[ext_resource type="Texture2D" uid="uid://byd3g4nnxwfcq" path="res://assets/foxy/fox_hat_blade/fox_atk_3.png" id="4_ib8q1"]
+[ext_resource type="Texture2D" uid="uid://6gko14qsmmw4" path="res://assets/foxy/fox_hat/fox_jump_2.png" id="5_jvmu6"]
+[ext_resource type="Texture2D" uid="uid://ck8edmupc3gra" path="res://assets/foxy/fox_hat/fox_hit_2.png" id="5_yj246"]
+[ext_resource type="Texture2D" uid="uid://bqh3qhrimo17x" path="res://assets/foxy/fox_hat/fox_hit_3.png" id="6_5u7s5"]
+[ext_resource type="Texture2D" uid="uid://b2iyrbygs0b7c" path="res://assets/foxy/fox_hat/fox_idle_1.png" id="7_jvmu6"]
+[ext_resource type="Texture2D" uid="uid://c8uke6n7xj17g" path="res://assets/foxy/fox_hat/fox_idle_2.png" id="8_nvfnx"]
+[ext_resource type="Texture2D" uid="uid://cseha0dkj5lfj" path="res://assets/foxy/fox_hat/fox_walk_1.png" id="11_7w8bo"]
+[ext_resource type="Texture2D" uid="uid://b7ko4rnci3koo" path="res://assets/foxy/fox_hat/fox_jump_1.png" id="11_nvfnx"]
+[ext_resource type="Texture2D" uid="uid://3g5hdrfwcd2c" path="res://assets/foxy/fox_hat/fox_walk_2.png" id="12_ib8q1"]
+[ext_resource type="Texture2D" uid="uid://cg0s41812vukj" path="res://assets/foxy/fox_hat/fox_walk_3.png" id="13_k7hf0"]
+[ext_resource type="Texture2D" uid="uid://8u26ji11yaua" path="res://assets/foxy/fox_hat/fox_walk_4.png" id="14_y4p8u"]
+[ext_resource type="Script" uid="uid://dand4so0c21pd" path="res://scripts/fsm.gd" id="16_yj246"]
+[ext_resource type="Script" uid="uid://cfxd4w0afxjxp" path="res://scripts/idle.gd" id="17_jvmu6"]
+[ext_resource type="Script" uid="uid://1v4jytcgdxtd" path="res://scripts/run.gd" id="18_nvfnx"]
+[ext_resource type="Script" uid="uid://bghx7e56agn5j" path="res://scripts/jump.gd" id="19_jvmu6"]
+[ext_resource type="Script" uid="uid://ddsvnn0ibur8o" path="res://scripts/fall.gd" id="20_nvfnx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyyle"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fpayr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7w8bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ib8q1")
+}],
+"loop": false,
+"name": &"fox_atk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tucgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_swkpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_elbti")
+}],
+"loop": true,
+"name": &"fox_defeat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jvmu6")
+}],
+"loop": false,
+"name": &"fox_fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_73q1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yj246")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5u7s5")
+}],
+"loop": true,
+"name": &"fox_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jvmu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nvfnx")
+}],
+"loop": true,
+"name": &"fox_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_nvfnx")
+}],
+"loop": false,
+"name": &"fox_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7w8bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ib8q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k7hf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y4p8u")
+}],
+"loop": true,
+"name": &"fox_walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tucgm"]
+radius = 60.674603
+
+[sub_resource type="GDScript" id="GDScript_fpayr"]
+script/source = "extends FSMState
+
+@export var player: Player
+@export var animated_sprite_2d: AnimatedSprite2D
+
+var attack_finished: bool = false
+
+func _on_enter() -> void:
+	attack_finished = false
+	animated_sprite_2d.play(\"fox_atk\")
+
+	if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
+		animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
+
+func _on_physics_process(delta: float) -> void:
+	var direction := player.get_move_axis()
+
+	if direction < 0:
+		animated_sprite_2d.flip_h = true
+		player.player_direction = Vector2.LEFT
+	elif direction > 0:
+		animated_sprite_2d.flip_h = false
+		player.player_direction = Vector2.RIGHT
+
+	if player.is_on_floor():
+		player.velocity.x = 0
+	else:
+		player.velocity.x = direction * player.air_speed
+		player.velocity.y += player.gravity * delta
+
+	player.move_and_slide()
+
+func _on_next_transitions() -> void:
+	if not attack_finished:
+		return
+
+	if not player.is_on_floor():
+		transition.emit(\"Fall\")
+		return
+
+	if player.get_move_axis() != 0:
+		transition.emit(\"Run\")
+	else:
+		transition.emit(\"Idle\")
+
+func _on_attack_animation_finished() -> void:
+	if animated_sprite_2d.animation == \"fox_atk\":
+		attack_finished = true
+
+func _on_exit() -> void:
+	attack_finished = false
+"
+
+[sub_resource type="GDScript" id="GDScript_7w8bo"]
+script/source = "extends FSMState
+
+@export var player: Player
+@export var animated_sprite_2d: AnimatedSprite2D
+
+
+func _on_enter() -> void:
+	if animated_sprite_2d.animation != \"fox_fall\":
+		animated_sprite_2d.play(\"fox_fall\")
+
+	player.velocity.y = 0
+	player.reset_jumps()
+	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
+
+
+func _on_physics_process(delta: float) -> void:
+	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
+
+	var direction := player.get_move_axis()
+
+	player.velocity.x = direction * player.air_speed
+	player.velocity.y += player.gravity * delta
+
+	if player.velocity.y > player.wall_slide_speed:
+		player.velocity.y = player.wall_slide_speed
+
+	player.move_and_slide()
+	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
+
+
+func _on_next_transitions() -> void:
+	if player.is_on_floor():
+		player.reset_jumps()
+
+		if player.get_move_axis() != 0:
+			transition.emit(\"Run\")
+		else:
+			transition.emit(\"Idle\")
+
+		return
+
+	if not player.is_on_wall():
+		transition.emit(\"Fall\")
+		return
+
+	if not player.is_holding_toward_wall():
+		transition.emit(\"Fall\")
+		return
+
+	if Input.is_action_just_pressed(\"jump\"):
+		player.start_wall_jump()
+		transition.emit(\"Jump\")
+		return
+"
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=487343984]
+script = ExtResource("1_yj246")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1193840149]
+[node name="Direction" type="Node2D" parent="." unique_id=382165621]
+
+[node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction" unique_id=1193840149]
+position = Vector2(0, -14)
+scale = Vector2(2.961875, 3.3825002)
+sprite_frames = SubResource("SpriteFrames_qyyle")
+animation = &"fox_atk"
+frame_progress = 0.82901037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=4676007]
+position = Vector2(-0.99999994, -23.999996)
+scale = Vector2(0.74359125, 0.9155978)
+shape = SubResource("CircleShape2D_tucgm")
+
+[node name="States" type="Node" parent="." unique_id=913683801 node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("16_yj246")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="States" unique_id=925100983 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("17_jvmu6")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="Run" type="Node" parent="States" unique_id=462606634 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("18_nvfnx")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="Jump" type="Node" parent="States" unique_id=2050093281 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("19_jvmu6")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="Fall" type="Node" parent="States" unique_id=2028600331 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("20_nvfnx")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="attack" type="Node" parent="States" unique_id=101445253 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = SubResource("GDScript_fpayr")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="WallCling" type="Node" parent="States" unique_id=675780209 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = SubResource("GDScript_7w8bo")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=423063887]

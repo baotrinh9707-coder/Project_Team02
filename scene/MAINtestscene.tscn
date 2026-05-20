@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://doxi5pc2g51v4"]
 
-[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://tests/character_body_2d.tscn" id="1_7ipt0"]
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scene/player/character_body_2d.tscn" id="1_7ipt0"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/raw/island/background/additional_sky.png" id="2_jywav"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/raw/island/background/bg_image.png" id="3_iadh0"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/raw/island/background/additional_water.png" id="4_1siqd"]

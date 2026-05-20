@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c8jh85jf6j6u2"]
+
+[ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/raw/island/top_palm_tree.tscn" id="1_57m48"]
+[ext_resource type="Texture2D" uid="uid://d37aqerjqbuvy" path="res://icon.svg" id="2_5ccg5"]
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scene/player/character_body_2d.tscn" id="3_cm56q"]
+
+[node name="Node2D" type="Node2D" unique_id=420573144]
+
+[node name="TopPalmTree" parent="." unique_id=1874512155 instance=ExtResource("1_57m48")]
+position = Vector2(109, 101)
+scale = Vector2(0.20640998, 0.20056264)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=464505743]
+position = Vector2(289, 116)
+scale = Vector2(1.6486794, 0.09977324)
+texture = ExtResource("2_5ccg5")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=243281221]
+position = Vector2(60, 172)
+scale = Vector2(6.4102564, 0.14754099)
+texture = ExtResource("2_5ccg5")
+
+[node name="CharacterBody2D" parent="." unique_id=487343984 instance=ExtResource("3_cm56q")]
+position = Vector2(24, 131)
+scale = Vector2(0.59615386, 0.5660377)
