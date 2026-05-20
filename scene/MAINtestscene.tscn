@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/raw/island/background/small_cloud_1.png" id="6_iadh0"]
 [ext_resource type="TileSet" uid="uid://litwbximcx8" path="res://assets/raw/island/new_tile_set.tres" id="6_n30w4"]
 [ext_resource type="Texture2D" uid="uid://1t3pkyls8wyt" path="res://assets/raw/island/background/small_cloud_2.png" id="7_1siqd"]
-[ext_resource type="Texture2D" uid="uid://cccowqh7kcwbn" path="res://assets/raw/island/front_palm_trees/front_palm_tree_regular.png" id="9_n30w4"]
-[ext_resource type="Texture2D" uid="uid://getm5kr68qwe" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_01.png" id="10_o18mk"]
+[ext_resource type="Texture2D" uid="uid://cheu53nimdwyt" path="res://assets/raw/island/back_palm_trees/back_palm_tree_regular_01.png" id="9_looam"]
+[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/raw/island/objects/chest/chest_gold_close_04.png" id="11_jmqbj"]
+[ext_resource type="Texture2D" uid="uid://ooefrpcl7vp1" path="res://assets/raw/enemy/barrel/barrel_atk_05.png" id="12_o18mk"]
+[ext_resource type="Texture2D" uid="uid://c65a5nt45l57l" path="res://assets/raw/island/objects/flag/flag_05.png" id="14_eac2q"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -83,8 +85,8 @@ scale = Vector2(23.969, 5.969)
 texture = ExtResource("4_1siqd")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=403048686]
-position = Vector2(314.00003, 365.00003)
-scale = Vector2(3.7067962, 27.147577)
+position = Vector2(51.96118, 366.369)
+scale = Vector2(0.6239862, 26.873789)
 texture = ExtResource("5_1siqd")
 
 [node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1078020493]
@@ -115,18 +117,51 @@ scale = Vector2(1.0366973, 1.1481482)
 texture = ExtResource("7_1siqd")
 centered = false
 
-[node name="TreeParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1934632254]
-position = Vector2(54, 236)
-motion_scale = Vector2(0.9, 0.9)
-motion_mirroring = Vector2(300, 0)
+[node name="TreeParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=403007664]
+motion_mirroring = Vector2(960, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=125817750]
-texture = ExtResource("9_n30w4")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=1916442068]
+position = Vector2(14, 236)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=711058518]
-position = Vector2(0, -16)
-texture = ExtResource("10_o18mk")
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=1205038005]
+position = Vector2(68, 246.99998)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=1999383248]
+position = Vector2(145, 227)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=1634495435]
+position = Vector2(358, 229)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=1094485238]
+position = Vector2(452.99997, 241)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=2024224077]
+position = Vector2(541, 230)
+scale = Vector2(0.828125, 0.8333333)
+texture = ExtResource("9_looam")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1617446658]
-tile_map_data = PackedByteArray("AAANAAgAAAAQAAQAAAAMAAgAAAABAAQAAAALAAgAAAAMAAQAAAAKAAgAAAABAAQAAAAJAAgAAAABAAQAAAAIAAgAAAABAAQAAAAHAAgAAAAJAAQAAAAGAAgAAAABAAIAAAAFAAgAAAABAAIAAAAEAAgAAAAKAAQAAAADAAgAAAABAAQAAAACAAgAAAABAAQAAAABAAgAAAABAAQAAAAAAAgAAAAAAAQAAAAEAAcAAAAAAAAAAAAHAAcAAAACAAEAAAAMAAUAAAABAAQAAAALAAUAAAAPAAMAAAAIAAIAAAAAAAQAAAAEAAIAAAAQAAQAAAACAAIAAAABAAQAAAABAAIAAAAAAAQAAAALAAMAAAACAAQAAAAKAAMAAAAAAAQAAAALAAEAAAACAAQAAAAKAAEAAAAAAAQAAAAIAAQAAAAEAAQAAAAAAAEAAAAEAAQAAAAGAAYAAAABAAAAAAAFAAcAAAAHAAEAAAAGAAcAAAABAAEAAAAFAAYAAAAAAAAAAAAHAAYAAAACAAAAAAADAAYAAQAAAAAAAgAJAAYAAQAAAAAAAgAGAAQAAQAAAAAAAgAEAAEAAAAEAAAAAAADAAIAAAABAAQAAAAJAAIAAAACAAQAAAALAAYAAAAEAAIAAAALAAcAAAAEAAEAAAANAAUAAAAQAAMAAAANAAYAAAAEAAIAAAANAAcAAAAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAQAAAABAAgAAAABAAQAAAACAAgAAAABAAQAAAADAAgAAAABAAQAAAAEAAgAAAABAAQAAAAFAAgAAAAKAAQAAAAGAAgAAAABAAIAAAAHAAgAAAABAAIAAAAIAAgAAAAJAAQAAAAJAAgAAAABAAQAAAAKAAgAAAABAAQAAAALAAgAAAABAAQAAAAMAAgAAAABAAQAAAANAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAAKAAQAAAAIAAcAAAACAAEAAAAHAAcAAAABAAEAAAAIAAYAAAACAAAAAAAHAAYAAAAGAAEAAAAHAAUAAAACAAEAAAAHAAQAAAAHAAQAAAAGAAcAAAABAAEAAAAGAAYAAAAHAAEAAAAGAAUAAAAAAAEAAAAGAAQAAAAAAAAAAAAFAAcAAAAAAAEAAAAFAAYAAAAAAAAAAAAIAAEAAAAJAAQAAAAIAAAAAAACAAAAAAAHAAMAAAAEAAEAAAAHAAIAAAAEAAEAAAAHAAEAAAAGAAMAAAAHAAAAAAAKAAMAAAAGAAAAAAABAAQAAAAFAAAAAAABAAQAAAAEAAIAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAAJAAMAAAADAAMAAAABAAIAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAAAAAACAAMAAAAAAAIAAAACAAIAAAAAAAEAAAACAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAPAAMAAAAAAAIAAAAPAAIAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAAAAAAAAAAAAAANAAMAAAACAAIAAAANAAIAAAACAAEAAAANAAEAAAACAAEAAAANAAAAAAACAAAAAAAMAAQAAAAEAAEAAAAMAAMAAAAGAAMAAAAMAAIAAAAAAAEAAAAMAAEAAAAAAAEAAAAMAAAAAAAAAAAAAAAMAAUAAAANAAQAAAAMAAYAAAAPAAQAAAANAAYAAAACAAQAAAAJAAQAAAAAAAQAAAAKAAQAAAACAAQAAAAJAAEAAAACAAQAAAAEAAMAAAACAAIAAAABAAUAAAAEAAQAAAAQAAUAAAAEAAIAAAAQAAQAAAAEAAEAAAAQAAMAAAAHAAMAAAAQAAIAAAACAAEAAAAQAAEAAAACAAEAAAAQAAAAAAACAAAAAAAQAAgAAAACAAIAAAALAAUAAAAAAAQAAAADAAYAAQAAAAAAAgAFAP7/AQAAAAAAAgANAP7/AQAAAAAAAgAJAP//AQAAAAAAAgAJAAIAAQAAAAAAAgA=")
 tile_set = ExtResource("6_n30w4")
+
+[node name="BarrelAtk05" type="Sprite2D" parent="." unique_id=1671209806]
+position = Vector2(303, 241)
+texture = ExtResource("12_o18mk")
+
+[node name="Flag05" type="Sprite2D" parent="." unique_id=1765597376]
+position = Vector2(550, -44)
+texture = ExtResource("14_eac2q")
+
+[node name="ChestGoldClose04" type="Sprite2D" parent="." unique_id=749913165]
+position = Vector2(409, 234)
+texture = ExtResource("11_jmqbj")

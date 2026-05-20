@@ -63,7 +63,7 @@ frame = 2
 frame_progress = 0.854453
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=386368450]
-position = Vector2(-60.000008, -32)
-scale = Vector2(0.2622452, 0.3362317)
-polygon = PackedVector2Array(323, 45, 221.98926, 42.33871, 125, 42, 109, 58, 93, 77, 352, 77, 340, 59)
+position = Vector2(-60.000008, -30.403128)
+scale = Vector2(0.2622452, 0.29945642)
+polygon = PackedVector2Array(320.31097, 74.353485, 316.4977, 54.776352, 293.61838, 50.56037, 163.96872, 50.56037, 137.27612, 51.436966, 125.836464, 71.37935)
 one_way_collision = true

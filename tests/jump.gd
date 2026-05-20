@@ -3,9 +3,14 @@ extends FSMState
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
 
+
 func _on_enter() -> void:
-	player.perform_jump()
-	animated_sprite_2d.play("fox_jump")
+	if not player.is_wall_jumping:
+		player.perform_jump()
+
+	if animated_sprite_2d.animation != "fox_jump":
+		animated_sprite_2d.play("fox_jump")
+
 
 func _on_physics_process(delta: float) -> void:
 	var direction := player.get_move_axis()
@@ -17,19 +22,27 @@ func _on_physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = false
 		player.player_direction = Vector2.RIGHT
 
-	player.velocity.x = direction * player.air_speed
+	if not player.is_wall_jumping:
+		player.velocity.x = direction * player.air_speed
+
 	player.velocity.y += player.gravity * delta
 
 	player.move_and_slide()
+	player.update_wall_normal()
+	player.update_wall_jump_timer(delta)
+
 
 func _on_next_transitions() -> void:
-	if player.is_on_wall() and not player.is_on_floor() and player.velocity.y > 0:
+	if player.should_wall_cling():
 		transition.emit("WallCling")
 		return
 
 	if Input.is_action_just_pressed("jump") and player.can_jump():
 		player.perform_jump()
-		animated_sprite_2d.play("fox_jump")
+
+		if animated_sprite_2d.animation != "fox_jump":
+			animated_sprite_2d.play("fox_jump")
+
 		return
 
 	if player.velocity.y > 0:

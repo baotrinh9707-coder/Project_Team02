@@ -181,12 +181,21 @@ script/source = "extends FSMState
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
 
+
 func _on_enter() -> void:
-	animated_sprite_2d.play(\"fox_fall\")
+	if animated_sprite_2d.animation != \"fox_fall\":
+		animated_sprite_2d.play(\"fox_fall\")
+
 	player.velocity.y = 0
 	player.reset_jumps()
+	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
+
 
 func _on_physics_process(delta: float) -> void:
+	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
+
 	var direction := player.get_move_axis()
 
 	player.velocity.x = direction * player.air_speed
@@ -197,26 +206,32 @@ func _on_physics_process(delta: float) -> void:
 
 	player.move_and_slide()
 	player.update_wall_normal()
+	player.face_toward_wall(animated_sprite_2d)
 
-	if player.wall_normal.x > 0:
-		animated_sprite_2d.flip_h = false
-	elif player.wall_normal.x < 0:
-		animated_sprite_2d.flip_h = true
 
 func _on_next_transitions() -> void:
 	if player.is_on_floor():
 		player.reset_jumps()
-		transition.emit(\"Idle\")
+
+		if player.get_move_axis() != 0:
+			transition.emit(\"Run\")
+		else:
+			transition.emit(\"Idle\")
+
 		return
 
 	if not player.is_on_wall():
 		transition.emit(\"Fall\")
 		return
 
+	if not player.is_holding_toward_wall():
+		transition.emit(\"Fall\")
+		return
+
 	if Input.is_action_just_pressed(\"jump\"):
-		player.velocity.x = player.wall_normal.x * player.wall_jump_x_speed
-		player.velocity.y = -player.wall_jump_y_speed
+		player.start_wall_jump()
 		transition.emit(\"Jump\")
+		return
 "
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=487343984]
