@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bp35kp4ukeqk5"]
+
+[ext_resource type="Texture2D" uid="uid://cccowqh7kcwbn" path="res://assets/raw/island/front_palm_trees/front_palm_tree_regular.png" id="1_bm1u4"]
+[ext_resource type="Texture2D" uid="uid://getm5kr68qwe" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_01.png" id="1_iem1m"]
+[ext_resource type="Texture2D" uid="uid://07ilhsckqwm6" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_02.png" id="2_bm1u4"]
+[ext_resource type="Texture2D" uid="uid://dwpeqvei7c2tc" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_03.png" id="3_sfmcc"]
+[ext_resource type="Texture2D" uid="uid://beay0xcyyoar6" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_04.png" id="4_adgpe"]
+
+[sub_resource type="GDScript" id="GDScript_iem1m"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$AnimatedSprite2D.play(\"tree\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ashyp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iem1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bm1u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sfmcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_adgpe")
+}],
+"loop": true,
+"name": &"tree",
+"speed": 5.0
+}]
+
+[node name="TopPalmTree" type="StaticBody2D" unique_id=1874512155]
+position = Vector2(0, -2)
+script = SubResource("GDScript_iem1m")
+
+[node name="FrontPalmTreeRegular" type="Sprite2D" parent="." unique_id=2004504501]
+position = Vector2(-6.0000005, 19.437502)
+scale = Vector2(1.1171876, 1.173828)
+texture = ExtResource("1_bm1u4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=238920970]
+position = Vector2(-1, 3.9999998)
+scale = Vector2(1.4892577, 1.1748048)
+sprite_frames = SubResource("SpriteFrames_ashyp")
+animation = &"tree"
+frame = 2
+frame_progress = 0.854453
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=386368450]
+position = Vector2(-60.000008, -32)
+scale = Vector2(0.2622452, 0.3362317)
+polygon = PackedVector2Array(323, 45, 221.98926, 42.33871, 125, 42, 109, 58, 93, 77, 352, 77, 340, 59)
+one_way_collision = true

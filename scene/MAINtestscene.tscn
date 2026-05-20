@@ -1,0 +1,132 @@
+[gd_scene format=4 uid="uid://doxi5pc2g51v4"]
+
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://tests/character_body_2d.tscn" id="1_7ipt0"]
+[ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/raw/island/background/additional_sky.png" id="2_jywav"]
+[ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/raw/island/background/bg_image.png" id="3_iadh0"]
+[ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/raw/island/background/additional_water.png" id="4_1siqd"]
+[ext_resource type="Texture2D" uid="uid://dekyi7oa4n0sg" path="res://assets/raw/island/background/water_reflect_big_01.png" id="5_1siqd"]
+[ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/raw/island/background/big_clouds.png" id="5_8bk6c"]
+[ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/raw/island/background/small_cloud_1.png" id="6_iadh0"]
+[ext_resource type="TileSet" uid="uid://litwbximcx8" path="res://assets/raw/island/new_tile_set.tres" id="6_n30w4"]
+[ext_resource type="Texture2D" uid="uid://1t3pkyls8wyt" path="res://assets/raw/island/background/small_cloud_2.png" id="7_1siqd"]
+[ext_resource type="Texture2D" uid="uid://cccowqh7kcwbn" path="res://assets/raw/island/front_palm_trees/front_palm_tree_regular.png" id="9_n30w4"]
+[ext_resource type="Texture2D" uid="uid://getm5kr68qwe" path="res://assets/raw/island/front_palm_trees/front_palm_tree_top_01.png" id="10_o18mk"]
+
+[sub_resource type="GDScript" id="GDScript_wuau1"]
+script/source = "extends ParallaxLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	motion_offset.x -= delta*20
+"
+
+[sub_resource type="GDScript" id="GDScript_8bk6c"]
+script/source = "extends ParallaxLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	motion_offset.x -= delta*50
+"
+
+[node name="Stage" type="Node2D" unique_id=968402778]
+
+[node name="CharacterBody2D" parent="." unique_id=487343984 instance=ExtResource("1_7ipt0")]
+position = Vector2(19.00003, 231)
+scale = Vector2(0.2591107, 0.22032699)
+
+[node name="world" type="Node2D" parent="." unique_id=40951875]
+
+[node name="Icon" type="Sprite2D" parent="world" unique_id=1305387921]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon" unique_id=1213156356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon/StaticBody2D" unique_id=897608525]
+
+[node name="Icon2" type="Sprite2D" parent="world" unique_id=1991665274]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon2" unique_id=1682218505]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon2/StaticBody2D" unique_id=415698233]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=364452508]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1894914492]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(767, 0)
+
+[node name="SkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=796733291]
+position = Vector2(417, -11)
+scale = Vector2(26.125, 20.531)
+texture = ExtResource("2_jywav")
+
+[node name="SeaSkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1129391234]
+position = Vector2(0, 57)
+scale = Vector2(2, 2)
+texture = ExtResource("3_iadh0")
+centered = false
+
+[node name="WaterSprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=97270493]
+position = Vector2(384.5, 404.5)
+scale = Vector2(23.969, 5.969)
+texture = ExtResource("4_1siqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=403048686]
+position = Vector2(314.00003, 365.00003)
+scale = Vector2(3.7067962, 27.147577)
+texture = ExtResource("5_1siqd")
+
+[node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1078020493]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(510, 0)
+script = SubResource("GDScript_wuau1")
+
+[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloud" unique_id=1251249804]
+position = Vector2(0, 111)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_8bk6c")
+centered = false
+
+[node name="ParallaxLayerCloudSmall" type="ParallaxLayer" parent="ParallaxBackground" unique_id=961375659]
+motion_scale = Vector2(0.001, 0.8)
+motion_mirroring = Vector2(510, 0)
+script = SubResource("GDScript_8bk6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=822319919]
+position = Vector2(138, 40)
+scale = Vector2(1.0153847, 1.32)
+texture = ExtResource("6_iadh0")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=278585656]
+position = Vector2(-35.999985, 96)
+scale = Vector2(1.0366973, 1.1481482)
+texture = ExtResource("7_1siqd")
+centered = false
+
+[node name="TreeParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1934632254]
+position = Vector2(54, 236)
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(300, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=125817750]
+texture = ExtResource("9_n30w4")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TreeParallaxLayer" unique_id=711058518]
+position = Vector2(0, -16)
+texture = ExtResource("10_o18mk")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1617446658]
+tile_map_data = PackedByteArray("AAANAAgAAAAQAAQAAAAMAAgAAAABAAQAAAALAAgAAAAMAAQAAAAKAAgAAAABAAQAAAAJAAgAAAABAAQAAAAIAAgAAAABAAQAAAAHAAgAAAAJAAQAAAAGAAgAAAABAAIAAAAFAAgAAAABAAIAAAAEAAgAAAAKAAQAAAADAAgAAAABAAQAAAACAAgAAAABAAQAAAABAAgAAAABAAQAAAAAAAgAAAAAAAQAAAAEAAcAAAAAAAAAAAAHAAcAAAACAAEAAAAMAAUAAAABAAQAAAALAAUAAAAPAAMAAAAIAAIAAAAAAAQAAAAEAAIAAAAQAAQAAAACAAIAAAABAAQAAAABAAIAAAAAAAQAAAALAAMAAAACAAQAAAAKAAMAAAAAAAQAAAALAAEAAAACAAQAAAAKAAEAAAAAAAQAAAAIAAQAAAAEAAQAAAAAAAEAAAAEAAQAAAAGAAYAAAABAAAAAAAFAAcAAAAHAAEAAAAGAAcAAAABAAEAAAAFAAYAAAAAAAAAAAAHAAYAAAACAAAAAAADAAYAAQAAAAAAAgAJAAYAAQAAAAAAAgAGAAQAAQAAAAAAAgAEAAEAAAAEAAAAAAADAAIAAAABAAQAAAAJAAIAAAACAAQAAAALAAYAAAAEAAIAAAALAAcAAAAEAAEAAAANAAUAAAAQAAMAAAANAAYAAAAEAAIAAAANAAcAAAAEAAEAAAA=")
+tile_set = ExtResource("6_n30w4")
