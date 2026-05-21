@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/island/terrain/terrain_32x32.png" id="1_h35qf"]
 [ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="2_ylt0l"]
+[ext_resource type="PackedScene" uid="uid://c2nkagr7apnkl" path="res://assets/island/tree_to_right.tscn" id="3_ejwa2"]
+[ext_resource type="PackedScene" uid="uid://cjixkieuke42x" path="res://assets/island/tree_to_left.tscn" id="4_umudc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylt0l"]
 texture = ExtResource("1_h35qf")
@@ -386,7 +388,16 @@ texture_region_size = Vector2i(32, 32)
 16:4/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_h35qf"]
+resource_name = "normal tree"
 scenes/2/scene = ExtResource("2_ylt0l")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2jcqu"]
+resource_name = "tree to right"
+scenes/1/scene = ExtResource("3_ejwa2")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j3qm1"]
+resource_name = "tree to left"
+scenes/1/scene = ExtResource("4_umudc")
 
 [resource]
 tile_size = Vector2i(32, 32)
@@ -396,3 +407,5 @@ terrain_set_0/terrain_0/name = "Land"
 terrain_set_0/terrain_0/color = Color(0.5019608, 1, 0.2509804, 1)
 sources/0 = SubResource("TileSetAtlasSource_ylt0l")
 sources/1 = SubResource("TileSetScenesCollectionSource_h35qf")
+sources/2 = SubResource("TileSetScenesCollectionSource_2jcqu")
+sources/3 = SubResource("TileSetScenesCollectionSource_j3qm1")

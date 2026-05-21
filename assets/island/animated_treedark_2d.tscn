@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bkexijlvwahmg"]
+
+[ext_resource type="Texture2D" uid="uid://cheu53nimdwyt" path="res://assets/island/back_palm_trees/back_palm_tree_regular_01.png" id="1_ig3xg"]
+[ext_resource type="Texture2D" uid="uid://dt1od2hyke60g" path="res://assets/island/back_palm_trees/back_palm_tree_regular_02.png" id="2_iosbo"]
+[ext_resource type="Texture2D" uid="uid://frimagh5yfit" path="res://assets/island/back_palm_trees/back_palm_tree_regular_03.png" id="3_ad6bi"]
+[ext_resource type="Texture2D" uid="uid://cjcxdxoq8hp4l" path="res://assets/island/back_palm_trees/back_palm_tree_regular_04.png" id="4_8gncb"]
+[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://animated_sprite_2d.gd" id="5_kpsdj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61hb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ig3xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iosbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ad6bi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8gncb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=131431147]
+position = Vector2(-28, -74)
+sprite_frames = SubResource("SpriteFrames_61hb2")
+frame = 3
+frame_progress = 0.61510307
+centered = false
+script = ExtResource("5_kpsdj")
