@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cu5ugwl71kx08"]
+
+[ext_resource type="Texture2D" uid="uid://cheu53nimdwyt" path="res://assets/island/back_palm_trees/back_palm_tree_regular_01.png" id="1_3wy52"]
+[ext_resource type="Texture2D" uid="uid://dt1od2hyke60g" path="res://assets/island/back_palm_trees/back_palm_tree_regular_02.png" id="2_kkeb1"]
+[ext_resource type="Texture2D" uid="uid://frimagh5yfit" path="res://assets/island/back_palm_trees/back_palm_tree_regular_03.png" id="3_pgkw7"]
+[ext_resource type="Texture2D" uid="uid://cjcxdxoq8hp4l" path="res://assets/island/back_palm_trees/back_palm_tree_regular_04.png" id="4_v3sjr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgw0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3wy52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kkeb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pgkw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v3sjr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=917840633]
+sprite_frames = SubResource("SpriteFrames_hgw0s")
+frame = 2
+frame_progress = 0.24293147

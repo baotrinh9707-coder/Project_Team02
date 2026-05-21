@@ -284,5 +284,3 @@ animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 script = SubResource("GDScript_7w8bo")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=423063887]
