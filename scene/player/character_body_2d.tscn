@@ -289,5 +289,6 @@ animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 [node name="Dash" type="Node" parent="States" node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("24_3y8c1")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
-dash_duration = 0.5
+dash_duration = 0.15
+ghost_lifetime = 0.2
 ghost_color = Color(0.6, 0.6, 1, 0.823529)
