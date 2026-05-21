@@ -25,6 +25,10 @@ func _on_physics_process(delta: float) -> void:
 	player.move_and_slide()
 
 func _on_next_transitions() -> void:
+	if Input.is_action_just_pressed("dash"):
+		transition.emit("Dash")
+		return
+
 	if Input.is_action_just_pressed("attack"):
 		transition.emit("Attack")
 		return

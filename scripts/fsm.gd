@@ -30,8 +30,15 @@ func _ready() -> void:
 				print("Adding state: ", child.name)
 
 	if initial_node_state == null:
-		push_warning("FSM has no initial_node_state")
-		return
+		if states.has("idle"):
+			initial_node_state = states["idle"]
+			push_warning("FSM: initial_node_state is null, falling back to 'Idle' state.")
+		elif states.size() > 0:
+			initial_node_state = states.values()[0]
+			push_warning("FSM: initial_node_state is null, falling back to first state: " + initial_node_state.name)
+		else:
+			push_warning("FSM has no initial_node_state and no valid FSMState children")
+			return
 
 	default_state = initial_node_state
 	current_state = initial_node_state

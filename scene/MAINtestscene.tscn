@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://doxi5pc2g51v4"]
+[gd_scene load_steps=21 format=4 uid="uid://bpmkftexgj8sh"]
 
 [ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scene/player/character_body_2d.tscn" id="1_7ipt0"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="2_jywav"]
@@ -11,12 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://1t3pkyls8wyt" path="res://assets/island/background/small_cloud_2.png" id="7_1siqd"]
 [ext_resource type="Texture2D" uid="uid://b6dilwf04d4be" path="res://assets/island/background/water_reflect_big_02.png" id="9_srmfv"]
 [ext_resource type="PackedScene" uid="uid://bkexijlvwahmg" path="res://assets/island/animated_treedark_2d.tscn" id="10_25j8j"]
-[ext_resource type="Script" uid="uid://c8rme8e52p4mu" path="res://scene/tree_decoratine.gd" id="10_np0qh"]
+[ext_resource type="Script" path="res://scene/tree_decoratine.gd" id="10_np0qh"]
 [ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="11_jmqbj"]
 [ext_resource type="Texture2D" uid="uid://c5ur36rqix0vh" path="res://assets/island/background/water_reflect_big_04.png" id="11_usvee"]
 [ext_resource type="Texture2D" uid="uid://ooefrpcl7vp1" path="res://assets/enemy/barrel/barrel_atk_05.png" id="12_o18mk"]
 [ext_resource type="Texture2D" uid="uid://d37aqerjqbuvy" path="res://icon.svg" id="13_jmqbj"]
 [ext_resource type="Texture2D" uid="uid://c65a5nt45l57l" path="res://assets/island/objects/flag/flag_05.png" id="14_eac2q"]
+[ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="18_srmfv"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -46,262 +47,275 @@ func _process(delta: float) -> void:
 	motion_offset.x -= delta*50
 "
 
-[node name="Stage" type="Node2D" unique_id=968402778]
+[node name="Stage" type="Node2D"]
 
-[node name="world" type="Node2D" parent="." unique_id=40951875]
+[node name="world" type="Node2D" parent="."]
 
-[node name="Icon" type="Sprite2D" parent="world" unique_id=1305387921]
+[node name="Icon" type="Sprite2D" parent="world"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon" unique_id=1213156356]
+[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon/StaticBody2D" unique_id=897608525]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon/StaticBody2D"]
 
-[node name="Icon2" type="Sprite2D" parent="world" unique_id=1991665274]
+[node name="Icon2" type="Sprite2D" parent="world"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon2" unique_id=1682218505]
+[node name="StaticBody2D" type="StaticBody2D" parent="world/Icon2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon2/StaticBody2D" unique_id=415698233]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Icon2/StaticBody2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=364452508]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1894914492]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(767, 0)
 
-[node name="SkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=796733291]
-modulate = Color(0.9529833, 0.41958928, 0.6439582, 1)
+[node name="SkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.952983, 0.419589, 0.643958, 1)
 position = Vector2(417, -11)
 scale = Vector2(26.125, 20.531)
 texture = ExtResource("2_jywav")
 
-[node name="SeaSkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1129391234]
-modulate = Color(0.9421787, 0.6304285, 0.6822338, 1)
+[node name="SeaSkySprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.942179, 0.630428, 0.682234, 1)
 position = Vector2(0, 57)
 scale = Vector2(2, 2)
 texture = ExtResource("3_iadh0")
 centered = false
 
-[node name="WaterSprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=97270493]
-modulate = Color(0.427493, 0.42749307, 0.42749307, 1)
+[node name="WaterSprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.427493, 0.427493, 0.427493, 1)
 position = Vector2(384.5, 404.5)
 scale = Vector2(23.969, 5.969)
 texture = ExtResource("4_1siqd")
 
-[node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1078020493]
+[node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.001, 0.8)
 motion_mirroring = Vector2(510, 0)
 script = SubResource("GDScript_wuau1")
 
-[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloud" unique_id=1251249804]
+[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloud"]
 position = Vector2(0, 111)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_8bk6c")
 centered = false
 
-[node name="ParallaxLayerCloudSmall" type="ParallaxLayer" parent="ParallaxBackground" unique_id=961375659]
+[node name="ParallaxLayerCloudSmall" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.001, 0.8)
 motion_mirroring = Vector2(510, 0)
 script = SubResource("GDScript_8bk6c")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=822319919]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall"]
 position = Vector2(138, 40)
-scale = Vector2(1.0153847, 1.32)
+scale = Vector2(1.01538, 1.32)
 texture = ExtResource("6_iadh0")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=278585656]
-position = Vector2(-35.999985, 96)
-scale = Vector2(1.0366973, 1.1481482)
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall"]
+position = Vector2(-36, 96)
+scale = Vector2(1.0367, 1.14815)
 texture = ExtResource("7_1siqd")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=403048686]
-position = Vector2(61.315147, 364.89624)
-scale = Vector2(0.7021748, 26.820753)
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall"]
+position = Vector2(61.3151, 364.896)
+scale = Vector2(0.702175, 26.8208)
 texture = ExtResource("5_1siqd")
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=1049840171]
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall"]
 position = Vector2(217, 339)
-scale = Vector2(0.7634642, 21.81106)
+scale = Vector2(0.763464, 21.8111)
 texture = ExtResource("9_srmfv")
 
-[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall" unique_id=2135712054]
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerCloudSmall"]
 position = Vector2(397, 329)
-scale = Vector2(0.8971854, 19.195013)
+scale = Vector2(0.897185, 19.195)
 texture = ExtResource("11_usvee")
 
-[node name="tree_decoratine" type="Node2D" parent="." unique_id=325870915]
+[node name="tree_decoratine" type="Node2D" parent="."]
 position = Vector2(-2, -8)
 script = ExtResource("10_np0qh")
 
-[node name="Node2D" type="Node2D" parent="tree_decoratine" unique_id=1698098540]
+[node name="Node2D" type="Node2D" parent="tree_decoratine"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D" unique_id=131431147 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(-11, 192)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D" unique_id=385512451 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(37, 213)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D" unique_id=686982546 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(72, 203)
 
-[node name="Node2D2" type="Node2D" parent="tree_decoratine" unique_id=512902091]
+[node name="Node2D2" type="Node2D" parent="tree_decoratine"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D2" unique_id=1686786229 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(121, 207)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D2" unique_id=659916955 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(256, 217)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D2" unique_id=1126215196 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(318, 210)
 
-[node name="Node2D3" type="Node2D" parent="tree_decoratine" unique_id=1937758041]
+[node name="Node2D3" type="Node2D" parent="tree_decoratine"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D3" unique_id=1698922185 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(366, 194)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D3" unique_id=2025239376 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(418, 215)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D3" unique_id=2008280063 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(472, 202)
 
-[node name="Node2D4" type="Node2D" parent="tree_decoratine" unique_id=159176679]
+[node name="Node2D4" type="Node2D" parent="tree_decoratine"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D4" unique_id=1900471230 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(526, 206)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D4" unique_id=22844973 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(567, 208)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D4" unique_id=1849632521 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(290, 206)
 
-[node name="tree_decoratine2" type="Node2D" parent="." unique_id=1249638166]
+[node name="tree_decoratine2" type="Node2D" parent="."]
 position = Vector2(621, 0)
 script = ExtResource("10_np0qh")
 
-[node name="Node2D" type="Node2D" parent="tree_decoratine2" unique_id=744984249]
+[node name="Node2D" type="Node2D" parent="tree_decoratine2"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D" unique_id=1522062772 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(-11, 192)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D" unique_id=678429626 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(37, 213)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D" unique_id=1124873775 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(72, 203)
 
-[node name="Node2D2" type="Node2D" parent="tree_decoratine2" unique_id=1459324993]
+[node name="Node2D2" type="Node2D" parent="tree_decoratine2"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D2" unique_id=1876334645 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(121, 207)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D2" unique_id=203755544 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(256, 217)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D2" unique_id=1874951756 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(318, 210)
 
-[node name="Node2D3" type="Node2D" parent="tree_decoratine2" unique_id=730333701]
+[node name="Node2D3" type="Node2D" parent="tree_decoratine2"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D3" unique_id=756302414 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(366, 194)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D3" unique_id=1673503767 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(418, 215)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D3" unique_id=1135178817 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(472, 202)
 
-[node name="Node2D4" type="Node2D" parent="tree_decoratine2" unique_id=129319652]
+[node name="Node2D4" type="Node2D" parent="tree_decoratine2"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D4" unique_id=326140057 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine2/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(526, 206)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D4" unique_id=728123843 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine2/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(567, 208)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D4" unique_id=2069315238 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine2/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(290, 206)
 
-[node name="tree_decoratine3" type="Node2D" parent="." unique_id=34114949]
+[node name="tree_decoratine3" type="Node2D" parent="."]
 position = Vector2(790, 5)
 script = ExtResource("10_np0qh")
 
-[node name="Node2D" type="Node2D" parent="tree_decoratine3" unique_id=1716217074]
+[node name="Node2D" type="Node2D" parent="tree_decoratine3"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D" unique_id=911481958 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(-11, 192)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D" unique_id=1702958441 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(37, 213)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D" unique_id=1440041892 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D" instance=ExtResource("10_25j8j")]
 position = Vector2(72, 203)
 
-[node name="Node2D2" type="Node2D" parent="tree_decoratine3" unique_id=289557717]
+[node name="Node2D2" type="Node2D" parent="tree_decoratine3"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D2" unique_id=1654858771 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(121, 207)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D2" unique_id=541019569 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(256, 217)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D2" unique_id=382015545 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D2" instance=ExtResource("10_25j8j")]
 position = Vector2(318, 210)
 
-[node name="Node2D3" type="Node2D" parent="tree_decoratine3" unique_id=539121727]
+[node name="Node2D3" type="Node2D" parent="tree_decoratine3"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D3" unique_id=1631428355 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(366, 194)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D3" unique_id=2027243555 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(418, 215)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D3" unique_id=1571263113 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D3" instance=ExtResource("10_25j8j")]
 position = Vector2(472, 202)
 
-[node name="Node2D4" type="Node2D" parent="tree_decoratine3" unique_id=1457617341]
+[node name="Node2D4" type="Node2D" parent="tree_decoratine3"]
 
-[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D4" unique_id=2058375589 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D" parent="tree_decoratine3/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(526, 206)
 
-[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D4" unique_id=854316441 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D2" parent="tree_decoratine3/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(567, 208)
 
-[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D4" unique_id=1013153077 instance=ExtResource("10_25j8j")]
+[node name="AnimatedSprite2D3" parent="tree_decoratine3/Node2D4" instance=ExtResource("10_25j8j")]
 position = Vector2(290, 206)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1617446658]
-tile_map_data = PackedByteArray("AAAAAAgAAAAAAAQAAAABAAgAAAABAAQAAAACAAgAAAABAAQAAAADAAgAAAABAAQAAAAEAAgAAAABAAQAAAAFAAgAAAAKAAQAAAAGAAgAAAABAAIAAAAHAAgAAAABAAIAAAAIAAgAAAAJAAQAAAAJAAgAAAABAAQAAAAKAAgAAAABAAQAAAALAAgAAAABAAQAAAAMAAgAAAABAAQAAAANAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAIAAcAAAACAAEAAAAHAAcAAAABAAEAAAAIAAYAAAACAAAAAAAHAAYAAAAGAAEAAAAHAAUAAAACAAEAAAAHAAQAAAAHAAQAAAAGAAcAAAABAAEAAAAGAAYAAAAHAAEAAAAGAAUAAAAAAAEAAAAGAAQAAAAAAAAAAAAFAAcAAAAAAAEAAAAFAAYAAAAAAAAAAAAIAAEAAAAJAAQAAAAIAAAAAAACAAAAAAAHAAMAAAAEAAEAAAAHAAIAAAAEAAEAAAAHAAEAAAAGAAMAAAAHAAAAAAAKAAMAAAAGAAAAAAABAAQAAAAFAAAAAAABAAQAAAAEAAIAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAAJAAMAAAADAAMAAAABAAIAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAAAAAACAAMAAAAAAAIAAAACAAIAAAAAAAEAAAACAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAPAAMAAAAAAAIAAAAPAAIAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAAAAAAAAAAAAAANAAMAAAACAAIAAAANAAIAAAACAAEAAAANAAEAAAACAAEAAAANAAAAAAACAAAAAAAMAAQAAAAEAAEAAAAMAAMAAAAGAAMAAAAMAAIAAAAAAAEAAAAMAAEAAAAAAAEAAAAMAAAAAAAAAAAAAAAMAAUAAAANAAQAAAAMAAYAAAAPAAQAAAANAAYAAAACAAQAAAAJAAQAAAAAAAQAAAAKAAQAAAACAAQAAAAJAAEAAAACAAQAAAAEAAMAAAACAAIAAAABAAUAAAAEAAQAAAAQAAUAAAAEAAIAAAAQAAQAAAAEAAEAAAAQAAMAAAAHAAMAAAAQAAIAAAACAAEAAAAQAAEAAAACAAEAAAAQAAAAAAACAAAAAAAQAAgAAAABAAQAAAALAAUAAAAAAAQAAAADAAYAAQAAAAAAAgAFAP7/AQAAAAAAAgANAP7/AQAAAAAAAgAJAP//AQAAAAAAAgAJAAIAAQAAAAAAAgARAAgAAAABAAQAAAASAAgAAAABAAQAAAATAAgAAAABAAQAAAAUAAgAAAABAAQAAAAVAAgAAAABAAQAAAAWAAgAAAABAAQAAAAXAAgAAAABAAQAAAAYAAgAAAABAAQAAAAZAAgAAAAKAAQAAAAaAAgAAAABAAIAAAAbAAgAAAABAAIAAAAcAAgAAAAJAAQAAAAdAAgAAAABAAQAAAAeAAgAAAABAAQAAAAfAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAAKAAQAAAAiAAgAAAAJAAQAAAAmAAgAAAANAAMAAAAnAAgAAAABAAQAAAAoAAgAAAABAAQAAAApAAgAAAABAAQAAAAqAAgAAAABAAQAAAArAAgAAAABAAQAAAAsAAgAAAABAAQAAAAtAAgAAAAKAAQAAAAuAAgAAAABAAIAAAAvAAgAAAABAAIAAAAwAAgAAAABAAIAAAAxAAgAAAACAAIAAAARAAEAAgAAAAAAAQABAAEAAwAAAAAAAQAjAAgAAAABAAQAAAAkAAgAAAABAAQAAAAlAAgAAAABAAQAAAAgAAQAAAAAAAEAAAAgAAUAAAAAAAIAAAAhAAUAAAAHAAAAAAAgAAMAAAAAAAEAAAAhAAMAAAAGAAEAAAAiAAMAAAACAAAAAAAkAAUAAAAAAAIAAAAiAAUAAAACAAEAAAAiAAQAAAACAAEAAAAhAAQAAAABAAEAAAArAAUAAAABAAIAAAAqAAQAAAABAAEAAAAqAAMAAAABAAEAAAArAAMAAAABAAEAAAArAAIAAAAGAAEAAAArAAEAAAACAAEAAAAqAAEAAAABAAEAAAAqAAAAAAAHAAEAAAAqAP//AAAAAAEAAAAqAP7/AAAJAAEAAAAqAP3/AAAGAAQAAAArAP3/AAAJAAMAAAArAP7/AAACAAEAAAArAP//AAAKAAAAAAArAAAAAAACAAEAAAAqAAIAAAABAAEAAAArAAQAAAABAAEAAAAqAAUAAAABAAIAAAApAAQAAAABAAEAAAAoAAQAAAABAAEAAAAoAAMAAAABAAAAAAAnAAQAAAAHAAEAAAAmAAQAAAABAAAAAAAmAAUAAAABAAIAAAAlAAUAAAABAAIAAAAoAAUAAAABAAIAAAAnAAUAAAABAAIAAAApAAUAAAABAAIAAAAsAAUAAAABAAIAAAAsAAQAAAABAAEAAAAsAAMAAAABAAEAAAAsAAIAAAABAAAAAAAtAAIAAAAHAAEAAAAtAAEAAAAAAAAAAAAuAAEAAAAHAAEAAAAuAAAAAAAAAAAAAAAvAAAAAAABAAAAAAAwAAAAAAAHAAEAAAAxAP//AAACAAAAAAAwAP//AAAAAAAAAAAvAAEAAAABAAEAAAAwAAEAAAABAAEAAAAxAAAAAAACAAEAAAAvAAIAAAABAAEAAAAuAAMAAAABAAEAAAAtAAQAAAABAAEAAAAtAAUAAAAHAAAAAAAvAAQAAAABAAEAAAAuAAUAAAABAAEAAAAvAAMAAAABAAEAAAAwAAMAAAABAAEAAAAwAAIAAAABAAEAAAAuAAQAAAABAAEAAAAuAAIAAAABAAEAAAAtAAMAAAABAAEAAAAtAAYAAAAAAAEAAAAwAAQAAAABAAEAAAAwAAUAAAABAAEAAAAxAAQAAAACAAEAAAAxAAMAAAACAAEAAAAxAAIAAAACAAEAAAAxAAEAAAACAAEAAAAwAAYAAAABAAEAAAAwAAcAAAABAAEAAAAxAAYAAAACAAEAAAAxAAcAAAACAAEAAAAxAAUAAAACAAEAAAAvAAcAAAABAAEAAAAvAAYAAAABAAEAAAAuAAYAAAABAAEAAAAtAAcAAAAAAAEAAAAuAAcAAAABAAEAAAAvAAUAAAABAAEAAAAkAP3/AAABAAEAAAAkAPz/AAAGAAEAAAAkAPv/AAACAAAAAAAjAP3/AAABAAEAAAAjAPz/AAABAAEAAAAjAPv/AAABAAAAAAAiAP3/AAAHAAAAAAAiAPz/AAABAAEAAAAiAPv/AAABAAAAAAAhAP3/AAABAAIAAAAhAPz/AAABAAEAAAAhAPv/AAABAAAAAAAgAP3/AAAAAAIAAAAgAPz/AAAAAAEAAAAgAPv/AAAAAAAAAAAlAP//AAACAAIAAAAlAP7/AAACAAEAAAAlAP3/AAACAAEAAAAlAPz/AAACAAAAAAAkAP//AAABAAIAAAAkAP7/AAABAAEAAAAjAP//AAABAAIAAAAjAP7/AAABAAEAAAAiAP//AAAAAAIAAAAiAP7/AAAAAAEAAAAgAPj/AAACAAQAAAAfAPj/AAABAAQAAAAeAPj/AAAAAAQAAAAbAPj/AAACAAQAAAAaAPj/AAABAAQAAAAZAPj/AAAAAAQAAAAVAPn/AAACAAQAAAAUAPn/AAAPAAQAAAAvAPr/AAACAAIAAAAvAPn/AAACAAAAAAAuAPr/AAABAAIAAAAuAPn/AAABAAAAAAAtAPr/AAAAAAIAAAAtAPn/AAAAAAAAAAApAAMAAAAHAAEAAAApAAIAAAAAAAEAAAApAAAAAAAKAAMAAAAoAAAAAAAAAAQAAAApAAEAAAAAAAEAAAApAP7/AAAAAAQAAAAqAPz/AAAEAAAAAAAsAP3/AAACAAQAAAAsAP//AAACAAQAAAAgAAIAAAAAAAEAAAAhAAIAAAACAAEAAAAhAAEAAAACAAAAAAAgAAEAAAAAAAAAAAAkAAQAAAAAAAAAAAAlAAQAAAAJAAAAAAAlAAMAAAAEAAAAAAAnAAMAAAAGAAQAAAAnAAIAAAAEAAAAAAANAAUAAgAAAAAAAQAmAP3/AgAAAAAAAQAsAP7/AgAAAAAAAQAsAAAAAgAAAAAAAQArAPz/AgAAAAAAAQApAP//AwAAAAAAAQAmAAMAAwAAAAAAAQAhAP//AwAAAAAAAQAfAPz/AwAAAAAAAQAhAAYAAAAAAAEAAAAhAAcAAAAAAAEAAAAiAAcAAAACAAEAAAAiAAYAAAACAAEAAAAbAAcAAAABAAEAAAAaAAcAAAABAAEAAAAaAAYAAAABAAEAAAAbAAYAAAABAAEAAAAcAAYAAAAGAAAAAAAdAAUAAAACAAAAAAAbAAMAAAACAAAAAAAaAAMAAAABAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAEAAAAZAAUAAAAHAAEAAAAYAAUAAAAAAAAAAAAYAAYAAAAAAAIAAAAZAAYAAAAHAAAAAAAdAAYAAAACAAIAAAAbAAQAAAACAAEAAAAbAAUAAAAGAAEAAAAaAAUAAAABAAEAAAAaAAQAAAABAAEAAAAcAAUAAAABAAAAAAAcAAcAAAACAAEAAAAZAAcAAAAAAAEAAAATAAYAAQAAAAAAAgAaAAEAAQAAAAAAAgAiAPn/AQAAAAAAAgAdAAcAAgAAAAAAAQAfAAUAAwAAAAAAAQAfAAIAAwAAAAAAAQAXAAUAAwAAAAAAAQALAPn/AAABAAEAAAAMAPn/AAABAAEAAAAMAPj/AAAHAAEAAAANAPr/AAABAAIAAAAOAPr/AAABAAIAAAAOAPn/AAABAAEAAAAPAPn/AAAGAAAAAAANAPn/AAABAAEAAAAMAPr/AAABAAIAAAAPAPj/AAAGAAEAAAAQAPj/AAAJAAMAAAAOAPj/AAABAAEAAAAQAPn/AAACAAIAAAAPAPr/AAACAAIAAAALAPr/AAABAAIAAAAKAPj/AAABAAAAAAAKAPn/AAAHAAAAAAAKAPr/AAAAAAIAAAAJAPj/AAAQAAEAAAAJAPf/AAACAAAAAAALAPj/AAABAAAAAAANAPj/AAABAAEAAAARAPj/AAAKAAQAAAASAPj/AAABAAIAAAASAPf/AAABAAEAAAARAPf/AAAAAAEAAAARAPb/AAAAAAAAAAASAPb/AAAJAAAAAAASAPX/AAAEAAAAAAAJAPn/AAAAAAIAAAAIAPj/AAAAAAIAAAAIAPf/AAAQAAEAAAAHAPf/AAAAAAIAAAAHAPb/AAAAAAAAAAAIAPb/AAACAAAAAAATAPj/AAABAAIAAAAUAPj/AAAHAAMAAAAUAPf/AAACAAEAAAAUAPb/AAACAAAAAAATAPb/AAABAAAAAAATAPf/AAABAAEAAAAPAPf/AAACAAAAAAAOAPf/AAAGAAEAAAANAPf/AAABAAEAAAAMAPf/AAAAAAEAAAAMAPb/AAAAAAAAAAANAPb/AAABAAAAAAAOAPb/AAACAAAAAAAVAPf/AgAAAAAAAQAWAPn/AgAAAAAAAQAQAPr/AgAAAAAAAQAJAPr/AwAAAAAAAQAHAPj/AwAAAAAAAQALAPb/AwAAAAAAAQA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAQAAAABAAgAAAABAAQAAAACAAgAAAABAAQAAAADAAgAAAABAAQAAAAEAAgAAAABAAQAAAAFAAgAAAAKAAQAAAAGAAgAAAABAAIAAAAHAAgAAAABAAIAAAAIAAgAAAAJAAQAAAAJAAgAAAABAAQAAAAKAAgAAAABAAQAAAALAAgAAAABAAQAAAAMAAgAAAABAAQAAAANAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAIAAcAAAACAAEAAAAHAAcAAAABAAEAAAAIAAYAAAACAAAAAAAHAAYAAAAGAAEAAAAHAAUAAAACAAEAAAAHAAQAAAAHAAQAAAAGAAcAAAABAAEAAAAGAAYAAAAHAAEAAAAGAAUAAAAAAAEAAAAGAAQAAAAAAAAAAAAFAAcAAAAAAAEAAAAFAAYAAAAAAAAAAAAIAAEAAAAJAAQAAAAIAAAAAAACAAAAAAAHAAMAAAAEAAEAAAAHAAIAAAAEAAEAAAAHAAEAAAAGAAMAAAAHAAAAAAAKAAMAAAAGAAAAAAABAAQAAAAFAAAAAAABAAQAAAAEAAIAAAACAAIAAAAEAAEAAAACAAEAAAAEAAAAAAAJAAMAAAADAAIAAAABAAIAAAADAAEAAAABAAEAAAADAAAAAAABAAAAAAACAAIAAAAAAAIAAAACAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAPAAMAAAAAAAIAAAAPAAIAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAAAAAAAAAAAAAANAAMAAAACAAIAAAANAAIAAAACAAEAAAANAAEAAAACAAEAAAANAAAAAAACAAAAAAAMAAQAAAAEAAEAAAAMAAMAAAAGAAMAAAAMAAIAAAAAAAEAAAAMAAEAAAAAAAEAAAAMAAAAAAAAAAAAAAAMAAUAAAANAAQAAAAMAAYAAAAPAAQAAAANAAYAAAACAAQAAAAJAAQAAAAAAAQAAAAKAAQAAAACAAQAAAAJAAEAAAACAAQAAAABAAUAAAAEAAQAAAAQAAUAAAAEAAIAAAAQAAQAAAAEAAEAAAAQAAMAAAAHAAMAAAAQAAIAAAACAAEAAAAQAAEAAAACAAEAAAAQAAAAAAACAAAAAAAQAAgAAAABAAQAAAALAAUAAAAAAAQAAAADAAYAAQAAAAAAAgAFAP7/AQAAAAAAAgANAP7/AQAAAAAAAgAJAP//AQAAAAAAAgAJAAIAAQAAAAAAAgARAAgAAAABAAQAAAASAAgAAAABAAQAAAATAAgAAAABAAQAAAAUAAgAAAABAAQAAAAVAAgAAAABAAQAAAAWAAgAAAABAAQAAAAXAAgAAAABAAQAAAAYAAgAAAABAAQAAAAZAAgAAAAKAAQAAAAaAAgAAAABAAIAAAAbAAgAAAABAAIAAAAcAAgAAAAJAAQAAAAdAAgAAAABAAQAAAAeAAgAAAABAAQAAAAfAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAAKAAQAAAAiAAgAAAAJAAQAAAAmAAgAAAANAAMAAAAnAAgAAAABAAQAAAAoAAgAAAABAAQAAAApAAgAAAABAAQAAAAqAAgAAAABAAQAAAArAAgAAAABAAQAAAAsAAgAAAABAAQAAAAtAAgAAAAKAAQAAAAuAAgAAAABAAIAAAAvAAgAAAABAAIAAAAwAAgAAAABAAIAAAAxAAgAAAACAAIAAAARAAEAAgAAAAAAAQABAAEAAwAAAAAAAQAjAAgAAAABAAQAAAAkAAgAAAABAAQAAAAlAAgAAAABAAQAAAAgAAQAAAAAAAEAAAAgAAUAAAAAAAIAAAAhAAUAAAAHAAAAAAAgAAMAAAAAAAEAAAAhAAMAAAAGAAEAAAAiAAMAAAACAAAAAAAkAAUAAAAAAAIAAAAiAAUAAAACAAEAAAAiAAQAAAACAAEAAAAhAAQAAAABAAEAAAArAAUAAAABAAIAAAAqAAQAAAABAAEAAAAqAAMAAAABAAEAAAArAAMAAAABAAEAAAArAAIAAAAGAAEAAAArAAEAAAACAAEAAAAqAAEAAAABAAEAAAAqAAAAAAAHAAEAAAAqAP//AAAAAAEAAAAqAP7/AAAJAAEAAAAqAP3/AAAGAAQAAAArAP3/AAAJAAMAAAArAP7/AAACAAEAAAArAP//AAAKAAAAAAArAAAAAAACAAEAAAAqAAIAAAABAAEAAAArAAQAAAABAAEAAAAqAAUAAAABAAIAAAApAAQAAAABAAEAAAAoAAQAAAABAAEAAAAoAAMAAAABAAAAAAAnAAQAAAAHAAEAAAAmAAQAAAABAAAAAAAmAAUAAAABAAIAAAAlAAUAAAABAAIAAAAoAAUAAAABAAIAAAAnAAUAAAABAAIAAAApAAUAAAABAAIAAAAsAAUAAAABAAIAAAAsAAQAAAABAAEAAAAsAAMAAAABAAEAAAAsAAIAAAABAAAAAAAtAAIAAAAHAAEAAAAtAAEAAAAAAAAAAAAuAAEAAAAHAAEAAAAuAAAAAAAAAAAAAAAvAAAAAAABAAAAAAAwAAAAAAAHAAEAAAAxAP//AAACAAAAAAAwAP//AAAAAAAAAAAvAAEAAAABAAEAAAAwAAEAAAABAAEAAAAxAAAAAAACAAEAAAAvAAIAAAABAAEAAAAuAAMAAAABAAEAAAAtAAQAAAABAAEAAAAtAAUAAAAHAAAAAAAvAAQAAAABAAEAAAAuAAUAAAABAAEAAAAvAAMAAAABAAEAAAAwAAMAAAABAAEAAAAwAAIAAAABAAEAAAAuAAQAAAABAAEAAAAuAAIAAAABAAEAAAAtAAMAAAABAAEAAAAtAAYAAAAAAAEAAAAwAAQAAAABAAEAAAAwAAUAAAABAAEAAAAxAAQAAAACAAEAAAAxAAMAAAACAAEAAAAxAAIAAAACAAEAAAAxAAEAAAACAAEAAAAwAAYAAAABAAEAAAAwAAcAAAABAAEAAAAxAAYAAAACAAEAAAAxAAcAAAACAAEAAAAxAAUAAAACAAEAAAAvAAcAAAABAAEAAAAvAAYAAAABAAEAAAAuAAYAAAABAAEAAAAtAAcAAAAAAAEAAAAuAAcAAAABAAEAAAAvAAUAAAABAAEAAAAkAP3/AAABAAEAAAAkAPz/AAAGAAEAAAAkAPv/AAACAAAAAAAjAP3/AAABAAEAAAAjAPz/AAABAAEAAAAjAPv/AAABAAAAAAAiAP3/AAAHAAAAAAAiAPz/AAABAAEAAAAiAPv/AAABAAAAAAAhAP3/AAABAAIAAAAhAPz/AAABAAEAAAAhAPv/AAABAAAAAAAgAP3/AAAAAAIAAAAgAPz/AAAAAAEAAAAgAPv/AAAAAAAAAAAlAP//AAACAAIAAAAlAP7/AAACAAEAAAAlAP3/AAACAAEAAAAlAPz/AAACAAAAAAAkAP//AAABAAIAAAAkAP7/AAABAAEAAAAjAP//AAABAAIAAAAjAP7/AAABAAEAAAAiAP//AAAAAAIAAAAiAP7/AAAAAAEAAAAgAPj/AAACAAQAAAAfAPj/AAABAAQAAAAeAPj/AAAAAAQAAAAbAPj/AAACAAQAAAAaAPj/AAABAAQAAAAZAPj/AAAAAAQAAAAVAPn/AAACAAQAAAAUAPn/AAAPAAQAAAAvAPr/AAACAAIAAAAvAPn/AAACAAAAAAAuAPr/AAABAAIAAAAuAPn/AAABAAAAAAAtAPr/AAAAAAIAAAAtAPn/AAAAAAAAAAApAAMAAAAHAAEAAAApAAIAAAAAAAEAAAApAAAAAAAKAAMAAAAoAAAAAAAAAAQAAAApAAEAAAAAAAEAAAApAP7/AAAAAAQAAAAqAPz/AAAEAAAAAAAsAP3/AAACAAQAAAAsAP//AAACAAQAAAAgAAIAAAAAAAEAAAAhAAIAAAACAAEAAAAhAAEAAAACAAAAAAAgAAEAAAAAAAAAAAAkAAQAAAAAAAAAAAAlAAQAAAAJAAAAAAAlAAMAAAAEAAAAAAAnAAMAAAAGAAQAAAAnAAIAAAAEAAAAAAANAAUAAgAAAAAAAQAmAP3/AgAAAAAAAQAsAP7/AgAAAAAAAQAsAAAAAgAAAAAAAQArAPz/AgAAAAAAAQApAP//AwAAAAAAAQAmAAMAAwAAAAAAAQAhAP//AwAAAAAAAQAfAPz/AwAAAAAAAQAhAAYAAAAAAAEAAAAhAAcAAAAAAAEAAAAiAAcAAAACAAEAAAAiAAYAAAACAAEAAAAbAAcAAAABAAEAAAAaAAcAAAABAAEAAAAaAAYAAAABAAEAAAAbAAYAAAABAAEAAAAcAAYAAAAGAAAAAAAdAAUAAAACAAAAAAAbAAMAAAACAAAAAAAaAAMAAAABAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAEAAAAZAAUAAAAHAAEAAAAYAAUAAAAAAAAAAAAYAAYAAAAAAAIAAAAZAAYAAAAHAAAAAAAdAAYAAAACAAIAAAAbAAQAAAACAAEAAAAbAAUAAAAGAAEAAAAaAAUAAAABAAEAAAAaAAQAAAABAAEAAAAcAAUAAAABAAAAAAAcAAcAAAACAAEAAAAZAAcAAAAAAAEAAAATAAYAAQAAAAAAAgAaAAEAAQAAAAAAAgAiAPn/AQAAAAAAAgAdAAcAAgAAAAAAAQAfAAUAAwAAAAAAAQAfAAIAAwAAAAAAAQAXAAUAAwAAAAAAAQALAPn/AAABAAEAAAAMAPn/AAABAAEAAAAMAPj/AAAHAAEAAAANAPr/AAABAAIAAAAOAPr/AAABAAIAAAAOAPn/AAABAAEAAAAPAPn/AAAGAAAAAAANAPn/AAABAAEAAAAMAPr/AAABAAIAAAAPAPj/AAAGAAEAAAAQAPj/AAAJAAMAAAAOAPj/AAABAAEAAAAQAPn/AAACAAIAAAAPAPr/AAACAAIAAAALAPr/AAABAAIAAAAKAPj/AAABAAAAAAAKAPn/AAAHAAAAAAAKAPr/AAAAAAIAAAAJAPj/AAAQAAEAAAAJAPf/AAACAAAAAAALAPj/AAABAAAAAAANAPj/AAABAAEAAAARAPj/AAAKAAQAAAASAPj/AAABAAIAAAASAPf/AAABAAEAAAARAPf/AAAAAAEAAAARAPb/AAAAAAAAAAASAPb/AAAJAAAAAAASAPX/AAAEAAAAAAAJAPn/AAAAAAIAAAAIAPj/AAAAAAIAAAAIAPf/AAAQAAEAAAAHAPf/AAAAAAIAAAAHAPb/AAAAAAAAAAAIAPb/AAACAAAAAAATAPj/AAABAAIAAAAUAPj/AAAHAAMAAAAUAPf/AAACAAEAAAAUAPb/AAACAAAAAAATAPb/AAABAAAAAAATAPf/AAABAAEAAAAPAPf/AAACAAAAAAAOAPf/AAAGAAEAAAANAPf/AAABAAEAAAAMAPf/AAAAAAEAAAAMAPb/AAAAAAAAAAANAPb/AAABAAAAAAAOAPb/AAACAAAAAAAVAPf/AgAAAAAAAQAWAPn/AgAAAAAAAQAQAPr/AgAAAAAAAQAJAPr/AwAAAAAAAQAHAPj/AwAAAAAAAQALAPb/AwAAAAAAAQA=")
 tile_set = ExtResource("6_n30w4")
 
-[node name="BarrelAtk05" type="Sprite2D" parent="." unique_id=1671209806]
+[node name="BarrelAtk05" type="Sprite2D" parent="."]
 position = Vector2(303, 241)
 texture = ExtResource("12_o18mk")
 
-[node name="Flag05" type="Sprite2D" parent="." unique_id=1765597376]
+[node name="Flag05" type="Sprite2D" parent="."]
 position = Vector2(550, -44)
 texture = ExtResource("14_eac2q")
 
-[node name="ChestGoldClose04" type="Sprite2D" parent="." unique_id=749913165]
+[node name="ChestGoldClose04" type="Sprite2D" parent="."]
 position = Vector2(409, 234)
 texture = ExtResource("11_jmqbj")
 
-[node name="CharacterBody2D" parent="." unique_id=487343984 instance=ExtResource("1_7ipt0")]
-position = Vector2(43.999996, 244.99998)
-scale = Vector2(0.35084406, 0.26731578)
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_7ipt0")]
+position = Vector2(44, 245)
+scale = Vector2(0.350844, 0.267316)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=716966440]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=874920548]
+[node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 self_modulate = Color(1, 1, 0, 1)
-position = Vector2(604, -550.00006)
-scale = Vector2(0.32300922, 0.32849166)
+position = Vector2(604, -550)
+scale = Vector2(0.323009, 0.328492)
 texture = ExtResource("13_jmqbj")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Icon" unique_id=1225839487]
-color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Icon"]
+color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -117.0
+offset_top = 159.0
+offset_right = 1.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0.553381, 0.803202, 0.0203562, 1)
+theme_override_fonts/font = ExtResource("18_srmfv")
+theme_override_font_sizes/font_size = 16
+text = "WASD to Move
+Space to Jump
+Ctrl to Dash
+C to Attack"
