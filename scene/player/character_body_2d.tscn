@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dw0brs8diijer"]
+[gd_scene format=3 uid="uid://dw0brs8diijer"]
 
 [ext_resource type="Texture2D" uid="uid://m4di78taixns" path="res://assets/foxy/fox_hat/fox_defeat_1.png" id="1_tucgm"]
 [ext_resource type="Script" uid="uid://bbpo2er2ypwxi" path="res://scripts/player.gd" id="1_yj246"]
@@ -18,11 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://3g5hdrfwcd2c" path="res://assets/foxy/fox_hat/fox_walk_2.png" id="12_ib8q1"]
 [ext_resource type="Texture2D" uid="uid://cg0s41812vukj" path="res://assets/foxy/fox_hat/fox_walk_3.png" id="13_k7hf0"]
 [ext_resource type="Texture2D" uid="uid://8u26ji11yaua" path="res://assets/foxy/fox_hat/fox_walk_4.png" id="14_y4p8u"]
-[ext_resource type="Script" uid="uid://dand4so0c21pd" path="res://scripts/fsm.gd" id="16_yj246"]
+[ext_resource type="Script" path="res://scripts/fsm.gd" id="16_yj246"]
 [ext_resource type="Script" uid="uid://cfxd4w0afxjxp" path="res://scripts/idle.gd" id="17_jvmu6"]
 [ext_resource type="Script" uid="uid://1v4jytcgdxtd" path="res://scripts/run.gd" id="18_nvfnx"]
 [ext_resource type="Script" uid="uid://bghx7e56agn5j" path="res://scripts/jump.gd" id="19_jvmu6"]
-[ext_resource type="Script" uid="uid://ddsvnn0ibur8o" path="res://scripts/fall.gd" id="20_nvfnx"]
+[ext_resource type="Script" uid="uid://btkktp1s3rour" path="res://scripts/fall.gd" id="20_nvfnx"]
 [ext_resource type="Script" uid="uid://b64hxn04kcw7n" path="res://scripts/dash.gd" id="24_3y8c1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qyyle"]
@@ -132,6 +132,8 @@ script/source = "extends FSMState
 var attack_finished: bool = false
 
 func _on_enter() -> void:
+	AudioManager.play_sound(\"player_attack\")
+	
 	attack_finished = false
 	animated_sprite_2d.play(\"fox_atk\")
 
@@ -236,57 +238,57 @@ func _on_next_transitions() -> void:
 		return
 "
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1996534442]
 script = ExtResource("1_yj246")
 
-[node name="Direction" type="Node2D" parent="."]
+[node name="Direction" type="Node2D" parent="." unique_id=1788340963]
 
-[node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction"]
+[node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction" unique_id=1731483273]
 position = Vector2(0, -14)
 scale = Vector2(2.96187, 3.3825)
 sprite_frames = SubResource("SpriteFrames_qyyle")
 animation = &"fox_atk"
 frame_progress = 0.82901
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=841681282]
 position = Vector2(-1, -24)
 scale = Vector2(0.743591, 0.915598)
 shape = SubResource("CapsuleShape2D_wrull")
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node" parent="." unique_id=980435898]
 script = ExtResource("16_yj246")
 
-[node name="Idle" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Idle" type="Node" parent="States" unique_id=424745282 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("17_jvmu6")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Run" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Run" type="Node" parent="States" unique_id=1003317999 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("18_nvfnx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Jump" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Jump" type="Node" parent="States" unique_id=1832365388 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("19_jvmu6")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Fall" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Fall" type="Node" parent="States" unique_id=797310578 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("20_nvfnx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="attack" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="attack" type="Node" parent="States" unique_id=591164157 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = SubResource("GDScript_fpayr")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="WallCling" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="WallCling" type="Node" parent="States" unique_id=142799923 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = SubResource("GDScript_7w8bo")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Dash" type="Node" parent="States" node_paths=PackedStringArray("animated_sprite_2d")]
+[node name="Dash" type="Node" parent="States" unique_id=129501232 node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("24_3y8c1")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 dash_duration = 0.15

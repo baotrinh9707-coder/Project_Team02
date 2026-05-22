@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://litwbximcx8"]
+[gd_resource type="TileSet" format=3 uid="uid://litwbximcx8"]
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/island/terrain/terrain_32x32.png" id="1_h35qf"]
 [ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="2_ylt0l"]

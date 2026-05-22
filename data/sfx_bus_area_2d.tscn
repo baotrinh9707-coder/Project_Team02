@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://vyfs1eryi4hn"]
+
+[ext_resource type="Script" uid="uid://cpd08duj2nwmg" path="res://scripts/audio/sfx_bus_area_2d.gd" id="1_ascu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioyc5"]
+
+[node name="SFXBusArea2D" type="Area2D" unique_id=443858450]
+script = ExtResource("1_ascu5")
+target_bus_name = "SFXCave"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1077439004]
+shape = SubResource("RectangleShape2D_ioyc5")

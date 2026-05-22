@@ -1,0 +1,154 @@
+[gd_scene load_steps=25 format=3 uid="uid://kutgcqjewj7m"]
+
+[ext_resource type="Texture2D" uid="uid://bohjxisajkyem" path="res://assets/monsters/starfish/starfish_hurt_01.png" id="1_0ps4y"]
+[ext_resource type="Script" uid="uid://d1fx3lgpwbtrw" path="res://scenes/enemies/starfish/startfish.gd" id="1_4ebg7"]
+[ext_resource type="Texture2D" uid="uid://div7ykrnkcmbm" path="res://assets/monsters/starfish/starfish_atk_01.png" id="1_s0yqc"]
+[ext_resource type="Texture2D" uid="uid://b7fyajqfeium5" path="res://assets/monsters/starfish/starfish_atk_02.png" id="2_4ebg7"]
+[ext_resource type="Texture2D" uid="uid://dm4exe7w2fi23" path="res://assets/monsters/starfish/starfish_hurt_02.png" id="2_jy86b"]
+[ext_resource type="Texture2D" uid="uid://c1k5spj3k7htj" path="res://assets/monsters/starfish/starfish_01.png" id="3_2f7yy"]
+[ext_resource type="Texture2D" uid="uid://kkpwv3jqgs40" path="res://assets/monsters/starfish/starfish_atk_03.png" id="3_3uhwm"]
+[ext_resource type="Texture2D" uid="uid://brx56liv83bir" path="res://assets/monsters/starfish/starfish_atk_04.png" id="4_hwuwf"]
+[ext_resource type="Texture2D" uid="uid://cqc7ruwipvqko" path="res://assets/monsters/starfish/starfish_02.png" id="4_utr3s"]
+[ext_resource type="Texture2D" uid="uid://dejbsdoig628p" path="res://assets/monsters/starfish/starfish_03.png" id="5_3fy0a"]
+[ext_resource type="Texture2D" uid="uid://bauqbopb4s1be" path="res://assets/monsters/starfish/starfish_atk_05.png" id="5_6fxqi"]
+[ext_resource type="Texture2D" uid="uid://77tvy0q7r4ec" path="res://assets/monsters/starfish/starfish_atk_06.png" id="6_ljge2"]
+[ext_resource type="Script" uid="uid://cskdv6tj5dtso" path="res://scripts/hit_area_2d.gd" id="6_tqo0j"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="13_l2urj"]
+[ext_resource type="PackedScene" uid="uid://dq6p0524rkvuf" path="res://scenes/enemies/states/dead.tscn" id="14_gqe87"]
+[ext_resource type="PackedScene" uid="uid://blij8alqed21s" path="res://scenes/enemies/states/run.tscn" id="15_l2urj"]
+[ext_resource type="PackedScene" uid="uid://bgw2dtwymddcp" path="res://scenes/enemies/states/hurt.tscn" id="16_2ck0n"]
+[ext_resource type="Script" uid="uid://coixv81n55lqr" path="res://scenes/enemies/starfish/attack.gd" id="16_6fxqi"]
+[ext_resource type="Script" uid="uid://denqrqk0lebby" path="res://scenes/enemies/starfish/run.gd" id="17_2ck0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwuwf"]
+size = Vector2(25, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0yqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s0yqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ebg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3uhwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hwuwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6fxqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ljge2")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jy86b")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0ps4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jy86b")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2f7yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_utr3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3fy0a")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ck0n"]
+size = Vector2(25, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uhwm"]
+size = Vector2(30, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ebg7"]
+size = Vector2(267.5, 21)
+
+[node name="Startfish" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_4ebg7")
+movement_speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -12)
+shape = SubResource("RectangleShape2D_hwuwf")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Direction"]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_s0yqc")
+animation = &"dead"
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(9, -4)
+target_position = Vector2(14, 0)
+
+[node name="DownRayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2(14, -4)
+target_position = Vector2(0, 8)
+
+[node name="HurtArea2D" type="Area2D" parent="Direction"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("13_l2urj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D"]
+position = Vector2(-1.5, -13)
+shape = SubResource("RectangleShape2D_2ck0n")
+
+[node name="HitArea2D" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("6_tqo0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HitArea2D"]
+position = Vector2(-1, -12)
+shape = SubResource("RectangleShape2D_3uhwm")
+
+[node name="DetectPlayerArea2D" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/DetectPlayerArea2D"]
+position = Vector2(-2.25, -11.5)
+shape = SubResource("RectangleShape2D_4ebg7")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Dead" parent="States" instance=ExtResource("14_gqe87")]
+
+[node name="Run" parent="States" instance=ExtResource("15_l2urj")]
+script = ExtResource("17_2ck0n")
+
+[node name="Hurt" parent="States" instance=ExtResource("16_2ck0n")]
+
+[node name="Attack" type="Node" parent="States"]
+script = ExtResource("16_6fxqi")
