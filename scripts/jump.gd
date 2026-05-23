@@ -1,4 +1,4 @@
-extends FSMState
+extends PlayerState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
@@ -7,7 +7,7 @@ extends FSMState
 func _on_enter() -> void:
 	if not player.is_wall_jumping:
 		player.perform_jump()
-
+		AudioManager.play_sound("player_jump")
 	if animated_sprite_2d.animation != "fox_jump":
 		animated_sprite_2d.play("fox_jump")
 
@@ -43,6 +43,7 @@ func _on_next_transitions() -> void:
 
 	if Input.is_action_just_pressed("jump") and player.can_jump():
 		player.perform_jump()
+		AudioManager.play_sound("player_jump")
 
 		if animated_sprite_2d.animation != "fox_jump":
 			animated_sprite_2d.play("fox_jump")

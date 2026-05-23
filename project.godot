@@ -15,6 +15,12 @@ run/main_scene="uid://bpmkftexgj8sh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/autoload/game_manager.gd"
+SaveSystem="*res://scripts/autoload/save_system.gd"
+AudioManager="*res://scripts/audio/audio_manager.gd"
+
 [display]
 
 window/size/viewport_width=480

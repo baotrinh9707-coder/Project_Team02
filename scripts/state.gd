@@ -1,5 +1,5 @@
 extends Node
-class_name FSMState
+class_name PlayerState
 
 signal transition(state_name: String)
 

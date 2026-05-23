@@ -7,6 +7,11 @@ extends CharacterBody2D
 @export var gravity: float = 700.0
 @export var direction: int = 1
 
+@export var attack_damage: int = 1
+@export var max_health: int = 3
+var health: int = max_health
+
+
 var jump_speed: float = 320.0
 var fsm: FSM = null
 var current_animation = null
@@ -17,6 +22,7 @@ var _next_direction: int = 1
 var _next_animated_sprite: AnimatedSprite2D = null
 
 func _ready() -> void:
+	animated_sprite = $Direction/AnimatedSprite2D
 	set_animated_sprite($Direction/AnimatedSprite2D)
 
 func _physics_process(delta: float) -> void:
@@ -32,7 +38,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _update_movement(delta: float) -> void:
-	#TODO: Add the gravity
+	velocity.y += gravity * delta
+	move_and_slide()
 	pass
 
 func turn_around() -> void:
@@ -52,12 +59,18 @@ func turn_left() -> void:
 func turn_right() -> void:
 	_next_direction = 1
 
+func get_jump_speed() -> float:
+	return jump_speed
+	
 func jump() -> void:
-	velocity.y = -jump_speed
+	velocity.y = -get_jump_speed()
 
 func stop_move() -> void:
 	velocity.x = 0
 	velocity.y = 0
+
+func take_damage(damage: int) -> void:
+	health -= damage
 
 # Change the animation of the character on the next frame
 func change_animation(new_animation: String) -> void:

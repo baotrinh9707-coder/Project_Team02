@@ -1,4 +1,4 @@
-extends FSMState
+extends PlayerState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
@@ -34,3 +34,4 @@ func _on_next_transitions() -> void:
 
 	if player.get_move_axis() != 0:
 		transition.emit("Run")
+		return

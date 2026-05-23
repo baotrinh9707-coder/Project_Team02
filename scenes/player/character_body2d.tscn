@@ -27,11 +27,6 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qyyle"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_fpayr")
@@ -120,11 +115,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrull"]
-radius = 38.9999
-height = 124.509
+radius = 80.0
+height = 268.571
 
 [sub_resource type="GDScript" id="GDScript_fpayr"]
-script/source = "extends FSMState
+script/source = "extends PlayerState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
@@ -134,10 +129,10 @@ var attack_finished: bool = false
 func _on_enter() -> void:
 	attack_finished = false
 	animated_sprite_2d.play(\"fox_atk\")
-
+	AudioManager.play_sound(\"player_attack\")
 	if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 		animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
-
+	
 func _on_physics_process(delta: float) -> void:
 	var direction := player.get_move_axis()
 
@@ -168,7 +163,6 @@ func _on_next_transitions() -> void:
 		transition.emit(\"Run\")
 	else:
 		transition.emit(\"Idle\")
-
 func _on_attack_animation_finished() -> void:
 	if animated_sprite_2d.animation == \"fox_atk\":
 		attack_finished = true
@@ -178,7 +172,7 @@ func _on_exit() -> void:
 "
 
 [sub_resource type="GDScript" id="GDScript_7w8bo"]
-script/source = "extends FSMState
+script/source = "extends PlayerState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
@@ -242,15 +236,15 @@ script = ExtResource("1_yj246")
 [node name="Direction" type="Node2D" parent="."]
 
 [node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction"]
-position = Vector2(0, -14)
+position = Vector2(1, -47)
 scale = Vector2(2.96187, 3.3825)
 sprite_frames = SubResource("SpriteFrames_qyyle")
-animation = &"fox_atk"
-frame_progress = 0.82901
+animation = &"fox_idle"
+autoplay = "fox_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -24)
-scale = Vector2(0.743591, 0.915598)
+position = Vector2(-1, -47)
+scale = Vector2(0.284, 0.35)
 shape = SubResource("CapsuleShape2D_wrull")
 
 [node name="States" type="Node" parent="."]
@@ -289,6 +283,9 @@ animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 [node name="Dash" type="Node" parent="States" node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("24_3y8c1")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+dash_speed = null
 dash_duration = 0.15
 ghost_lifetime = 0.2
+ghost_frequency = null
 ghost_color = Color(0.6, 0.6, 1, 0.823529)
+smoke_spawn_offset = null

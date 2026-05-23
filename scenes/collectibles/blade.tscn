@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://duxn3dislarxv"]
+
+[ext_resource type="Script" uid="uid://cqdmw4f6bkdoa" path="res://scenes/collectibles/blade.gd" id="1_jrgdq"]
+[ext_resource type="Texture2D" path="res://assets/items/blade.png" id="2_o5jic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrgdq"]
+size = Vector2(12, 8)
+
+[node name="Blade" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jrgdq")
+metadata/_custom_type_script = "uid://nvuabioddqmj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_jrgdq")
+
+[node name="Blade" type="Sprite2D" parent="."]
+texture = ExtResource("2_o5jic")

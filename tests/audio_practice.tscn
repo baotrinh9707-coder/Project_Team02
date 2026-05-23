@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://5bx2civif2w0"]
+
+[ext_resource type="Script" uid="uid://d0g2h4m68nj4m" path="res://tests/audio_practice.gd" id="1_audio_practice"]
+[ext_resource type="AudioStream" uid="uid://c0of2vg3mxq3e" path="res://assets/audio/sfx/ui/click.wav" id="2_4ncfk"]
+[ext_resource type="AudioStream" uid="uid://xmadeot1iebn" path="res://assets/audio/sfx/player/jump.wav" id="3_gtjkw"]
+[ext_resource type="AudioStream" uid="uid://bvqc8x3c0ce1p" path="res://assets/audio/sfx/collect/coin.mp3" id="4_86pf5"]
+[ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="5_86pf5"]
+[ext_resource type="AudioStream" uid="uid://8l8h1gl2papp" path="res://assets/audio/sfx/player/attack.wav" id="6_7tbmb"]
+
+[node name="AudioPractice" type="Node2D"]
+script = ExtResource("1_audio_practice")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label_Title" type="Label" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Godot Audio Lab"
+horizontal_alignment = 1
+
+[node name="Button_PlaySFX" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Random SFX"
+
+[node name="Button_PlayMusic" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Music"
+
+[node name="Button_StopMusic" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stop Music"
+
+[node name="HSlider_MusicVolume" type="HSlider" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="Label_MusicVolume" type="Label" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HSlider_SFXVolume" type="HSlider" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="Label_SFXVolume" type="Label" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="CheckBox_MuteSFX" type="CheckBox" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute SFX"
+
+[node name="OptionButton_Effect" type="OptionButton" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AudioStreamPlayer_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4ncfk")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gtjkw")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_86pf5")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_86pf5")
+bus = &"Music"
+
+[node name="AudioStreamPlayer_Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7tbmb")
+bus = &"SFX"

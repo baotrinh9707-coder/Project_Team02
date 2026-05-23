@@ -1,4 +1,4 @@
-extends FSMState
+extends PlayerState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D

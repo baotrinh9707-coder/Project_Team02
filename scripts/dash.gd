@@ -1,4 +1,4 @@
-extends FSMState
+extends PlayerState
 
 # --- 1. CÁC BIẾN EXPORT (Có thể chỉnh ngoài Inspector) ---
 @export var animated_sprite_2d: AnimatedSprite2D # Node hình ảnh nhân vật

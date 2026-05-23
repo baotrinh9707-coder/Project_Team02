@@ -25,6 +25,7 @@ var wall_jump_timer: float = 0.0
 
 
 func _ready() -> void:
+	GameManager.player = self
 	spawn_position = global_position
 	reset_jumps()
 
