@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://us8t8hxv46jr"]
 
-[ext_resource type="Script" uid="uid://1xf7rui60lkl" path="res://audio_clip.gd" id="1_24r4x"]
+[ext_resource type="Script" uid="uid://1xf7rui60lkl" path="res://scripts/audio_clip.gd" id="1_24r4x"]
 [ext_resource type="AudioStream" uid="uid://xmadeot1iebn" path="res://assets/audio/sfx/player/jump.wav" id="2_wpwnf"]
 
 [resource]

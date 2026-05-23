@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1v7dwqfuk5qx" path="res://assets/island/objects/flag/flag_03.png" id="3_8g8el"]
 [ext_resource type="Texture2D" uid="uid://celfjecswqyk" path="res://assets/island/objects/flag/flag_04.png" id="4_nglr7"]
 [ext_resource type="Texture2D" uid="uid://c65a5nt45l57l" path="res://assets/island/objects/flag/flag_05.png" id="5_j36te"]
-[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://animated_sprite_2d.gd" id="6_w13jr"]
+[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://scripts/animated_sprite_2d.gd" id="6_w13jr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8i4n8"]
 animations = [{

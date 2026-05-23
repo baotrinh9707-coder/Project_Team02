@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://coi6y1hw7syrd"]
 
-[ext_resource type="Script" uid="uid://1xf7rui60lkl" path="res://audio_clip.gd" id="1_ac3ka"]
+[ext_resource type="Script" uid="uid://1xf7rui60lkl" path="res://scripts/audio_clip.gd" id="1_ac3ka"]
 [ext_resource type="AudioStream" uid="uid://co2lc8nexjl2j" path="res://assets/audio/music/boss_fight.ogg" id="2_4rdk2"]
 
 [resource]
