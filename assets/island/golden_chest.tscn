@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bhsmhddtlx8qi"]
+
+[ext_resource type="Script" uid="uid://bhk3qpdsp3h5r" path="res://scripts/golden_chest.gd" id="1_nt85a"]
+[ext_resource type="Texture2D" uid="uid://bjd2vm2wg43n" path="res://assets/island/objects/chest/chest_gold_close_02.png" id="2_8hbok"]
+[ext_resource type="Texture2D" uid="uid://typ8dtg6b2o4" path="res://assets/island/objects/chest/chest_gold_close_03.png" id="3_gpnq2"]
+[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="4_r6mlp"]
+[ext_resource type="Texture2D" uid="uid://db1k53jjooxc0" path="res://assets/island/objects/chest/chest_gold_open_03.png" id="5_0n4ff"]
+[ext_resource type="Texture2D" uid="uid://c4m2ji6v3v1sj" path="res://assets/island/objects/chest/chest_gold_open_04.png" id="6_2qlp1"]
+[ext_resource type="Texture2D" uid="uid://rklpp03vtdqy" path="res://assets/island/objects/chest/chest_gold_open_05.png" id="7_pfgwh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdvuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hbok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gpnq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r6mlp")
+}],
+"loop": true,
+"name": &"golden_chest_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0n4ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2qlp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pfgwh")
+}],
+"loop": false,
+"name": &"golden_chest_open",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmybl"]
+size = Vector2(21.856686, 18.205448)
+
+[node name="Golden_chest" type="Area2D" unique_id=700262708]
+position = Vector2(-1, -6)
+script = ExtResource("1_nt85a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=661294281]
+sprite_frames = SubResource("SpriteFrames_cdvuu")
+animation = &"golden_chest_open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765628974]
+position = Vector2(0.44631293, 7.9332857)
+rotation = -0.025004296
+shape = SubResource("RectangleShape2D_cmybl")

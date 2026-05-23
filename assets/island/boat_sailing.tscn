@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cofvufsr6a3yf"]
+
+[ext_resource type="Texture2D" uid="uid://bnyyso8r3xy7h" path="res://assets/island/images/boat/boat_sail_1.png" id="1_n62nn"]
+[ext_resource type="Texture2D" uid="uid://vtdtt6qgcrpm" path="res://assets/island/images/boat/boat_sail_2.png" id="2_pvs2o"]
+[ext_resource type="Texture2D" uid="uid://y8tmjcm0d6ki" path="res://assets/island/images/boat/boat_sail_3.png" id="3_dr0q8"]
+[ext_resource type="Texture2D" uid="uid://bv2po7d5rema6" path="res://assets/island/images/boat/boat_sail_4.png" id="4_n74te"]
+[ext_resource type="Texture2D" uid="uid://cbrqqsfiyiei0" path="res://assets/island/images/boat/boat_sail_5.png" id="5_g6h1v"]
+[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://animated_sprite_2d.gd" id="6_uf6fb"]
+[ext_resource type="Texture2D" uid="uid://crflavbexmqg2" path="res://assets/island/images/boat/boat_body.png" id="7_12k8o"]
+[ext_resource type="Texture2D" uid="uid://c6e4xfiregoyl" path="res://assets/island/objects/flag/flag_01.png" id="7_nyt21"]
+[ext_resource type="Texture2D" uid="uid://b521ivvndj5ok" path="res://assets/island/objects/flag/flag_02.png" id="8_ib6di"]
+[ext_resource type="Texture2D" uid="uid://c1v7dwqfuk5qx" path="res://assets/island/objects/flag/flag_03.png" id="9_t7u73"]
+[ext_resource type="Texture2D" uid="uid://celfjecswqyk" path="res://assets/island/objects/flag/flag_04.png" id="10_lxa5f"]
+[ext_resource type="Texture2D" uid="uid://c65a5nt45l57l" path="res://assets/island/objects/flag/flag_05.png" id="11_n3qgn"]
+[ext_resource type="Script" uid="uid://b8edc6v2dwj0y" path="res://assets/island/animated_sprite_2d_2.gd" id="12_ib6di"]
+[ext_resource type="Texture2D" uid="uid://dwm2wacw065mq" path="res://assets/island/objects/ship_helm/ship_helm_idle_01.png" id="12_inu8t"]
+[ext_resource type="Texture2D" uid="uid://cldret0gra1m8" path="res://assets/island/objects/ship_helm/ship_helm_idle_02.png" id="13_anp15"]
+[ext_resource type="Texture2D" uid="uid://bgaken46ch6pe" path="res://assets/island/objects/ship_helm/ship_helm_idle_03.png" id="14_uq80t"]
+[ext_resource type="Texture2D" uid="uid://b78xidmjbijyc" path="res://assets/island/objects/ship_helm/ship_helm_idle_04.png" id="15_duyb0"]
+[ext_resource type="Texture2D" uid="uid://boajflamof2f" path="res://assets/island/objects/ship_helm/ship_helm_idle_05.png" id="16_booey"]
+[ext_resource type="Texture2D" uid="uid://c3o0tc8tfthga" path="res://assets/island/objects/ship_helm/ship_helm_idle_06.png" id="17_48myk"]
+[ext_resource type="Script" uid="uid://xlcj4xgquuko" path="res://assets/island/animated_sprite_2d_3.gd" id="19_t7u73"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u18bw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n62nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pvs2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dr0q8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n74te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g6h1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjsgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nyt21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ib6di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t7u73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lxa5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n3qgn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_31wk0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_inu8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_anp15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uq80t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_duyb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_booey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_48myk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=900673968]
+position = Vector2(0, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=445972102]
+position = Vector2(7, -36)
+sprite_frames = SubResource("SpriteFrames_u18bw")
+script = ExtResource("6_uf6fb")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=100219440]
+position = Vector2(-45, -23)
+scale = Vector2(-0.43166173, 0.32029825)
+sprite_frames = SubResource("SpriteFrames_wjsgd")
+frame = 1
+frame_progress = 0.24446176
+script = ExtResource("12_ib6di")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=472079527]
+position = Vector2(-12, -25)
+scale = Vector2(-0.3600005, 1)
+sprite_frames = SubResource("SpriteFrames_31wk0")
+frame_progress = 0.5950024
+script = ExtResource("19_t7u73")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1432727444]
+texture = ExtResource("7_12k8o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1352916847]
+polygon = PackedVector2Array(-39, -10, 38, -10, 41, -7, 39, 4, -39, 4, -42, -6)
+one_way_collision = true

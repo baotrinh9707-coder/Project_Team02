@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d34lai53g5eky"]
+
+[ext_resource type="Script" uid="uid://n4ks21dw3yre" path="res://audio_manager.gd" id="1_akun1"]
+[ext_resource type="AudioStream" uid="uid://c0of2vg3mxq3e" path="res://assets/audio/sfx/ui/click.wav" id="2_uq27v"]
+[ext_resource type="AudioStream" uid="uid://xmadeot1iebn" path="res://assets/audio/sfx/player/jump.wav" id="3_1ybt0"]
+[ext_resource type="AudioStream" uid="uid://bvqc8x3c0ce1p" path="res://assets/audio/sfx/collect/coin.mp3" id="4_llm6w"]
+[ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="5_w5ghg"]
+
+[node name="AudioPractice" type="Node2D" unique_id=917058125]
+script = ExtResource("1_akun1")
+
+[node name="AudioStreamPlayer_Click" type="AudioStreamPlayer2D" parent="." unique_id=1749806690]
+stream = ExtResource("2_uq27v")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Jump" type="AudioStreamPlayer2D" parent="." unique_id=809549318]
+stream = ExtResource("3_1ybt0")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Coin" type="AudioStreamPlayer2D" parent="." unique_id=2062375198]
+stream = ExtResource("4_llm6w")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer_Music" type="AudioStreamPlayer2D" parent="." unique_id=2028548040]
+stream = ExtResource("5_w5ghg")
+bus = &"Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=39591741]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2129863532]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=243001547]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+scroll_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer" unique_id=592354071]
+layout_mode = 2
+
+[node name="Button_PlaySFX" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1943734711]
+layout_mode = 2
+
+[node name="HSlider_SFXVolume" type="HSlider" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1639362683]
+layout_mode = 2
+min_value = 1.0
+max_value = 1.0
+value = 1.0
+
+[node name="CheckBox_MuteSFX" type="CheckBox" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=476408609]
+layout_mode = 2
+
+[node name="Button_PlayMusic" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1469330025]
+layout_mode = 2
+
+[node name="Button_StopMusic" type="Button" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1384249732]
+layout_mode = 2
+
+[node name="HSlider_MusicVolume" type="HSlider" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=1558383928]
+layout_mode = 2
+
+[node name="OptionButton_Effect" type="OptionButton" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=991553827]
+layout_mode = 2

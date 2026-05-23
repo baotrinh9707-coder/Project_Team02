@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://bto6de4fnnrc"]
+
+[ext_resource type="Script" uid="uid://1xf7rui60lkl" path="res://audio_clip.gd" id="1_f6qfn"]
+[ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="2_ol2xs"]
+
+[resource]
+script = ExtResource("1_f6qfn")
+id = "background_music"
+stream = ExtResource("2_ol2xs")
+bus = "Music"
+metadata/_custom_type_script = "uid://1xf7rui60lkl"

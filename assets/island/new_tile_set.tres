@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="2_ylt0l"]
 [ext_resource type="PackedScene" uid="uid://c2nkagr7apnkl" path="res://assets/island/tree_to_right.tscn" id="3_ejwa2"]
 [ext_resource type="PackedScene" uid="uid://cjixkieuke42x" path="res://assets/island/tree_to_left.tscn" id="4_umudc"]
+[ext_resource type="PackedScene" uid="uid://cofvufsr6a3yf" path="res://assets/island/boat_sailing.tscn" id="5_umudc"]
+[ext_resource type="PackedScene" uid="uid://dj4us84apvcnm" path="res://assets/island/flag_waving.tscn" id="6_2jcqu"]
+[ext_resource type="PackedScene" uid="uid://dv7rne4uakyhn" path="res://assets/island/normal_chest.tscn" id="7_j3qm1"]
+[ext_resource type="PackedScene" uid="uid://bhsmhddtlx8qi" path="res://assets/island/golden_chest.tscn" id="8_8p3th"]
+[ext_resource type="PackedScene" uid="uid://ef7uldnx0fel" path="res://assets/island/spikes.tscn" id="9_d3krc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylt0l"]
 texture = ExtResource("1_h35qf")
@@ -399,6 +404,26 @@ scenes/1/scene = ExtResource("3_ejwa2")
 resource_name = "tree to left"
 scenes/1/scene = ExtResource("4_umudc")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8p3th"]
+resource_name = "boat_sailing"
+scenes/1/scene = ExtResource("5_umudc")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_d3krc"]
+resource_name = "flag_waving"
+scenes/1/scene = ExtResource("6_2jcqu")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_expeu"]
+resource_name = "normal_chest"
+scenes/1/scene = ExtResource("7_j3qm1")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p8l0k"]
+resource_name = "golden_chest"
+scenes/1/scene = ExtResource("8_8p3th")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xa36m"]
+resource_name = "spike"
+scenes/1/scene = ExtResource("9_d3krc")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -409,3 +434,8 @@ sources/0 = SubResource("TileSetAtlasSource_ylt0l")
 sources/1 = SubResource("TileSetScenesCollectionSource_h35qf")
 sources/2 = SubResource("TileSetScenesCollectionSource_2jcqu")
 sources/3 = SubResource("TileSetScenesCollectionSource_j3qm1")
+sources/4 = SubResource("TileSetScenesCollectionSource_8p3th")
+sources/5 = SubResource("TileSetScenesCollectionSource_d3krc")
+sources/6 = SubResource("TileSetScenesCollectionSource_expeu")
+sources/7 = SubResource("TileSetScenesCollectionSource_p8l0k")
+sources/8 = SubResource("TileSetScenesCollectionSource_xa36m")
