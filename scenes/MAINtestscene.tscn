@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://bpmkftexgj8sh"]
 
-[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scene/player/character_body_2d.tscn" id="1_7ipt0"]
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/character_body_2d.tscn" id="1_7ipt0"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="2_jywav"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="3_iadh0"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/island/background/additional_water.png" id="4_1siqd"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://1t3pkyls8wyt" path="res://assets/island/background/small_cloud_2.png" id="7_1siqd"]
 [ext_resource type="Texture2D" uid="uid://b6dilwf04d4be" path="res://assets/island/background/water_reflect_big_02.png" id="9_srmfv"]
 [ext_resource type="PackedScene" uid="uid://bkexijlvwahmg" path="res://assets/island/animated_treedark_2d.tscn" id="10_25j8j"]
-[ext_resource type="Script" path="res://scene/tree_decoratine.gd" id="10_np0qh"]
+[ext_resource type="Script" uid="uid://c8rme8e52p4mu" path="res://scenes/tree_decoratine.gd" id="10_np0qh"]
 [ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="11_jmqbj"]
 [ext_resource type="Texture2D" uid="uid://c5ur36rqix0vh" path="res://assets/island/background/water_reflect_big_04.png" id="11_usvee"]
 [ext_resource type="Texture2D" uid="uid://ooefrpcl7vp1" path="res://assets/enemy/barrel/barrel_atk_05.png" id="12_o18mk"]
