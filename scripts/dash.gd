@@ -10,7 +10,6 @@ extends FSMState
 @export var ghost_frequency: float = 0.04 # Thời gian giữa 2 lần tạo bóng mờ (nên < 0.1)
 @export var ghost_color: Color = Color(0.6, 0.6, 1.0, 0.6) # Màu sắc/độ trong của bóng mờ (xanh nhạt)
 
-# --- Các biến cho hiệu ứng Khói ---
 @export var smoke_spawn_offset: Vector2 = Vector2(0, 0) # Vị trí khói
 @export var smoke_effect_scene: PackedScene # Scene khói
 

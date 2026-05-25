@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 ## Base character class that provides common functionality for all characters
 
-@export var movement_speed: float = 200.0
+@export var movement_speed: float = 220.0
 @export var gravity: float = 700.0
 @export var direction: int = 1
 

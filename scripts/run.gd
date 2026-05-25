@@ -24,6 +24,12 @@ func _on_physics_process(delta: float) -> void:
 
 	player.move_and_slide()
 
+var direction = Input.get_axis("walk_left", "walk_right")
+func _physics_update(delta: float) :
+	if direction != 0:
+		player.velocity.x = move_toward(player.velocity.x, direction * player.move_speed, player.acceleration * delta)
+	else:
+		transition.emit(self, "Idle")
 func _on_next_transitions() -> void:
 	if Input.is_action_just_pressed("dash"):
 		transition.emit("Dash")
