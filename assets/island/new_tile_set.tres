@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://litwbximcx8"]
+[gd_resource type="TileSet" format=3 uid="uid://litwbximcx8"]
 
 [ext_resource type="Texture2D" uid="uid://v2dtejovry7r" path="res://assets/island/terrain/terrain_32x32.png" id="1_h35qf"]
 [ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="2_ylt0l"]
 [ext_resource type="PackedScene" uid="uid://c2nkagr7apnkl" path="res://assets/island/tree_to_right.tscn" id="3_ejwa2"]
 [ext_resource type="PackedScene" uid="uid://cjixkieuke42x" path="res://assets/island/tree_to_left.tscn" id="4_umudc"]
+[ext_resource type="PackedScene" uid="uid://bydp3u455qmrh" path="res://assets/island/Pirate_flag.tscn" id="5_umudc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylt0l"]
 texture = ExtResource("1_h35qf")
@@ -399,6 +400,10 @@ scenes/1/scene = ExtResource("3_ejwa2")
 resource_name = "tree to left"
 scenes/1/scene = ExtResource("4_umudc")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8p3th"]
+resource_name = "pirate_flag"
+scenes/1/scene = ExtResource("5_umudc")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -409,3 +414,4 @@ sources/0 = SubResource("TileSetAtlasSource_ylt0l")
 sources/1 = SubResource("TileSetScenesCollectionSource_h35qf")
 sources/2 = SubResource("TileSetScenesCollectionSource_2jcqu")
 sources/3 = SubResource("TileSetScenesCollectionSource_j3qm1")
+sources/4 = SubResource("TileSetScenesCollectionSource_8p3th")
