@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c2nkagr7apnkl" path="res://assets/island/tree_to_right.tscn" id="3_ejwa2"]
 [ext_resource type="PackedScene" uid="uid://cjixkieuke42x" path="res://assets/island/tree_to_left.tscn" id="4_umudc"]
 [ext_resource type="PackedScene" uid="uid://bydp3u455qmrh" path="res://assets/island/Pirate_flag.tscn" id="5_umudc"]
+[ext_resource type="PackedScene" uid="uid://dpd05b5ga8vp3" path="res://scenes/collectibles/chest_normal.tscn" id="6_8p3th"]
+[ext_resource type="PackedScene" uid="uid://dibhixx68yjhi" path="res://scenes/collectibles/coin.tscn" id="7_d3krc"]
+[ext_resource type="PackedScene" uid="uid://dxoqkly6l0hsm" path="res://scenes/collectibles/key.tscn" id="8_expeu"]
+[ext_resource type="PackedScene" uid="uid://5jhjl0uodf6l" path="res://scenes/collectibles/chest_gold.tscn" id="9_d3krc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylt0l"]
 texture = ExtResource("1_h35qf")
@@ -404,6 +408,22 @@ scenes/1/scene = ExtResource("4_umudc")
 resource_name = "pirate_flag"
 scenes/1/scene = ExtResource("5_umudc")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p8l0k"]
+resource_name = "chest_normal"
+scenes/1/scene = ExtResource("6_8p3th")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xa36m"]
+resource_name = "coin"
+scenes/1/scene = ExtResource("7_d3krc")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m84ga"]
+resource_name = "key"
+scenes/1/scene = ExtResource("8_expeu")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_d3krc"]
+resource_name = "chest_gold"
+scenes/1/scene = ExtResource("9_d3krc")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -415,3 +435,7 @@ sources/1 = SubResource("TileSetScenesCollectionSource_h35qf")
 sources/2 = SubResource("TileSetScenesCollectionSource_2jcqu")
 sources/3 = SubResource("TileSetScenesCollectionSource_j3qm1")
 sources/4 = SubResource("TileSetScenesCollectionSource_8p3th")
+sources/5 = SubResource("TileSetScenesCollectionSource_p8l0k")
+sources/6 = SubResource("TileSetScenesCollectionSource_xa36m")
+sources/7 = SubResource("TileSetScenesCollectionSource_m84ga")
+sources/9 = SubResource("TileSetScenesCollectionSource_d3krc")

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dibhixx68yjhi"]
+
+[ext_resource type="Script" uid="uid://bwvd6lx1ah2d0" path="res://scripts/coin.gd" id="1_64ecx"]
+[ext_resource type="Texture2D" uid="uid://dtwnvoh5jfgsn" path="res://assets/coin/01.png" id="2_kfxoj"]
+[ext_resource type="Texture2D" uid="uid://b66ku1hcmsevy" path="res://assets/coin/02.png" id="3_jsmju"]
+[ext_resource type="Texture2D" uid="uid://bt5c3w1sy3vbv" path="res://assets/coin/03.png" id="4_s0mny"]
+[ext_resource type="Texture2D" uid="uid://ccpkv1gb3fyy1" path="res://assets/coin/04.png" id="5_7cc30"]
+[ext_resource type="Texture2D" uid="uid://2pes1nx6fi6o" path="res://assets/coin/effect/01.png" id="6_rojmm"]
+[ext_resource type="Texture2D" uid="uid://dpjbvwlbcjnhb" path="res://assets/coin/effect/02.png" id="7_ls27i"]
+[ext_resource type="Texture2D" uid="uid://d07c5s5nnlnj0" path="res://assets/coin/effect/03.png" id="8_ssuvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jg3o"]
+radius = 7.071068
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsyy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kfxoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jsmju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s0mny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7cc30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8m1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rojmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ls27i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ssuvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Area2D" unique_id=1489692750]
+collision_layer = 2
+script = ExtResource("1_64ecx")
+metadata/_custom_type_script = "uid://bfnn161rbp5k1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=160868227]
+shape = SubResource("CircleShape2D_6jg3o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=490696930]
+sprite_frames = SubResource("SpriteFrames_rsyy1")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=654653445]
+sprite_frames = SubResource("SpriteFrames_y8m1o")
+autoplay = "default"
