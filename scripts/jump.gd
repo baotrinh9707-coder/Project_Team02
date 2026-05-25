@@ -26,11 +26,13 @@ func _on_physics_process(delta: float) -> void:
 		player.velocity.x = direction * player.air_speed
 
 	player.velocity.y += player.gravity * delta
-
 	player.move_and_slide()
 	player.update_wall_normal()
 	player.update_wall_jump_timer(delta)
 
+func _physics_update(delta: float) -> void:
+	if Input.is_action_just_released("jump") and player.velocity.y < 0:
+		player.velocity.y *= 0.5
 
 func _on_next_transitions() -> void:
 	if Input.is_action_just_pressed("dash"):

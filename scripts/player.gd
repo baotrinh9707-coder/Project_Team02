@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 var player_direction: Vector2 = Vector2.RIGHT
-
+@export var fall_gravity_multiplier: float = 1.2 #gia tốc trọng trường
 @export var move_speed: float = 80.0
 @export var air_speed: float = 80.0
 @export var jump_speed: float = 320.0

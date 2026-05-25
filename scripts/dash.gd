@@ -2,8 +2,8 @@ extends FSMState
 
 # --- 1. CÁC BIẾN EXPORT (Có thể chỉnh ngoài Inspector) ---
 @export var animated_sprite_2d: AnimatedSprite2D # Node hình ảnh nhân vật
-@export var dash_speed: float = 600.0 # Tốc độ lướt
-@export var dash_duration: float = 0.25 # Thời gian lướt (nên ngắn thôi)
+@export var dash_speed: float = 450.0 # Tốc độ lướt
+@export var dash_duration: float = 0.2 # Thời gian lướt (nên ngắn thôi)
 
 # 🟢 [MỚI] Các biến cho hiệu ứng Bóng mờ
 @export var ghost_lifetime: float = 0.3 # Thời gian mỗi bóng mờ tồn tại (giây)
@@ -25,14 +25,13 @@ var ghost_timer: float = 0.0
 
 # --- 3. HÀM CHÍNH ---
 
-# Hàm thiết lập ban đầu mỗi cú lướt
 func _setup_dash() -> void:
 	is_setup = true
 	dash_timer = dash_duration
 	trail_timer = 0.0
-	ghost_timer = 0.0 # Reset bộ đếm bóng mờ
+	ghost_timer = 0.0
 	
-	animated_sprite_2d.play("fox_walk") # Hoặc animation lướt
+	animated_sprite_2d.play("fox_walk")
 	
 	# Xác định hướng lướt
 	var move_dir = obj.get_move_axis()
