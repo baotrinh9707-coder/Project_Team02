@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="2_jywav"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="3_iadh0"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/island/background/additional_water.png" id="4_1siqd"]
+[ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scene/collectibles/chest_gold.tscn" id="4_k34y3"]
 [ext_resource type="Texture2D" uid="uid://dekyi7oa4n0sg" path="res://assets/island/background/water_reflect_big_01.png" id="5_1siqd"]
 [ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/island/background/big_clouds.png" id="5_8bk6c"]
 [ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/island/background/small_cloud_1.png" id="6_iadh0"]
@@ -12,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b6dilwf04d4be" path="res://assets/island/background/water_reflect_big_02.png" id="9_srmfv"]
 [ext_resource type="PackedScene" uid="uid://bkexijlvwahmg" path="res://assets/island/animated_treedark_2d.tscn" id="10_25j8j"]
 [ext_resource type="Script" uid="uid://c8rme8e52p4mu" path="res://scene/tree_decoratine.gd" id="10_np0qh"]
-[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="11_jmqbj"]
 [ext_resource type="Texture2D" uid="uid://c5ur36rqix0vh" path="res://assets/island/background/water_reflect_big_04.png" id="11_usvee"]
 [ext_resource type="Texture2D" uid="uid://ooefrpcl7vp1" path="res://assets/enemy/barrel/barrel_atk_05.png" id="12_o18mk"]
 [ext_resource type="Texture2D" uid="uid://d37aqerjqbuvy" path="res://icon.svg" id="13_jmqbj"]
@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="19_exrpk"]
 [ext_resource type="PackedScene" uid="uid://vyfs1eryi4hn" path="res://data/sfx_bus_area_2d.tscn" id="20_usvee"]
 [ext_resource type="PackedScene" uid="uid://dn0i223h8b2iy" path="res://data/ambience_area_2d.tscn" id="21_en86s"]
+[ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scene/collectibles/coin.tscn" id="22_ethnm"]
+[ext_resource type="PackedScene" uid="uid://dvwvvt6gvmrtl" path="res://scene/collectibles/chest_key.tscn" id="23_k34y3"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -290,15 +292,6 @@ texture = ExtResource("12_o18mk")
 position = Vector2(550, -44)
 texture = ExtResource("14_eac2q")
 
-[node name="ChestGoldClose04" type="Sprite2D" parent="." unique_id=2118791792]
-position = Vector2(409, 234)
-texture = ExtResource("11_jmqbj")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ChestGoldClose04" unique_id=1112679305]
-position = Vector2(-7.2578125, 5.3320313)
-stream = ExtResource("19_exrpk")
-max_distance = 300.0
-
 [node name="CharacterBody2D" parent="." unique_id=842059967 instance=ExtResource("1_7ipt0")]
 position = Vector2(44, 245)
 scale = Vector2(0.350844, 0.267316)
@@ -326,7 +319,8 @@ theme_override_font_sizes/font_size = 16
 text = "WASD to Move
 Space to Jump
 Ctrl to Dash
-C to Attack"
+C to Attack
+R to open Chest"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=547361938]
 stream = ExtResource("19_exrpk")
@@ -338,3 +332,63 @@ position = Vector2(736, 240)
 
 [node name="AmbienceArea2D" parent="." unique_id=153130330 instance=ExtResource("21_en86s")]
 position = Vector2(483, -364)
+
+[node name="Coin" parent="." unique_id=1636334062 instance=ExtResource("22_ethnm")]
+position = Vector2(99, 238)
+
+[node name="Coin2" parent="." unique_id=1847026338 instance=ExtResource("22_ethnm")]
+position = Vector2(256, -355)
+
+[node name="Coin3" parent="." unique_id=1458374502 instance=ExtResource("22_ethnm")]
+position = Vector2(708, -358)
+
+[node name="Coin4" parent="." unique_id=593365475 instance=ExtResource("22_ethnm")]
+position = Vector2(846, 1)
+
+[node name="Coin5" parent="." unique_id=1697915647 instance=ExtResource("22_ethnm")]
+position = Vector2(726, 104)
+
+[node name="Coin6" parent="." unique_id=1003648622 instance=ExtResource("22_ethnm")]
+position = Vector2(633, 167)
+
+[node name="Coin7" parent="." unique_id=1999371411 instance=ExtResource("22_ethnm")]
+position = Vector2(494, 240)
+
+[node name="Coin8" parent="." unique_id=125319955 instance=ExtResource("22_ethnm")]
+position = Vector2(336, 241)
+
+[node name="Coin9" parent="." unique_id=707226147 instance=ExtResource("22_ethnm")]
+position = Vector2(273, 170)
+
+[node name="Coin10" parent="." unique_id=348604359 instance=ExtResource("22_ethnm")]
+position = Vector2(333, 105)
+
+[node name="Coin11" parent="." unique_id=107204872 instance=ExtResource("22_ethnm")]
+position = Vector2(304, 4)
+
+[node name="Coin12" parent="." unique_id=376078046 instance=ExtResource("22_ethnm")]
+position = Vector2(408, -20)
+
+[node name="Coin13" parent="." unique_id=1402937007 instance=ExtResource("22_ethnm")]
+position = Vector2(507, -21)
+
+[node name="Coin14" parent="." unique_id=521997754 instance=ExtResource("22_ethnm")]
+position = Vector2(982, -171)
+
+[node name="Coin15" parent="." unique_id=174743651 instance=ExtResource("22_ethnm")]
+position = Vector2(1162, -179)
+
+[node name="Coin16" parent="." unique_id=908670466 instance=ExtResource("22_ethnm")]
+position = Vector2(1356, -153)
+
+[node name="Coin17" parent="." unique_id=308753764 instance=ExtResource("22_ethnm")]
+position = Vector2(1501, -234)
+
+[node name="Coin18" parent="." unique_id=319679880 instance=ExtResource("22_ethnm")]
+position = Vector2(1578, -63)
+
+[node name="InteractiveArea2D" parent="." unique_id=1681468118 instance=ExtResource("23_k34y3")]
+position = Vector2(687, 236)
+
+[node name="ChestGold" parent="." unique_id=1004402667 instance=ExtResource("4_k34y3")]
+position = Vector2(403, 234)

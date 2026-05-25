@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmbq1colrsqa"]
+
+[ext_resource type="Script" uid="uid://bp7x1ro8obxhy" path="res://speed_up.gd" id="1_wb2qr"]
+[ext_resource type="Texture2D" uid="uid://dr4ph35m45enf" path="res://assets/items/speed_up.png" id="2_n3iep"]
+
+[node name="SpeedUp" type="Area2D" unique_id=1426540674]
+collision_mask = 2
+script = ExtResource("1_wb2qr")
+metadata/_custom_type_script = "uid://de0cd1gykp80y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=678148443]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=509484056]
+texture = ExtResource("2_n3iep")

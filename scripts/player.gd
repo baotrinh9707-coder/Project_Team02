@@ -25,8 +25,12 @@ var wall_jump_timer: float = 0.0
 
 
 func _ready() -> void:
-	spawn_position = global_position
-	reset_jumps()
+	GameManager.player = self
+	
+	# Khởi tạo lõi quản lý Power-up (nhớ thêm chữ var)
+	var decorator_manager = DecoratorManager.new()
+	decorator_manager.initialize(self)
+	add_child(decorator_manager)
 
 
 func _process(_delta: float) -> void:

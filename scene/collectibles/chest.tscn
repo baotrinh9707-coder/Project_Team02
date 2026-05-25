@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bf4il2oyk7kmd"]
+
+[ext_resource type="Script" uid="uid://yki1yxl7amg7" path="res://scripts/chest.gd" id="1_uops2"]
+[ext_resource type="Texture2D" uid="uid://bidl5brkimhxo" path="res://scripts/item/chest/chest_close_01.png" id="2_qtmoc"]
+[ext_resource type="Texture2D" uid="uid://bjcqjfm23puad" path="res://scripts/item/chest/chest_close_02.png" id="3_uk6x2"]
+[ext_resource type="Texture2D" uid="uid://dqrogefu4p788" path="res://scripts/item/chest/chest_close_03.png" id="4_dryyh"]
+[ext_resource type="Texture2D" uid="uid://btnwd6wmuxmda" path="res://scripts/item/chest/chest_open_01.png" id="5_nu2bj"]
+[ext_resource type="Texture2D" uid="uid://dkn0i1fahffwr" path="res://scripts/item/chest/chest_open_02.png" id="6_sje6p"]
+[ext_resource type="Texture2D" uid="uid://br8hwwry0gxvd" path="res://scripts/item/chest/chest_open_03.png" id="7_sw8db"]
+[ext_resource type="Texture2D" uid="uid://b67b2vn864ieo" path="res://scripts/item/chest/chest_open_04.png" id="8_cxvbq"]
+[ext_resource type="Texture2D" uid="uid://bwcclik4ny1ry" path="res://scripts/item/chest/chest_open_05.png" id="9_eerfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sv7"]
+size = Vector2(31, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i746h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qtmoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uk6x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dryyh")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nu2bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sje6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sw8db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cxvbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eerfo")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[node name="Chest" type="Area2D" unique_id=1004402667]
+collision_mask = 2
+script = ExtResource("1_uops2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034726777]
+position = Vector2(0.5, 10)
+shape = SubResource("RectangleShape2D_a8sv7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=899976827]
+sprite_frames = SubResource("SpriteFrames_i746h")
+animation = &"open"

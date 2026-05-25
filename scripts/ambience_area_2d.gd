@@ -43,4 +43,4 @@ func _on_body_exited(_body: Node2D) -> void:
 	
 	# Trả lại bài nhạc cũ + kích hoạt EXTRA Fade In/Out
 	if previous_music_id != "":
-		AudioManager.play_music(previous_music_id, 0.0, fade_time)
+		AudioManager.play_music(previous_music_id, 0.0, fade_time)	
