@@ -18,12 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://3g5hdrfwcd2c" path="res://assets/foxy/fox_hat/fox_walk_2.png" id="12_ib8q1"]
 [ext_resource type="Texture2D" uid="uid://cg0s41812vukj" path="res://assets/foxy/fox_hat/fox_walk_3.png" id="13_k7hf0"]
 [ext_resource type="Texture2D" uid="uid://8u26ji11yaua" path="res://assets/foxy/fox_hat/fox_walk_4.png" id="14_y4p8u"]
-[ext_resource type="Script" path="res://scripts/fsm.gd" id="16_yj246"]
 [ext_resource type="Script" uid="uid://cfxd4w0afxjxp" path="res://scripts/idle.gd" id="17_jvmu6"]
 [ext_resource type="Script" uid="uid://1v4jytcgdxtd" path="res://scripts/run.gd" id="18_nvfnx"]
+[ext_resource type="Script" uid="uid://c8vhtj8g0f1t4" path="res://scripts/player_fsm.gd" id="19_3y8c1"]
+[ext_resource type="Script" path="res://scripts/hurt_area_2d.gd" id="19_gy58v"]
 [ext_resource type="Script" uid="uid://bghx7e56agn5j" path="res://scripts/jump.gd" id="19_jvmu6"]
 [ext_resource type="Script" uid="uid://btkktp1s3rour" path="res://scripts/fall.gd" id="20_nvfnx"]
 [ext_resource type="Script" uid="uid://b64hxn04kcw7n" path="res://scripts/dash.gd" id="24_3y8c1"]
+[ext_resource type="Script" uid="uid://b20q06fcaw7wr" path="res://scene/player/hurt.gd" id="26_dfk82"]
+[ext_resource type="Script" uid="uid://b47lv51fc4c2i" path="res://scene/player/dead.gd" id="27_sfun1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qyyle"]
 animations = [{
@@ -118,6 +121,9 @@ animations = [{
 "name": &"fox_walk",
 "speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk82"]
+size = Vector2(96, 127)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrull"]
 radius = 38.9999
@@ -239,6 +245,7 @@ func _on_next_transitions() -> void:
 "
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1996534442]
+collision_layer = 2
 script = ExtResource("1_yj246")
 
 [node name="Direction" type="Node2D" parent="." unique_id=1788340963]
@@ -250,13 +257,22 @@ sprite_frames = SubResource("SpriteFrames_qyyle")
 animation = &"fox_atk"
 frame_progress = 0.82901
 
+[node name="HurtArea2D" type="Area2D" parent="Direction" unique_id=123528544]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("19_gy58v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D" unique_id=1041101428]
+position = Vector2(0, -25.5)
+shape = SubResource("RectangleShape2D_dfk82")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=841681282]
 position = Vector2(-1, -24)
 scale = Vector2(0.743591, 0.915598)
 shape = SubResource("CapsuleShape2D_wrull")
 
 [node name="States" type="Node" parent="." unique_id=980435898]
-script = ExtResource("16_yj246")
+script = ExtResource("19_3y8c1")
 
 [node name="Idle" type="Node" parent="States" unique_id=424745282 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("17_jvmu6")
@@ -294,3 +310,15 @@ animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 dash_duration = 0.15
 ghost_lifetime = 0.2
 ghost_color = Color(0.6, 0.6, 1, 0.823529)
+
+[node name="Hurt" type="Node" parent="States" unique_id=1920603629 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("26_dfk82")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[node name="Dead" type="Node" parent="States" unique_id=2028540282 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("27_sfun1")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
+
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

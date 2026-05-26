@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct1tqxgwkuvbe"]
+[gd_scene format=3 uid="uid://ct1tqxgwkuvbe"]
 
 [ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="1_b0nt0"]
 

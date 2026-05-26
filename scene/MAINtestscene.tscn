@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://dn0i223h8b2iy" path="res://data/ambience_area_2d.tscn" id="21_en86s"]
 [ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scene/collectibles/coin.tscn" id="22_ethnm"]
 [ext_resource type="PackedScene" uid="uid://dvwvvt6gvmrtl" path="res://scene/collectibles/chest_key.tscn" id="23_k34y3"]
+[ext_resource type="PackedScene" uid="uid://d3gu2lqbxd5fa" path="res://scene/enemies/mushroom/mushroom.tscn" id="24_su28b"]
+[ext_resource type="PackedScene" uid="uid://d1nsbshapvpkv" path="res://scene/collectibles/spike.tscn" id="25_y4lqg"]
+[ext_resource type="PackedScene" uid="uid://c0suse1uan3ig" path="res://scene/enemies/crab/crab.tscn" id="26_ucpet"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -392,3 +395,15 @@ position = Vector2(687, 236)
 
 [node name="ChestGold" parent="." unique_id=1004402667 instance=ExtResource("4_k34y3")]
 position = Vector2(403, 234)
+
+[node name="Mushroom" parent="." unique_id=1171416053 instance=ExtResource("24_su28b")]
+position = Vector2(583, 240)
+movement_speed = 200.0
+gravity = 700.0
+direction = 1
+
+[node name="Spike" parent="." unique_id=2099606742 instance=ExtResource("25_y4lqg")]
+position = Vector2(230, -18)
+
+[node name="Crab" parent="." unique_id=894841248 instance=ExtResource("26_ucpet")]
+position = Vector2(499, 243)

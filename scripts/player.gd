@@ -116,3 +116,8 @@ func update_wall_jump_timer(delta: float) -> void:
 		wall_jump_timer -= delta
 	else:
 		is_wall_jumping = false
+
+
+func _on_hurt_area_2d_hurt(direction: Vector2, damage: float) -> void:
+	if $States.current_state and $States.current_state.has_method("take_damage"):
+		$States.current_state.take_damage(damage)
