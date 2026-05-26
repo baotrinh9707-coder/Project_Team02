@@ -20,7 +20,7 @@ func _on_physics_process(delta: float) -> void:
 		player.player_direction = Vector2.RIGHT
 
 	if not player.is_wall_jumping:
-		player.velocity.x = direction * player.air_speed
+		player.velocity.x = move_toward(player.velocity.x, direction * player.air_speed, player.acceleration * delta)
 
 	player.velocity.y += player.gravity * delta * player.fall_gravity_multiplier
 

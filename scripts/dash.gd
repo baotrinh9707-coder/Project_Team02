@@ -79,9 +79,9 @@ func _on_next_transitions() -> void:
 		else:
 			transition.emit("Fall")
 
-# --- 4. HÀM PHỤ TẠO HIỆU ỨNG ---
+func _on_exit() -> void:
+	obj.velocity.x = 0
 
-# Hàm tạo Khói (giữ nguyên cũ của bạn)
 func spawn_smoke(anim_name: String) -> void:
 	if smoke_effect_scene == null: return
 	var smoke = smoke_effect_scene.instantiate() as AnimatedSprite2D

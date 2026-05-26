@@ -6,7 +6,7 @@ extends FSMState
 func _on_physics_process(delta: float) -> void:
 	animated_sprite_2d.play("fox_idle")
 
-	player.velocity.x = 0
+	player.velocity.x = move_toward(player.velocity.x, 0, player.deceleration * delta)
 
 	if player.is_on_floor():
 		player.reset_jumps()
@@ -34,10 +34,3 @@ func _on_next_transitions() -> void:
 
 	if player.get_move_axis() != 0:
 		transition.emit("Run")
-
-func _physics_update(delta: float):
-	if player.velocity.x != 0:
-		player.velocity.x = move_toward(player.velocity.x, 0, player.friction * delta)
-	  
-	var direction = Input.get_axis("walk_left", "walk_right")
-	if direction != 0: transition.emit(self, "Run")
