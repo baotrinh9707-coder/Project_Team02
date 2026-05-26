@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dw0brs8diijer"]
+[gd_scene format=3 uid="uid://dw0brs8diijer"]
 
 [ext_resource type="Texture2D" uid="uid://m4di78taixns" path="res://assets/foxy/fox_hat/fox_defeat_1.png" id="1_tucgm"]
 [ext_resource type="Script" uid="uid://bbpo2er2ypwxi" path="res://scripts/player.gd" id="1_yj246"]
@@ -236,57 +236,60 @@ func _on_next_transitions() -> void:
 		return
 "
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1104362782 groups=["player"]]
+modulate = Color(0.5449743, 0.54497427, 0.54497427, 1)
+collision_layer = 7
+collision_mask = 3
 script = ExtResource("1_yj246")
 
-[node name="Direction" type="Node2D" parent="."]
+[node name="Direction" type="Node2D" parent="." unique_id=1357598507]
 
-[node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction"]
+[node name="animated_sprite2D" type="AnimatedSprite2D" parent="Direction" unique_id=1675147123]
 position = Vector2(0, -14)
 scale = Vector2(2.96187, 3.3825)
 sprite_frames = SubResource("SpriteFrames_qyyle")
 animation = &"fox_atk"
 frame_progress = 0.82901
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740977315]
 position = Vector2(-1, -24)
 scale = Vector2(0.743591, 0.915598)
 shape = SubResource("CapsuleShape2D_wrull")
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node" parent="." unique_id=1388730828]
 script = ExtResource("16_yj246")
 
-[node name="Idle" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Idle" type="Node" parent="States" unique_id=1633358128 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("17_jvmu6")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Run" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Run" type="Node" parent="States" unique_id=1788565758 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("18_nvfnx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Jump" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Jump" type="Node" parent="States" unique_id=256028201 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("19_jvmu6")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Fall" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Fall" type="Node" parent="States" unique_id=2002987039 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("20_nvfnx")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="attack" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="attack" type="Node" parent="States" unique_id=1767937201 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = SubResource("GDScript_fpayr")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="WallCling" type="Node" parent="States" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="WallCling" type="Node" parent="States" unique_id=1453671601 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = SubResource("GDScript_7w8bo")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 
-[node name="Dash" type="Node" parent="States" node_paths=PackedStringArray("animated_sprite_2d")]
+[node name="Dash" type="Node" parent="States" unique_id=1989245204 node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("24_3y8c1")
 animated_sprite_2d = NodePath("../../Direction/animated_sprite2D")
 dash_duration = 0.15

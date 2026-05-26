@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dpd05b5ga8vp3"]
+
+[ext_resource type="Script" uid="uid://fghx51ndjhi6" path="res://scripts/chest_normal.gd" id="1_imins"]
+[ext_resource type="Texture2D" uid="uid://bidl5brkimhxo" path="res://assets/island/objects/chest/chest_close_01.png" id="2_8b2ef"]
+[ext_resource type="Texture2D" uid="uid://bjcqjfm23puad" path="res://assets/island/objects/chest/chest_close_02.png" id="3_6tt7d"]
+[ext_resource type="Texture2D" uid="uid://dqrogefu4p788" path="res://assets/island/objects/chest/chest_close_03.png" id="4_rj4i6"]
+[ext_resource type="Texture2D" uid="uid://br8hwwry0gxvd" path="res://assets/island/objects/chest/chest_open_03.png" id="5_c66wi"]
+[ext_resource type="Texture2D" uid="uid://b67b2vn864ieo" path="res://assets/island/objects/chest/chest_open_04.png" id="6_o2ljf"]
+[ext_resource type="Texture2D" uid="uid://bwcclik4ny1ry" path="res://assets/island/objects/chest/chest_open_05.png" id="7_ichtb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bj7u1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8b2ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6tt7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rj4i6")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c66wi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o2ljf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ichtb")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b2ef"]
+size = Vector2(24, 20)
+
+[node name="Chest_normal" type="Area2D" unique_id=1001638918]
+collision_layer = 4
+script = ExtResource("1_imins")
+metadata/_custom_type_script = "uid://bfnn161rbp5k1"
+
+[node name="normal_chest" type="AnimatedSprite2D" parent="." unique_id=1525160749]
+sprite_frames = SubResource("SpriteFrames_bj7u1")
+animation = &"open"
+autoplay = "close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=310110849]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_8b2ef")
