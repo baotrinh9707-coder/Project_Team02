@@ -8,6 +8,7 @@ var is_opened: bool = false
 @onready var animated_sprite: AnimatedSprite2D = $normal_chest
 
 func _ready():
+	super._ready()
 	interacted.connect(_on_interacted)
 	animated_sprite.play("close")
 
@@ -25,7 +26,12 @@ func attempt_open_chest():
 
 
 func open_chest():
+	
 	is_opened = true
+	if InteractiveArea2D.current_area == self:
+		InteractiveArea2D.current_area = null
+
+	set_process_unhandled_input(false)
 	GameManager.inventory_system.use_key()
 	animated_sprite.play("open")
 	await animated_sprite.animation_finished

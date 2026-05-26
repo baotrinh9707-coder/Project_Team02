@@ -54,7 +54,7 @@ metadata/_custom_type_script = "uid://bfnn161rbp5k1"
 
 [node name="normal_chest" type="AnimatedSprite2D" parent="." unique_id=1525160749]
 sprite_frames = SubResource("SpriteFrames_bj7u1")
-animation = &"close"
+animation = &"open"
 autoplay = "close"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=310110849]

@@ -11,7 +11,7 @@ signal interaction_available(body: Node2D)
 signal interaction_unavailable
 
 @export var interact_input_action = "interact"
-
+static var current_area: InteractiveArea2D = null
 
 func _ready():
 	set_process_unhandled_input(false)
@@ -21,6 +21,9 @@ func _ready():
 
 
 func _unhandled_input(event):
+	if current_area != self:
+		return
+
 	if event.is_action_pressed(interact_input_action):
 		interacted.emit()
 		var viewport = get_viewport()
@@ -30,6 +33,8 @@ func _unhandled_input(event):
 func _on_body_entered(_body: Node2D) -> void:
 	if not _body.is_in_group("player"):
 		return
+
+	current_area = self
 	set_process_unhandled_input(true)
 	interaction_available.emit(_body)
 
@@ -37,5 +42,9 @@ func _on_body_entered(_body: Node2D) -> void:
 func _on_body_exited(_body: Node2D) -> void:
 	if not _body.is_in_group("player"):
 		return
+
+	if current_area == self:
+		current_area = null
+
 	set_process_unhandled_input(false)
 	interaction_unavailable.emit()
