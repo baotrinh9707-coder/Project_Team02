@@ -9,7 +9,7 @@ func collect_coin():
 	GameManager.inventory_system.add_coin(1)
 	
 	# 2. Tải scene hiệu ứng
-	var effect_scene = preload("res://scene/collectibles/coin_effect.tscn")
+	var effect_scene = preload("res://scenes/collectibles/coin_effect.tscn")
 	
 	# 3. Tạo bản clone (thực thể)
 	var effect_instance = effect_scene.instantiate()

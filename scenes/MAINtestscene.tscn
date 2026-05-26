@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="2_jywav"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="3_iadh0"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/island/background/additional_water.png" id="4_1siqd"]
-[ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scene/collectibles/chest_gold.tscn" id="4_k34y3"]
+[ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="4_k34y3"]
 [ext_resource type="Texture2D" uid="uid://dekyi7oa4n0sg" path="res://assets/island/background/water_reflect_big_01.png" id="5_1siqd"]
 [ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/island/background/big_clouds.png" id="5_8bk6c"]
 [ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/island/background/small_cloud_1.png" id="6_iadh0"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b6dilwf04d4be" path="res://assets/island/background/water_reflect_big_02.png" id="9_srmfv"]
 [ext_resource type="PackedScene" uid="uid://bkexijlvwahmg" path="res://assets/island/animated_treedark_2d.tscn" id="10_25j8j"]
 [ext_resource type="Script" uid="uid://c8rme8e52p4mu" path="res://scenes/tree_decoratine.gd" id="10_np0qh"]
-[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="11_jmqbj"]
 [ext_resource type="Texture2D" uid="uid://c5ur36rqix0vh" path="res://assets/island/background/water_reflect_big_04.png" id="11_usvee"]
 [ext_resource type="Texture2D" uid="uid://ooefrpcl7vp1" path="res://assets/enemy/barrel/barrel_atk_05.png" id="12_o18mk"]
 [ext_resource type="Texture2D" uid="uid://d37aqerjqbuvy" path="res://icon.svg" id="13_jmqbj"]
@@ -22,11 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="19_exrpk"]
 [ext_resource type="PackedScene" uid="uid://vyfs1eryi4hn" path="res://data/sfx_bus_area_2d.tscn" id="20_usvee"]
 [ext_resource type="PackedScene" uid="uid://dn0i223h8b2iy" path="res://data/ambience_area_2d.tscn" id="21_en86s"]
-[ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scene/collectibles/coin.tscn" id="22_ethnm"]
-[ext_resource type="PackedScene" uid="uid://dvwvvt6gvmrtl" path="res://scene/collectibles/chest_key.tscn" id="23_k34y3"]
-[ext_resource type="PackedScene" uid="uid://d3gu2lqbxd5fa" path="res://scene/enemies/mushroom/mushroom.tscn" id="24_su28b"]
-[ext_resource type="PackedScene" uid="uid://d1nsbshapvpkv" path="res://scene/collectibles/spike.tscn" id="25_y4lqg"]
-[ext_resource type="PackedScene" uid="uid://c0suse1uan3ig" path="res://scene/enemies/crab/crab.tscn" id="26_ucpet"]
+[ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scenes/collectibles/coin.tscn" id="22_ethnm"]
+[ext_resource type="PackedScene" uid="uid://dvwvvt6gvmrtl" path="res://scenes/collectibles/chest_key.tscn" id="23_k34y3"]
+[ext_resource type="PackedScene" uid="uid://d3gu2lqbxd5fa" path="res://scenes/enemies/mushroom/mushroom.tscn" id="24_su28b"]
+[ext_resource type="PackedScene" uid="uid://d1nsbshapvpkv" path="res://scenes/collectibles/spike.tscn" id="25_y4lqg"]
+[ext_resource type="PackedScene" uid="uid://c0suse1uan3ig" path="res://scenes/enemies/crab/crab.tscn" id="26_ucpet"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -391,9 +390,6 @@ position = Vector2(1501, -234)
 [node name="Coin18" parent="." unique_id=319679880 instance=ExtResource("22_ethnm")]
 position = Vector2(1578, -63)
 
-[node name="InteractiveArea2D" parent="." unique_id=1681468118 instance=ExtResource("23_k34y3")]
-position = Vector2(687, 236)
-
 [node name="ChestGold" parent="." unique_id=1004402667 instance=ExtResource("4_k34y3")]
 position = Vector2(403, 234)
 
@@ -408,3 +404,6 @@ position = Vector2(230, -18)
 
 [node name="Crab" parent="." unique_id=894841248 instance=ExtResource("26_ucpet")]
 position = Vector2(499, 243)
+
+[node name="InteractiveArea2D" parent="." unique_id=1681468118 instance=ExtResource("23_k34y3")]
+position = Vector2(704, 239)

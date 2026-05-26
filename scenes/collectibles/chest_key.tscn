@@ -46,6 +46,8 @@ animations = [{
 }]
 
 [node name="InteractiveArea2D" type="Area2D" unique_id=1681468118]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_qly5o")
 metadata/_custom_type_script = "uid://de0cd1gykp80y"
 
