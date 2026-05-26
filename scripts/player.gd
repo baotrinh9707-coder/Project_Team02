@@ -4,13 +4,13 @@ extends CharacterBody2D
 var player_direction: Vector2 = Vector2.RIGHT
 @export var fall_gravity_multiplier: float = 1.2 #gia tốc trọng trường
 
-@export var acceleration: float = 800.0 # tang toc
-@export var deceleration: float = 350.0 # quan tinh
+@export var acceleration: float = 320.0 # tang toc
+@export var deceleration: float = 640.0 # quan tinh
 
-@export var move_speed: float = 80.0
+@export var move_speed: float = 120.0
 @export var air_speed: float = 80.0
 @export var jump_speed: float = 350.0
-@export var gravity: float = 700.0
+@export var gravity: float = 600.0
 @export var max_jumps: int = 2
 
 @export var wall_slide_speed: float = 45.0
