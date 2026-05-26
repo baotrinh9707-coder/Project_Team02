@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c8jh85jf6j6u2"]
+[gd_scene load_steps=0 format=3 uid="uid://c8jh85jf6j6u2"]
 
-[ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/raw/island/top_palm_tree.tscn" id="1_57m48"]
+[ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="1_57m48"]
 [ext_resource type="Texture2D" uid="uid://d37aqerjqbuvy" path="res://icon.svg" id="2_5ccg5"]
-[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scene/player/character_body_2d.tscn" id="3_cm56q"]
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/character_body_2d.tscn" id="3_cm56q"]
 
 [node name="Node2D" type="Node2D" unique_id=420573144]
 
