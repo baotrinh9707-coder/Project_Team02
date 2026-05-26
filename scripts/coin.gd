@@ -23,5 +23,5 @@ func collect_coin():
 	# 6. Cuối cùng mới xóa cục vàng đi
 	queue_free()
 	
-func _on_interaction_available() -> void:
+func _on_interaction_available(body: Node2D) -> void:
 	collect_coin()

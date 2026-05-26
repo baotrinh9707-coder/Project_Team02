@@ -25,6 +25,7 @@ var wall_jump_timer: float = 0.0
 
 
 func _ready() -> void:
+	add_to_group("player")
 	GameManager.player = self
 	
 	# Khởi tạo lõi quản lý Power-up (nhớ thêm chữ var)

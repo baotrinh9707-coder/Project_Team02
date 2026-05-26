@@ -14,5 +14,5 @@ func collect_key():
 	# Tự hủy hình ảnh đồng xu
 	queue_free()
 
-func _on_interaction_available() -> void:
+func _on_interaction_available(body: Node2D) -> void:
 	collect_key()
