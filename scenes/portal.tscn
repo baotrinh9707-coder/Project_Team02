@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b61yuo08ml8bq"]
+
+[ext_resource type="Script" uid="uid://1sglf26wk4kp" path="res://portal.gd" id="1_v0xau"]
+
+[node name="Portal" type="Area2D" unique_id=1569022899]
+script = ExtResource("1_v0xau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873637319]
