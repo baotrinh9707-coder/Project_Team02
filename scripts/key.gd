@@ -13,6 +13,4 @@ func collect_key() -> void:
 
 
 func _on_interaction_available(body: Node2D) -> void:
-	if not body.is_in_group("player"):
-		return
 	collect_key()

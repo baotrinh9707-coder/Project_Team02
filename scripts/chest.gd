@@ -8,6 +8,7 @@ var is_opened: bool = false
 
 
 func _ready():
+	super._ready()
 	interacted.connect(_on_interacted)
 	animated_sprite.play("close")
 

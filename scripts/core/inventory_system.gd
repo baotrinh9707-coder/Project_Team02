@@ -14,6 +14,7 @@ func add_coin(amount: int) -> void:
 
 func add_key(amount: int):
 	keys += amount
+	item_collected.emit("key", amount)
 	print("Đã nhặt chìa khóa! Tổng chìa: ", keys)
 
 func has_key() -> bool:

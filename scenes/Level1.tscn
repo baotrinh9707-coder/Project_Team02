@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bpmkftexgj8sh"]
+[gd_scene format=4 uid="uid://isogep3vqlgu"]
 
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="1_ipmer"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="2_av1gt"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/player.tscn" id="13_vbuca"]
 [ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scenes/collectibles/coin.tscn" id="15_ipmer"]
 [ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="15_wnofu"]
+[ext_resource type="PackedScene" uid="uid://bf4il2oyk7kmd" path="res://scenes/collectibles/chest.tscn" id="16_av1gt"]
+[ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="18_2ouud"]
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -105,9 +107,6 @@ modulate = Color(0.427493, 0.427493, 0.427493, 1)
 position = Vector2(497, 353)
 scale = Vector2(31.093878, 8.187625)
 texture = ExtResource("3_r7dij")
-
-[node name="keyScene" parent="ParallaxBackground/ParallaxLayer" unique_id=402169465 instance=ExtResource("4_ipmer")]
-position = Vector2(37, 242)
 
 [node name="ParallaxLayerCloud" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1002801526]
 motion_scale = Vector2(0.001, 0.8)
@@ -417,7 +416,7 @@ Ctrl to Dash
 C to Attack"
 
 [node name="Crab" parent="." unique_id=894841248 instance=ExtResource("11_2meft")]
-position = Vector2(123, -17)
+position = Vector2(701, 244)
 
 [node name="Mushroom" parent="." unique_id=1171416053 instance=ExtResource("12_0xqs2")]
 position = Vector2(215, -18)
@@ -428,3 +427,15 @@ position = Vector2(370, 235)
 [node name="Coin" parent="." unique_id=1636334062 instance=ExtResource("15_ipmer")]
 position = Vector2(178, 177)
 interact_input_action = null
+
+[node name="Chest" parent="." unique_id=1004402667 instance=ExtResource("16_av1gt")]
+position = Vector2(512, 232)
+
+[node name="keyScene" parent="." unique_id=402169465 instance=ExtResource("4_ipmer")]
+position = Vector2(47, 143)
+
+[node name="ChestGold" parent="." unique_id=102952706 instance=ExtResource("18_2ouud")]
+position = Vector2(1018, 234)
+
+[node name="Chest2" parent="." unique_id=649079687 instance=ExtResource("16_av1gt")]
+position = Vector2(1429, 234)
