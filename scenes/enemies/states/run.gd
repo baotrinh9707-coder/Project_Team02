@@ -11,3 +11,7 @@ func _update(delta: float) -> void:
 			
 	# Luôn luôn giữ vận tốc chạy ngang (dù trên trời hay dưới đất)
 	obj.velocity.x = obj.direction * obj.movement_speed
+
+func take_damage(damage: Variant) -> void:
+	# Cua dùng obj.fsm.change_state thay vì transition.emit
+	obj.fsm.change_state("Hurt")

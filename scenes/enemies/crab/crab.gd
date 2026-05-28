@@ -7,3 +7,7 @@ func _ready() -> void:
 	
 	fsm = FSM.new(self, $States, $States/Run)
 	super._ready()
+
+func _on_hurt_area_2d_hurt(direction: Variant, damage: Variant) -> void:
+	if fsm.current_state and fsm.current_state.has_method("take_damage"):
+		fsm.current_state.take_damage(damage)

@@ -386,7 +386,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAQAAAABAAgAAAABAAQAAAACAAgAAAABAAQ
 tile_set = ExtResource("12_gumju")
 
 [node name="CharacterBody2D" parent="." unique_id=1760357764 instance=ExtResource("13_vbuca")]
-position = Vector2(124, 163)
+position = Vector2(453, 246)
 scale = Vector2(0.2735313, 0.20921014)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1916774427]
@@ -422,7 +422,7 @@ position = Vector2(701, 244)
 position = Vector2(215, -18)
 
 [node name="Spike" parent="." unique_id=2099606742 instance=ExtResource("13_ipmer")]
-position = Vector2(370, 235)
+position = Vector2(370, 240)
 
 [node name="Coin" parent="." unique_id=1636334062 instance=ExtResource("15_ipmer")]
 position = Vector2(178, 177)

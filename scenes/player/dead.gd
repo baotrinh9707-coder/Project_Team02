@@ -1,18 +1,23 @@
-extends FSMState
+extends EnemyState
 
-@export var player: CharacterBody2D
-@export var animated_sprite_2d: AnimatedSprite2D
+# Chỉ cần xin cái ổ cắm cho cái càng cua thôi, mấy cái kia 'obj' tự lo được
+@export var crab_hit_collision: CollisionShape2D 
 var dead_timer: float = 0.0
 
-func _on_enter() -> void:
-	animated_sprite_2d.play("fox_defeat") # Sửa lại tên animation chết
-	player.velocity.x = 0
-	dead_timer = 2.0 # Chờ 2 giây
+func _enter() -> void:
+	obj.change_animation("dead") # Gọi đúng animation của cua
+	obj.velocity.x = 0
+	dead_timer = 2.0 
+	
+	# Vô hiệu hóa cái càng, chết rồi không được kẹp người ta nữa!
+	if crab_hit_collision:
+		crab_hit_collision.set_deferred("disabled", true)
 
-func _on_physics_process(delta: float) -> void:
-	player.velocity.y += player.gravity * delta
-	player.move_and_slide()
-
+func _update(delta: float) -> void:
+	# Xác cua vẫn rớt xuống đất
+	obj.velocity.y += obj.gravity * delta
+	obj.move_and_slide()
+	
 	dead_timer -= delta
 	if dead_timer <= 0:
-		get_tree().reload_current_scene() # Reset lại màn chơi
+		obj.queue_free() # Chờ 2s rồi xóa xác con cua khỏi trần đời

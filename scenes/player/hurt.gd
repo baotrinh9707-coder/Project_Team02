@@ -1,20 +1,18 @@
-extends FSMState
+extends EnemyState
 
-@export var player: CharacterBody2D
-@export var animated_sprite_2d: AnimatedSprite2D
 var hurt_timer: float = 0.0
 
-func _on_enter() -> void:
-	animated_sprite_2d.play("fox_hit") # Sửa lại tên animation cho đúng máy bạn
-	player.velocity.y = -300 # Giật nảy người lên (số âm là bay lên)
-	hurt_timer = 0.5 # Tồn tại trong 0.5 giây
+func _enter() -> void: # Lưu ý: hệ enemy dùng _enter thay vì _on_enter
+	obj.change_animation("hurt") # Đổi tên thành "hurt" cho đúng ảnh con cua
+	obj.velocity.y = -300 # Cua giật nảy lên
+	hurt_timer = 0.5 
 
-func _on_physics_process(delta: float) -> void:
-	# Vẫn bị ảnh hưởng bởi trọng lực để rớt xuống
-	player.velocity.y += player.gravity * delta
-	player.velocity.x = 0 # Không cho di chuyển ngang
-	player.move_and_slide()
-
+func _update(delta: float) -> void: # Lưu ý: hệ enemy dùng _update thay vì _on_physics_process
+	# Cua vẫn rơi xuống theo trọng lực
+	obj.velocity.y += obj.gravity * delta
+	obj.velocity.x = 0 # Không cho di chuyển ngang
+	obj.move_and_slide()
+	
 	hurt_timer -= delta
 	if hurt_timer <= 0:
-		transition.emit("Idle") # Hết 0.5s thì đứng im lại
+		obj.fsm.change_state("Run") # Hết đau thì quay lại đi tuần tra (Run)

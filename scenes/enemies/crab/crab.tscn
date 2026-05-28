@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://c0suse1uan3ig"]
 
-[ext_resource type="Script" uid="uid://cguke3d4h7tpw" path="res://scene/enemies/crab/crab.gd" id="1_ty5lo"]
+[ext_resource type="Script" uid="uid://cguke3d4h7tpw" path="res://scenes/enemies/crab/crab.gd" id="1_ty5lo"]
 [ext_resource type="Texture2D" uid="uid://div7bok06185o" path="res://assets/monsters/crab/crab_01.png" id="2_ej71s"]
-[ext_resource type="Texture2D" uid="uid://d24uce3wqmwe6" path="res://assets/crab/crab_02.png" id="2_ty5lo"]
-[ext_resource type="Texture2D" uid="uid://bheixrcxv5gb4" path="res://assets/crab/crab_hurt_01.png" id="3_csy1f"]
+[ext_resource type="Texture2D" uid="uid://bheixrcxv5gb4" path="res://assets/monsters/crab/crab_hurt_01.png" id="3_csy1f"]
 [ext_resource type="Texture2D" uid="uid://d24uce3wqmwe6" path="res://assets/monsters/crab/crab_02.png" id="3_hrqf1"]
 [ext_resource type="Texture2D" uid="uid://dq122qahq1rm2" path="res://assets/monsters/crab/crab_03.png" id="4_hyppk"]
-[ext_resource type="Texture2D" uid="uid://boxmc12qq7a8a" path="res://assets/crab/crab_hurt_02.png" id="4_ya44r"]
-[ext_resource type="Script" path="res://scripts/hit_area_2d.gd" id="5_hrqf1"]
-[ext_resource type="Script" uid="uid://d0wybxjaahe28" path="res://scene/enemies/states/run.gd" id="9_csy1f"]
+[ext_resource type="Texture2D" uid="uid://boxmc12qq7a8a" path="res://assets/monsters/crab/crab_hurt_02.png" id="4_ya44r"]
+[ext_resource type="Script" uid="uid://cskdv6tj5dtso" path="res://scripts/hit_area_2d.gd" id="5_hrqf1"]
+[ext_resource type="Script" uid="uid://csu2b21cwchqw" path="res://scripts/hurt_area_2d.gd" id="8_cqyf4"]
+[ext_resource type="Script" uid="uid://d0wybxjaahe28" path="res://scenes/enemies/states/run.gd" id="9_csy1f"]
+[ext_resource type="Script" uid="uid://b20q06fcaw7wr" path="res://scenes/player/hurt.gd" id="10_tgm84"]
+[ext_resource type="Script" uid="uid://b47lv51fc4c2i" path="res://scenes/player/dead.gd" id="11_0ud0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at8b6"]
 size = Vector2(44, 27)
@@ -17,7 +19,7 @@ size = Vector2(44, 27)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ty5lo")
+"texture": ExtResource("3_hrqf1")
 }],
 "loop": true,
 "name": &"dead",
@@ -52,6 +54,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej71s"]
 size = Vector2(43, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stbuj"]
+size = Vector2(42, 26)
+
 [node name="Crab" type="CharacterBody2D" unique_id=894841248]
 collision_layer = 8
 script = ExtResource("1_ty5lo")
@@ -69,6 +74,7 @@ animation = &"hurt"
 autoplay = "run"
 
 [node name="HitArea2D" type="Area2D" parent="Direction" unique_id=299122964]
+position = Vector2(-1, 4)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("5_hrqf1")
@@ -82,7 +88,27 @@ target_position = Vector2(44, 0)
 
 [node name="DownRayCast2D" type="RayCast2D" parent="Direction" unique_id=976500309]
 
+[node name="HurtArea2D" type="Area2D" parent="Direction" unique_id=2143389460]
+position = Vector2(0, -1)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("8_cqyf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/HurtArea2D" unique_id=962961405]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_stbuj")
+
 [node name="States" type="Node" parent="." unique_id=8940157]
 
 [node name="Run" type="Node" parent="States" unique_id=336779143]
 script = ExtResource("9_csy1f")
+
+[node name="Hurt" type="Node" parent="States" unique_id=9216978]
+script = ExtResource("10_tgm84")
+
+[node name="Dead" type="Node" parent="States" unique_id=884695889 node_paths=PackedStringArray("crab_hit_collision")]
+script = ExtResource("11_0ud0h")
+crab_hit_collision = NodePath("../../Direction/HitArea2D/CollisionShape2D")
+
+[connection signal="area_entered" from="Direction/HitArea2D" to="Direction/HitArea2D" method="_on_area_entered"]
+[connection signal="hurt" from="Direction/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
