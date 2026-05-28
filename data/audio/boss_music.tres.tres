@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://dgg748yr3yuu5"]
+
+[ext_resource type="Script" uid="uid://chlphbiuq1gay" path="res://scripts/audio/audio_clip.gd" id="1_r3lxr"]
+[ext_resource type="AudioStream" uid="uid://co2lc8nexjl2j" path="res://assets/audio/music/boss_fight.ogg" id="2_h61py"]
+
+[resource]
+script = ExtResource("1_r3lxr")
+clip_id = "boss_music"
+stream = ExtResource("2_h61py")
+metadata/_custom_type_script = "uid://chlphbiuq1gay"
