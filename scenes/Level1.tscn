@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bkexijlvwahmg" path="res://assets/island/animated_treedark_2d.tscn" id="11_ntbnh"]
 [ext_resource type="PackedScene" uid="uid://d3gu2lqbxd5fa" path="res://scenes/enemies/mushroom/mushroom.tscn" id="12_0xqs2"]
 [ext_resource type="TileSet" uid="uid://litwbximcx8" path="res://assets/island/new_tile_set.tres" id="12_gumju"]
+[ext_resource type="Script" uid="uid://bgpwc35qec0dp" path="res://scenes/portal.gd" id="12_jxjwb"]
 [ext_resource type="PackedScene" uid="uid://d1nsbshapvpkv" path="res://scenes/collectibles/spike.tscn" id="13_ipmer"]
 [ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/player.tscn" id="13_vbuca"]
+[ext_resource type="PackedScene" uid="uid://ck0ny8hpdcq5o" path="res://scenes/door_for_portal.tscn" id="14_0xqs2"]
 [ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scenes/collectibles/coin.tscn" id="15_ipmer"]
 [ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="15_wnofu"]
 [ext_resource type="PackedScene" uid="uid://bf4il2oyk7kmd" path="res://scenes/collectibles/chest.tscn" id="16_av1gt"]
@@ -49,6 +51,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	motion_offset.x -= delta*50
 "
+
+[sub_resource type="Gradient" id="Gradient_kbo48"]
+offsets = PackedFloat32Array(0.05421687, 0.8012048)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dyl1"]
+gradient = SubResource("Gradient_kbo48")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Stage" type="Node2D" unique_id=2081329449]
 script = ExtResource("1_2meft")
