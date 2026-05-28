@@ -5,41 +5,27 @@ var target_portal_name: String = ""
 var current_checkpoint_id: String = ""
 var checkpoint_data: Dictionary = {}
 
-var current_stage: Node = null
+var current_stage = ""
 var player: Player = null
 
 var inventory_system: InventorySystem = null
 
 func _ready() -> void:
 	# Load checkpoint data when game starts
-	#load_checkpoint_data()
-
+	load_checkpoint_data()
 	# Init inventory system
 	inventory_system = InventorySystem.new()
 	add_child(inventory_system)
+	
+	# Start background music
+	if AudioManager.get_current_music_id() != "res://assets/audio/music/music.ogg":
+		AudioManager.play_music_path("res://assets/audio/music/music.ogg", -10.0, 2.0)
+
+#change stage by path and target portal name
 func change_stage(stage_path: String, _target_portal_name: String = "") -> void:
-	print("change_stage called")
-	print("stage_path: ", stage_path)
-	print("target_portal_name: ", _target_portal_name)
-
 	target_portal_name = _target_portal_name
-
-	var error := get_tree().change_scene_to_file(stage_path)
-
-	if error != OK:
-		print("Failed to change stage: ", stage_path, " error: ", error)
-		return
-
-	await get_tree().process_frame
-	await get_tree().process_frame
-
-	current_stage = get_tree().current_scene
-	player = get_tree().get_first_node_in_group("player")
-
-	print("Current stage: ", current_stage)
-	print("Player: ", player)
-
-	respawn_at_portal()
+	#change scene to stage path
+	get_tree().change_scene_to_file(stage_path)
 
 
 #call from dialogic
@@ -50,35 +36,12 @@ func call_from_dialogic(msg:String = ""):
 
 #respawn at portal or door
 func respawn_at_portal() -> bool:
-	if target_portal_name.is_empty():
-		return false
-
-	if current_stage == null:
-		current_stage = get_tree().current_scene
-
-	if player == null:
-		player = get_tree().get_first_node_in_group("player")
-
-	if player == null:
-		print("Player not found")
-		return false
-
-	var target_portal = current_stage.find_child(target_portal_name, true, false)
-
-	if target_portal == null:
-		print("Target portal not found: ", target_portal_name)
-		return false
-
-	player.global_position = target_portal.global_position
-	target_portal_name = ""
-
-	return true
-func register_stage(stage: Node) -> void:
-	current_stage = stage
-	player = get_tree().get_first_node_in_group("player")
-
 	if not target_portal_name.is_empty():
-		respawn_at_portal()
+		player.global_position = current_stage.find_child(target_portal_name).global_position
+		GameManager.target_portal_name = ""
+		return true
+	return false
+
 
 # Checkpoint system functions
 func save_checkpoint(checkpoint_id: String) -> void:
@@ -137,20 +100,19 @@ func save_checkpoint_data() -> void:
 		"current_checkpoint_id": current_checkpoint_id,
 		"checkpoint_data": checkpoint_data
 	}
-	#SaveSystem.save_checkpoint_data(save_data)
+	SaveSystem.save_checkpoint_data(save_data)
 
-
+# Load checkpoint data from persistent storage
 func load_checkpoint_data() -> void:
-	#var save_data = SaveSystem.load_checkpoint_data()
-	#if not save_data.is_empty():
-		#current_checkpoint_id = save_data.get("current_checkpoint_id", "")
-		#checkpoint_data = save_data.get("checkpoint_data", {})
-		#print("Checkpoint data loaded from save file")
-	pass
+	var save_data = SaveSystem.load_checkpoint_data()
+	if not save_data.is_empty():
+		current_checkpoint_id = save_data.get("current_checkpoint_id", "")
+		checkpoint_data = save_data.get("checkpoint_data", {})
+		print("Checkpoint data loaded from save file")
 
-
+# Clear all checkpoint data
 func clear_checkpoint_data() -> void:
 	current_checkpoint_id = ""
 	checkpoint_data.clear()
-	#SaveSystem.delete_save_file()
+	SaveSystem.delete_save_file()
 	print("All checkpoint data cleared")

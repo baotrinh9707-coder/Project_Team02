@@ -419,3 +419,5 @@ script = ExtResource("26_dfk82")
 
 [node name="Dead" type="Node" parent="States" unique_id=2028540282]
 script = ExtResource("27_sfun1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=628883936]

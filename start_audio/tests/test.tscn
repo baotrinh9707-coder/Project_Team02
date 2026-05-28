@@ -5,6 +5,10 @@
 [ext_resource type="TileSet" uid="uid://cssvq1jsngkkm" path="res://assets/island/tileset.tres" id="3_jenrn"]
 [ext_resource type="PackedScene" uid="uid://kutgcqjewj7m" path="res://scenes/enemies/starfish/startfish.tscn" id="4_mm0ke"]
 [ext_resource type="PackedScene" uid="uid://d0jou4iuydvkg" path="res://scenes/player/player.tscn" id="5_ymr3d"]
+[ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="1_music"]
+[ext_resource type="PackedScene" uid="uid://d1gqk2l28m1k4" path="res://scripts/audio/background_music.tscn" id="1_bgm"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="2_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="3_ambience"]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_dsb46")
@@ -37,3 +41,15 @@ position = Vector2(888, 446)
 position = Vector2(126, 156)
 
 [node name="Effects" type="Node2D" parent="."]
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("1_bgm")]
+
+[node name="SFXBusArea2D" parent="." instance=ExtResource("2_sfxarea")]
+position = Vector2(393, 179)
+target_bus_name = "SFXCave"
+scale = Vector2(10.0, 10.0)
+
+[node name="AmbienceArea2D" parent="." instance=ExtResource("3_ambience")]
+position = Vector2(500, 200)
+scale = Vector2(10.0, 10.0)
+ambience_music_id = "boss_music"

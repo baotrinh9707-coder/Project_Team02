@@ -5,8 +5,9 @@
 [ext_resource type="Resource" uid="uid://cy0ysxaako07m" path="res://data/audio/player_jump.tres" id="2_ut6nb"]
 [ext_resource type="Resource" uid="uid://l5gaihh37qdb" path="res://data/audio/player_attack.tres" id="3_hsaa8"]
 [ext_resource type="Resource" uid="uid://dgg748yr3yuu5" path="res://data/audio/boss_music.tres.tres" id="4_hsaa8"]
+[ext_resource type="Resource" uid="uid://cy1ysxaako07m" path="res://data/audio/bg_music.tres" id="5_bgmus"]
 
 [resource]
 script = ExtResource("1_nw313")
-clips = Array[ExtResource("1_x0dso")]([ExtResource("2_ut6nb"), ExtResource("3_hsaa8"), ExtResource("4_hsaa8")])
+clips = Array[ExtResource("1_x0dso")]([ExtResource("2_ut6nb"), ExtResource("3_hsaa8"), ExtResource("4_hsaa8"), ExtResource("5_bgmus")])
 metadata/_custom_type_script = "uid://ovmtn36802i6"

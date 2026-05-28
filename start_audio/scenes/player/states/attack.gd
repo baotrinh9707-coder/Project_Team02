@@ -9,7 +9,7 @@ func _enter() -> void:
 	#Enable collision shape of hit area
 	obj.get_node("Direction/HitArea2D/CollisionShape2D").disabled = false
 	# play attack sound
-	#AudioManager.play_sound("player_attack")
+	AudioManager.play_sound("player_attack")
 
 
 func _exit() -> void:

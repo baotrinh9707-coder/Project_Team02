@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d1gqk2l28m1k4"]
+
+[ext_resource type="Script" path="res://scripts/audio/background_music.gd" id="1_xxx"]
+
+[node name="BackgroundMusic" type="Node"]
+script = ExtResource("1_xxx")
+music_id = "stage_music"
