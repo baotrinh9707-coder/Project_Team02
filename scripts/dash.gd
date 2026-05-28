@@ -37,7 +37,7 @@ func _setup_dash() -> void:
 	if move_dir != 0:
 		dash_direction = Vector2(move_dir, 0).normalized()
 	else:
-		dash_direction = Vector2(-1 if animated_sprite_2d.flip_h else 1, 0)
+		dash_direction = Vector2(obj.direction.scale.x, 0)
 	
 	# Tạo khói ban đầu
 	spawn_smoke("dash_smoke")
@@ -87,7 +87,7 @@ func spawn_smoke(anim_name: String) -> void:
 	var smoke = smoke_effect_scene.instantiate() as AnimatedSprite2D
 	if smoke == null: return
 	smoke.global_position = obj.global_position + smoke_spawn_offset
-	smoke.flip_h = animated_sprite_2d.flip_h
+	smoke.scale.x = obj.direction.scale.x
 	get_tree().current_scene.add_child(smoke)
 	smoke.play(anim_name)
 
@@ -101,7 +101,6 @@ func spawn_ghost() -> void:
 
 	# 2. Match visual của bóng mờ y hệt nhân vật tại thời điểm đó
 	ghost.global_transform = animated_sprite_2d.global_transform
-	ghost.flip_h = animated_sprite_2d.flip_h
 	ghost.frame = animated_sprite_2d.frame
 	ghost.animation = animated_sprite_2d.animation
 	ghost.stop()

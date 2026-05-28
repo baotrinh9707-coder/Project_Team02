@@ -13,10 +13,8 @@ func _on_physics_process(delta: float) -> void:
 	var direction := player.get_move_axis()
 
 	if direction < 0:
-		animated_sprite_2d.flip_h = true
 		player.player_direction = Vector2.LEFT
 	elif direction > 0:
-		animated_sprite_2d.flip_h = false
 		player.player_direction = Vector2.RIGHT
 
 	if not player.is_wall_jumping:
