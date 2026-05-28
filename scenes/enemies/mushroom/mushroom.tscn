@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://d3gu2lqbxd5fa"]
 
-[ext_resource type="Script" uid="uid://bqupkmqn12hs8" path="res://scene/enemies/mushroom/mushroom.gd" id="1_hhcit"]
+[ext_resource type="Script" uid="uid://bqupkmqn12hs8" path="res://scenes/enemies/mushroom/mushroom.gd" id="1_hhcit"]
 [ext_resource type="Texture2D" uid="uid://3618lytb7nnv" path="res://assets/monsters/mushroom/mushroom_01.png" id="2_hhcit"]
 [ext_resource type="Texture2D" uid="uid://bqgmklofxv0qi" path="res://assets/monsters/mushroom/mushroom_02.png" id="3_4h5lg"]
 [ext_resource type="Texture2D" uid="uid://cghgcxg1pvwd6" path="res://assets/monsters/mushroom/mushroom_03.png" id="4_jver7"]
-[ext_resource type="Script" uid="uid://d0wybxjaahe28" path="res://scene/enemies/states/run.gd" id="5_hhcit"]
+[ext_resource type="Script" uid="uid://d0wybxjaahe28" path="res://scenes/enemies/states/run.gd" id="5_hhcit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5r"]
-size = Vector2(24, 26)
+size = Vector2(24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8yvo"]
 animations = [{
@@ -29,12 +29,10 @@ animations = [{
 [node name="Mushroom" type="CharacterBody2D" unique_id=1171416053]
 collision_mask = 3
 script = ExtResource("1_hhcit")
-movement_speed = null
-gravity = null
-direction = null
+movement_speed = 80.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1695572033]
-position = Vector2(0, 3)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_tyg5r")
 
 [node name="Direction" type="Node2D" parent="." unique_id=1799443275]
