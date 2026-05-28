@@ -5,7 +5,7 @@ var has_blade: bool = true
 var player_direction: Vector2 = Vector2.RIGHT
 @export var fall_gravity_multiplier: float = 1.2 #gia tốc trọng trường
 
-@export var max_health: float = 3.0
+@export var max_health: float = 100.0
 var health: float = max_health
 var is_invulnerable: bool = false
 

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwcclik4ny1ry" path="res://scripts/item/chest/chest_open_05.png" id="9_eerfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sv7"]
-size = Vector2(31, 30)
+size = Vector2(31, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i746h"]
 animations = [{
@@ -55,7 +55,7 @@ collision_mask = 2
 script = ExtResource("1_uops2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034726777]
-position = Vector2(0.5, 10)
+position = Vector2(0.5, 9)
 shape = SubResource("RectangleShape2D_a8sv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=899976827]

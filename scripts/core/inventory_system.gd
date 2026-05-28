@@ -1,5 +1,5 @@
 extends Node
-class_name InventorySystem
+class_name InventorySystemd
 
 signal coin_changed(new_amount: int)
 signal item_collected(item_type: String, amount: int)
