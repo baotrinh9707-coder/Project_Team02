@@ -31,7 +31,22 @@ var spawn_position: Vector2
 
 var is_wall_jumping: bool = false
 var wall_jump_timer: float = 0.0
+@onready var direction: Node2D = $Direction
 
+func _physics_process(delta: float) -> void:
+	var can_flip = true
+	var state_machine = get_node_or_null("States")
+	if state_machine and state_machine.current_state:
+		var state_name = state_machine.current_state.name.to_lower()
+		if state_name in ["attack", "dash", "hurt", "dead"]:
+			can_flip = false
+
+	if can_flip:
+		var input_dir = Input.get_axis("walk_left", "walk_right")
+		if input_dir > 0:
+			direction.scale.x = 1
+		elif input_dir < 0:
+			direction.scale.x = -1
 
 func _ready() -> void:
 	add_to_group("player")
@@ -109,9 +124,9 @@ func should_wall_cling() -> bool:
 
 func face_toward_wall(animated_sprite_2d: AnimatedSprite2D) -> void:
 	if wall_normal.x > 0:
-		animated_sprite_2d.flip_h = true
+		direction.scale.x = -1
 	elif wall_normal.x < 0:
-		animated_sprite_2d.flip_h = false
+		direction.scale.x = 1
 
 
 func start_wall_jump() -> void:
