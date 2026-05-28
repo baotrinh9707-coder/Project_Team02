@@ -9,10 +9,8 @@ func _on_physics_process(delta: float) -> void:
 	animated_sprite_2d.play("fox_walk")
 
 	if direction < 0:
-		animated_sprite_2d.flip_h = true
 		player.player_direction = Vector2.LEFT
 	elif direction > 0:
-		animated_sprite_2d.flip_h = false
 		player.player_direction = Vector2.RIGHT
 
 	player.velocity.x = move_toward(player.velocity.x, direction * player.move_speed, player.acceleration * delta)
