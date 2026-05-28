@@ -12,20 +12,22 @@ var inventory_system: InventorySystem = null
 
 func _ready() -> void:
 	# Load checkpoint data when game starts
-	load_checkpoint_data()
+	#load_checkpoint_data()
+
 	# Init inventory system
 	inventory_system = InventorySystem.new()
 	add_child(inventory_system)
-	pass
-
-#change stage by path and target portal name
 func change_stage(stage_path: String, _target_portal_name: String = "") -> void:
+	print("change_stage called")
+	print("stage_path: ", stage_path)
+	print("target_portal_name: ", _target_portal_name)
+
 	target_portal_name = _target_portal_name
 
 	var error := get_tree().change_scene_to_file(stage_path)
 
 	if error != OK:
-		print("Failed to change stage: ", stage_path)
+		print("Failed to change stage: ", stage_path, " error: ", error)
 		return
 
 	await get_tree().process_frame
@@ -33,6 +35,9 @@ func change_stage(stage_path: String, _target_portal_name: String = "") -> void:
 
 	current_stage = get_tree().current_scene
 	player = get_tree().get_first_node_in_group("player")
+
+	print("Current stage: ", current_stage)
+	print("Player: ", player)
 
 	respawn_at_portal()
 
@@ -132,19 +137,20 @@ func save_checkpoint_data() -> void:
 		"current_checkpoint_id": current_checkpoint_id,
 		"checkpoint_data": checkpoint_data
 	}
-	SaveSystem.save_checkpoint_data(save_data)
+	#SaveSystem.save_checkpoint_data(save_data)
 
-# Load checkpoint data from persistent storage
+
 func load_checkpoint_data() -> void:
-	var save_data = SaveSystem.load_checkpoint_data()
-	if not save_data.is_empty():
-		current_checkpoint_id = save_data.get("current_checkpoint_id", "")
-		checkpoint_data = save_data.get("checkpoint_data", {})
-		print("Checkpoint data loaded from save file")
+	#var save_data = SaveSystem.load_checkpoint_data()
+	#if not save_data.is_empty():
+		#current_checkpoint_id = save_data.get("current_checkpoint_id", "")
+		#checkpoint_data = save_data.get("checkpoint_data", {})
+		#print("Checkpoint data loaded from save file")
+	pass
 
-# Clear all checkpoint data
+
 func clear_checkpoint_data() -> void:
 	current_checkpoint_id = ""
 	checkpoint_data.clear()
-	SaveSystem.delete_save_file()
+	#SaveSystem.delete_save_file()
 	print("All checkpoint data cleared")

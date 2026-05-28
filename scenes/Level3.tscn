@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b2q2llky167qu"]
 
-[ext_resource type="Script" uid="uid://b33xc4llqranr" path="res://scenes/level_1.gd" id="1_mw3i8"]
-[ext_resource type="Script" path="res://scenes/portal.gd" id="2_ddxw6"]
+[ext_resource type="Script" uid="uid://dbrl6bbug1msh" path="res://scenes/level_3.gd" id="1_opw0y"]
+[ext_resource type="Script" uid="uid://bgpwc35qec0dp" path="res://scenes/portal.gd" id="2_ddxw6"]
 [ext_resource type="PackedScene" uid="uid://ck0ny8hpdcq5o" path="res://scenes/door_for_portal.tscn" id="3_xwks1"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="4_ng6o1"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="5_okerj"]
@@ -58,19 +58,24 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Stage" type="Node2D" unique_id=2081329449]
-script = ExtResource("1_mw3i8")
+script = ExtResource("1_opw0y")
 
 [node name="Portal_to_lvl2" type="Area2D" parent="." unique_id=517473386]
 position = Vector2(23, -2393)
+collision_mask = 3
 script = ExtResource("2_ddxw6")
-target_stage_path = "uid://bgo3dmr814cdu"
-target_portal_name = "From_Level1"
+target_stage_path = "uid://bc8nq6ptd2pic"
+target_portal_name = "From_Level3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl2" unique_id=690586087]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_0xqs2")
 
 [node name="AnimatedSprite2D" parent="Portal_to_lvl2" unique_id=1954250045 instance=ExtResource("3_xwks1")]
+animation = &"open"
+
+[node name="From_Level2" type="Marker2D" parent="." unique_id=1152895542]
+position = Vector2(81, -2388)
 
 [node name="world" type="Node2D" parent="." unique_id=1685894655]
 

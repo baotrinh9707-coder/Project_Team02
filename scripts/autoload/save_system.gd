@@ -1,5 +1,4 @@
 extends Node
-class_name SaveSystem
 
 const SAVE_FILE = "user://checkpoint_save.dat"
 

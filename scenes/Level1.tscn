@@ -64,10 +64,14 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Stage" type="Node2D" unique_id=2081329449]
 script = ExtResource("1_2meft")
 
+[node name="From_Level2" type="Marker2D" parent="." unique_id=1152895542]
+position = Vector2(2055, -204)
+
 [node name="Portal_to_lvl2" type="Area2D" parent="." unique_id=517473386]
 position = Vector2(2114, -219)
+collision_mask = 3
 script = ExtResource("12_jxjwb")
-target_stage_path = "uid://bgo3dmr814cdu"
+target_stage_path = "uid://bc8nq6ptd2pic"
 target_portal_name = "From_Level1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl2" unique_id=690586087]
@@ -75,6 +79,7 @@ position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_0xqs2")
 
 [node name="AnimatedSprite2D" parent="Portal_to_lvl2" unique_id=1954250045 instance=ExtResource("14_0xqs2")]
+animation = &"open"
 
 [node name="world" type="Node2D" parent="." unique_id=1685894655]
 
@@ -498,10 +503,10 @@ texture = SubResource("GradientTexture2D_4dyl1")
 texture_scale = 6.0
 
 [node name="Label" type="Label" parent="." unique_id=559879782]
-offset_left = -617.0
-offset_top = 138.0
-offset_right = -499.0
-offset_bottom = 239.0
+offset_left = -719.0
+offset_top = 154.0
+offset_right = -601.0
+offset_bottom = 255.0
 theme_override_colors/font_color = Color(0.553381, 0.803202, 0.0203562, 1)
 theme_override_fonts/font = ExtResource("15_wnofu")
 theme_override_font_sizes/font_size = 16
