@@ -2,15 +2,14 @@ extends FSMState
 
 # --- 1. CÁC BIẾN EXPORT (Có thể chỉnh ngoài Inspector) ---
 @export var animated_sprite_2d: AnimatedSprite2D # Node hình ảnh nhân vật
-@export var dash_speed: float = 600.0 # Tốc độ lướt
-@export var dash_duration: float = 0.25 # Thời gian lướt (nên ngắn thôi)
+@export var dash_speed: float = 450.0 # Tốc độ lướt
+@export var dash_duration: float = 0.2 # Thời gian lướt (nên ngắn thôi)
 
 # 🟢 [MỚI] Các biến cho hiệu ứng Bóng mờ
 @export var ghost_lifetime: float = 0.3 # Thời gian mỗi bóng mờ tồn tại (giây)
 @export var ghost_frequency: float = 0.04 # Thời gian giữa 2 lần tạo bóng mờ (nên < 0.1)
 @export var ghost_color: Color = Color(0.6, 0.6, 1.0, 0.6) # Màu sắc/độ trong của bóng mờ (xanh nhạt)
 
-# --- Các biến cho hiệu ứng Khói ---
 @export var smoke_spawn_offset: Vector2 = Vector2(0, 0) # Vị trí khói
 @export var smoke_effect_scene: PackedScene # Scene khói
 
@@ -25,14 +24,13 @@ var ghost_timer: float = 0.0
 
 # --- 3. HÀM CHÍNH ---
 
-# Hàm thiết lập ban đầu mỗi cú lướt
 func _setup_dash() -> void:
 	is_setup = true
 	dash_timer = dash_duration
 	trail_timer = 0.0
-	ghost_timer = 0.0 # Reset bộ đếm bóng mờ
+	ghost_timer = 0.0
 	
-	animated_sprite_2d.play("fox_walk") # Hoặc animation lướt
+	animated_sprite_2d.play("fox_walk")
 	
 	# Xác định hướng lướt
 	var move_dir = obj.get_move_axis()
@@ -81,9 +79,9 @@ func _on_next_transitions() -> void:
 		else:
 			transition.emit("Fall")
 
-# --- 4. HÀM PHỤ TẠO HIỆU ỨNG ---
+func _on_exit() -> void:
+	obj.velocity.x = 0
 
-# Hàm tạo Khói (giữ nguyên cũ của bạn)
 func spawn_smoke(anim_name: String) -> void:
 	if smoke_effect_scene == null: return
 	var smoke = smoke_effect_scene.instantiate() as AnimatedSprite2D

@@ -3,15 +3,19 @@ extends CharacterBody2D
 
 var has_blade: bool = true
 var player_direction: Vector2 = Vector2.RIGHT
+@export var fall_gravity_multiplier: float = 1.2 #gia tốc trọng trường
 
 @export var max_health: float = 3.0
 var health: float = max_health
 var is_invulnerable: bool = false
 
-@export var move_speed: float = 80.0
+@export var acceleration: float = 320.0 # tang toc
+@export var deceleration: float = 640.0 # quan tinh
+
+@export var move_speed: float = 120.0
 @export var air_speed: float = 80.0
-@export var jump_speed: float = 320.0
-@export var gravity: float = 700.0
+@export var jump_speed: float = 350.0
+@export var gravity: float = 600.0
 @export var max_jumps: int = 2
 
 @export var wall_slide_speed: float = 45.0
