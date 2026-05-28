@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjixkieuke42x" path="res://assets/island/tree_to_left.tscn" id="4_umudc"]
 [ext_resource type="PackedScene" uid="uid://bydp3u455qmrh" path="res://assets/island/Pirate_flag.tscn" id="5_umudc"]
 [ext_resource type="PackedScene" uid="uid://dpd05b5ga8vp3" path="res://scenes/collectibles/chest_normal.tscn" id="6_8p3th"]
-[ext_resource type="PackedScene" uid="uid://dibhixx68yjhi" path="res://scenes/collectibles/coin.tscn" id="7_d3krc"]
+[ext_resource type="PackedScene" uid="uid://c5ribn7nki48i" path="res://scenes/collectibles/coin.tscn" id="7_d3krc"]
 [ext_resource type="PackedScene" uid="uid://dxoqkly6l0hsm" path="res://scenes/collectibles/key.tscn" id="8_expeu"]
 [ext_resource type="PackedScene" uid="uid://5jhjl0uodf6l" path="res://scenes/collectibles/chest_gold.tscn" id="9_d3krc"]
 [ext_resource type="PackedScene" uid="uid://kuuf32cpc6fo" path="res://scenes/door_normal_interact.tscn" id="9_expeu"]

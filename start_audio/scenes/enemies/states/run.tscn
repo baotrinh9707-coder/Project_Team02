@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blij8alqed21s"]
+
+[ext_resource type="Script" uid="uid://nacyfordi437" path="res://scenes/enemies/states/run.gd" id="1_cv7hv"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_cv7hv")

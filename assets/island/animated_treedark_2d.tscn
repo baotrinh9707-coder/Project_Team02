@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1od2hyke60g" path="res://assets/island/back_palm_trees/back_palm_tree_regular_02.png" id="2_iosbo"]
 [ext_resource type="Texture2D" uid="uid://frimagh5yfit" path="res://assets/island/back_palm_trees/back_palm_tree_regular_03.png" id="3_ad6bi"]
 [ext_resource type="Texture2D" uid="uid://cjcxdxoq8hp4l" path="res://assets/island/back_palm_trees/back_palm_tree_regular_04.png" id="4_8gncb"]
-[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://animated_sprite_2d.gd" id="5_kpsdj"]
+[ext_resource type="Script" uid="uid://sg81okig4w62" path="res://scripts/animated_sprite_2d.gd" id="5_kpsdj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61hb2"]
 animations = [{

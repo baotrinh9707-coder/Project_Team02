@@ -1,5 +1,5 @@
-extends Node
 class_name FSMState
+extends Node
 
 signal transition(state_name: String)
 
@@ -28,3 +28,6 @@ func update_timer(delta: float) -> bool:
 
 	timer -= delta
 	return timer <= 0
+
+func take_damage(damage: int) -> void:
+	transition.emit("Hurt")

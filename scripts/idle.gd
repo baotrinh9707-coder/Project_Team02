@@ -6,7 +6,7 @@ extends FSMState
 func _on_physics_process(delta: float) -> void:
 	animated_sprite_2d.play("fox_idle")
 
-	player.velocity.x = 0
+	player.velocity.x = move_toward(player.velocity.x, 0, player.deceleration * delta)
 
 	if player.is_on_floor():
 		player.reset_jumps()

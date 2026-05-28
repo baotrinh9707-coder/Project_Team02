@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 ## Base character class that provides common functionality for all characters
 
-@export var movement_speed: float = 200.0
+@export var movement_speed: float = 220.0
 @export var gravity: float = 700.0
 @export var direction: int = 1
 
@@ -29,11 +29,14 @@ func _physics_process(delta: float) -> void:
 	_update_movement(delta)
 	# Direction
 	_check_changed_direction()
+	
+	_check_changed_direction()
+	move_and_slide()
 
 
 func _update_movement(delta: float) -> void:
-	#TODO: Add the gravity
-	pass
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
 func turn_around() -> void:
 	if _next_direction != direction:

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dhhg20fv38kf3"]
+
+[ext_resource type="Script" uid="uid://b53avuis3vfes" path="res://scripts/test_2.gd" id="1_1c1c6"]
+[ext_resource type="Script" uid="uid://d0ry0locyrkw7" path="res://scripts/line_2d.gd" id="1_vkxud"]
+[ext_resource type="Script" uid="uid://ckcjms4yqexjq" path="res://scripts/projectile.gd" id="2_m16is"]
+[ext_resource type="Texture2D" uid="uid://g6knpxl51v8a" path="res://scripts/item/coin.png" id="3_ginbv"]
+[ext_resource type="PackedScene" uid="uid://d3gu2lqbxd5fa" path="res://scene/enemies/mushroom/mushroom.tscn" id="5_gmrq2"]
+
+[node name="Test2" type="Node2D" unique_id=1133395305]
+script = ExtResource("1_1c1c6")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1765392543]
+script = ExtResource("1_vkxud")
+
+[node name="Launcher" type="Node2D" parent="." unique_id=1543872030]
+
+[node name="Sprite2D" type="Sprite2D" parent="Launcher" unique_id=823287310]
+modulate = Color(0.27058825, 0.18431373, 1, 1)
+position = Vector2(50, 200)
+texture = ExtResource("3_ginbv")
+
+[node name="Projectile" type="Node2D" parent="." unique_id=27864586]
+script = ExtResource("2_m16is")
+
+[node name="Sprite2D" type="Sprite2D" parent="Projectile" unique_id=986003299]
+modulate = Color(0.89411765, 0, 0, 1)
+position = Vector2(50, 200)
+texture = ExtResource("3_ginbv")
+
+[node name="Target" type="Node2D" parent="." unique_id=1393906815]
+
+[node name="Sprite2D" type="Sprite2D" parent="Target" unique_id=1838518045]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(400, 200)
+texture = ExtResource("3_ginbv")
+
+[node name="Mushroom" parent="." unique_id=1171416053 instance=ExtResource("5_gmrq2")]
+position = Vector2(93, 222)
