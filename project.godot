@@ -26,9 +26,8 @@ buses/default_bus_layout="uid://c6x6kcv1uimqs"
 [autoload]
 
 AudioManager="*uid://cqgl77cag2l56"
-InventoryManager="*uid://cpgd7bcbhmrst"
 GameManager="*uid://cnte08i2l2cr0"
-SsveSystem="*uid://be1uevkk3qr8a"
+SaveSystem="*uid://be1uevkk3qr8a"
 
 [display]
 

@@ -1,19 +1,18 @@
 [gd_scene format=4 uid="uid://bc8nq6ptd2pic"]
 
-[ext_resource type="Script" uid="uid://b33xc4llqranr" path="res://scenes/level_1.gd" id="1_0roy1"]
+[ext_resource type="Script" uid="uid://cgc28i8og2c4u" path="res://scenes/level_2.gd" id="1_cd1f0"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="1_qwp14"]
 [ext_resource type="Script" uid="uid://bgpwc35qec0dp" path="res://scenes/portal.gd" id="2_epefj"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="2_xpq2v"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/island/background/additional_water.png" id="3_0jmjk"]
 [ext_resource type="Texture2D" uid="uid://m5yds3bm8pou" path="res://assets/island/background/big_clouds.png" id="4_v8268"]
 [ext_resource type="Texture2D" uid="uid://ci5tpl05cnmra" path="res://assets/island/background/small_cloud_1.png" id="5_rcugv"]
-[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/player.tscn" id="7_khw7m"]
+[ext_resource type="PackedScene" uid="uid://b31do324pfrie" path="res://scenes/player/player.tscn" id="7_khw7m"]
 [ext_resource type="PackedScene" uid="uid://ck0ny8hpdcq5o" path="res://scenes/door_for_portal.tscn" id="9_0jmjk"]
 [ext_resource type="TileSet" uid="uid://litwbximcx8" path="res://assets/island/new_tile_set.tres" id="11_3aekd"]
-[ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="13_2hnyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xqs2"]
-size = Vector2(35, 47)
+size = Vector2(35, 44)
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -53,19 +52,40 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Stage" type="Node2D" unique_id=2081329449]
-script = ExtResource("1_0roy1")
+script = ExtResource("1_cd1f0")
 
-[node name="Portal_to_lvl2" type="Area2D" parent="." unique_id=517473386]
+[node name="Portal_to_lvl1" type="Area2D" parent="." unique_id=517473386]
 position = Vector2(1, -413)
+collision_mask = 3
 script = ExtResource("2_epefj")
-target_stage_path = "uid://bgo3dmr814cdu"
-target_portal_name = "From_Level1"
+target_stage_path = "uid://isogep3vqlgu"
+target_portal_name = "From_Level2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl2" unique_id=690586087]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl1" unique_id=690586087]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_0xqs2")
+
+[node name="AnimatedSprite2D" parent="Portal_to_lvl1" unique_id=1954250045 instance=ExtResource("9_0jmjk")]
+animation = &"open"
+
+[node name="Portal_to_lvl3" type="Area2D" parent="." unique_id=1677354676]
+position = Vector2(4077, -1437)
+collision_mask = 3
+script = ExtResource("2_epefj")
+target_stage_path = "uid://b2q2llky167qu"
+target_portal_name = "From_Level2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl3" unique_id=1443619537]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_0xqs2")
 
-[node name="AnimatedSprite2D" parent="Portal_to_lvl2" unique_id=1954250045 instance=ExtResource("9_0jmjk")]
+[node name="AnimatedSprite2D" parent="Portal_to_lvl3" unique_id=1824600780 instance=ExtResource("9_0jmjk")]
+
+[node name="From_Level3" type="Marker2D" parent="." unique_id=1739318506]
+position = Vector2(4024, -1429)
+
+[node name="From_Level1" type="Marker2D" parent="." unique_id=1152895542]
+position = Vector2(44, -408)
 
 [node name="world" type="Node2D" parent="." unique_id=1685894655]
 
@@ -263,19 +283,3 @@ shadow_filter = 2
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_4dyl1")
 texture_scale = 6.0
-
-[node name="Label" type="Label" parent="." unique_id=559879782]
-offset_left = -617.0
-offset_top = 138.0
-offset_right = -499.0
-offset_bottom = 239.0
-theme_override_colors/font_color = Color(0.553381, 0.803202, 0.0203562, 1)
-theme_override_fonts/font = ExtResource("13_2hnyg")
-theme_override_font_sizes/font_size = 16
-text = "WASD to Move
-Space to Jump
-Ctrl to Dash
-C to Attack"
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1152895542]
-position = Vector2(44, -408)

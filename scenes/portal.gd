@@ -22,6 +22,12 @@ func _on_interacted() -> void:
 
 
 func open_portal() -> void:
+	if target_stage_path.is_empty():
+		return
+
+	if target_portal_name.is_empty():
+		return
+
 	is_opening = true
 
 	animated_sprite.play("open")

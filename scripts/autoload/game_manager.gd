@@ -6,7 +6,7 @@ var target_portal_name: String = ""
 var current_checkpoint_id: String = ""
 var checkpoint_data: Dictionary = {}
 
-var current_stage = ""
+var current_stage: Node = null
 var player: Player = null
 
 var inventory_system: InventorySystem = null
@@ -21,9 +21,15 @@ func _ready() -> void:
 
 #change stage by path and target portal name
 func change_stage(stage_path: String, _target_portal_name: String = "") -> void:
+	print("change_stage called: ", stage_path)
+	print("target portal: ", _target_portal_name)
+
 	target_portal_name = _target_portal_name
-	#change scene to stage path
-	get_tree().change_scene_to_file(stage_path)
+
+	var error := get_tree().change_scene_to_file(stage_path)
+
+	if error != OK:
+		print("Failed to change stage: ", stage_path, " error: ", error)
 
 
 #call from dialogic
@@ -34,11 +40,30 @@ func call_from_dialogic(msg:String = ""):
 
 #respawn at portal or door
 func respawn_at_portal() -> bool:
-	if not target_portal_name.is_empty():
-		player.global_position = current_stage.find_child(target_portal_name).global_position
-		GameManager.target_portal_name = ""
-		return true
-	return false
+	if target_portal_name.is_empty():
+		return false
+
+	if current_stage == null:
+		current_stage = get_tree().current_scene
+
+	if player == null:
+		player = get_tree().get_first_node_in_group("player")
+
+	if player == null:
+		print("Player not found")
+		return false
+
+	var target_portal = current_stage.find_child(target_portal_name, true, false)
+
+	if target_portal == null:
+		print("Target portal not found: ", target_portal_name)
+		return false
+
+	print("Teleport player to: ", target_portal.name)
+	player.global_position = target_portal.global_position
+	target_portal_name = ""
+
+	return true
 
 
 # Checkpoint system functions
@@ -115,3 +140,12 @@ func clear_checkpoint_data() -> void:
 	checkpoint_data.clear()
 	#SaveSystem.delete_save_file()
 	print("All checkpoint data cleared")
+func register_stage(stage: Node) -> void:
+	current_stage = stage
+	player = get_tree().get_first_node_in_group("player")
+
+	if player == null:
+		print("Player not found in current stage")
+
+	if not target_portal_name.is_empty():
+		respawn_at_portal()
