@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://c1konwwsf248h"]
+[gd_scene format=4 uid="uid://c1konwwsf248h"]
 
 [ext_resource type="TileSet" uid="uid://litwbximcx8" path="res://assets/island/new_tile_set.tres" id="1_ef4f4"]
 [ext_resource type="PackedScene" uid="uid://bp35kp4ukeqk5" path="res://assets/island/top_palm_tree.tscn" id="1_mv47w"]
-[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/character_body_2d.tscn" id="3_cjpmx"]
+[ext_resource type="PackedScene" uid="uid://dw0brs8diijer" path="res://scenes/player/player.tscn" id="3_cjpmx"]
 
 [node name="Node2D" type="Node2D"]
 
