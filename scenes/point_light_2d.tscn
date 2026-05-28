@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bdkyos23wwflq"]
+
+[sub_resource type="Gradient" id="Gradient_kbo48"]
+offsets = PackedFloat32Array(0.05421687, 0.8012048)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dyl1"]
+gradient = SubResource("Gradient_kbo48")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PointLight2D" type="PointLight2D" unique_id=2130029721]
+energy = 3.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.8)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_4dyl1")
+texture_scale = 6.0

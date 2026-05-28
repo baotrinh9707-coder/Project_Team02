@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://isogep3vqlgu"]
 
+[ext_resource type="Script" uid="uid://b33xc4llqranr" path="res://scenes/level_1.gd" id="1_2meft"]
 [ext_resource type="Texture2D" uid="uid://dcrnqve71d36p" path="res://assets/island/background/additional_sky.png" id="1_ipmer"]
 [ext_resource type="Texture2D" uid="uid://bqde0l4at7gv8" path="res://assets/island/background/bg_image.png" id="2_av1gt"]
 [ext_resource type="Texture2D" uid="uid://ck8762h1hy2cf" path="res://assets/island/background/additional_water.png" id="3_r7dij"]
@@ -17,6 +18,9 @@
 [ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="15_wnofu"]
 [ext_resource type="PackedScene" uid="uid://bf4il2oyk7kmd" path="res://scenes/collectibles/chest.tscn" id="16_av1gt"]
 [ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="18_2ouud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xqs2"]
+size = Vector2(35, 47)
 
 [sub_resource type="GDScript" id="GDScript_wuau1"]
 script/source = "extends ParallaxLayer
@@ -46,16 +50,20 @@ func _process(delta: float) -> void:
 	motion_offset.x -= delta*50
 "
 
-[sub_resource type="Gradient" id="Gradient_kbo48"]
-offsets = PackedFloat32Array(0.09638554, 0.6927711)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dyl1"]
-gradient = SubResource("Gradient_kbo48")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="Stage" type="Node2D" unique_id=2081329449]
+script = ExtResource("1_2meft")
+
+[node name="Portal_to_lvl2" type="Area2D" parent="." unique_id=517473386]
+position = Vector2(9061, -826)
+script = ExtResource("12_jxjwb")
+target_stage_path = "uid://bgo3dmr814cdu"
+target_portal_name = "From_Level1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_to_lvl2" unique_id=690586087]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_0xqs2")
+
+[node name="AnimatedSprite2D" parent="Portal_to_lvl2" unique_id=1954250045 instance=ExtResource("14_0xqs2")]
 
 [node name="world" type="Node2D" parent="." unique_id=1685894655]
 
