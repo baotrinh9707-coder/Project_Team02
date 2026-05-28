@@ -540,7 +540,7 @@ position = Vector2(1018, 234)
 [node name="Chest2" parent="." unique_id=649079687 instance=ExtResource("16_av1gt")]
 position = Vector2(1429, 234)
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1152895542]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1543298109]
 position = Vector2(2055, -204)
 
 [node name="Coin2" parent="." unique_id=826606154 instance=ExtResource("15_ipmer")]
