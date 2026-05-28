@@ -1,62 +1,67 @@
-[gd_scene format=3 uid="uid://5jhjl0uodf6l"]
+[gd_scene format=3 uid="uid://wmbuvix3vswc"]
 
-[ext_resource type="Script" uid="uid://7kxn75t6ly12" path="res://scripts/chest_gold.gd" id="1_7roh0"]
-[ext_resource type="Texture2D" uid="uid://bjd2vm2wg43n" path="res://assets/island/objects/chest/chest_gold_close_02.png" id="2_c2cw3"]
-[ext_resource type="Texture2D" uid="uid://typ8dtg6b2o4" path="res://assets/island/objects/chest/chest_gold_close_03.png" id="3_fuksh"]
-[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://assets/island/objects/chest/chest_gold_close_04.png" id="4_o78g8"]
-[ext_resource type="Texture2D" uid="uid://db1k53jjooxc0" path="res://assets/island/objects/chest/chest_gold_open_03.png" id="5_nosu4"]
-[ext_resource type="Texture2D" uid="uid://c4m2ji6v3v1sj" path="res://assets/island/objects/chest/chest_gold_open_04.png" id="6_r35gt"]
-[ext_resource type="Texture2D" uid="uid://rklpp03vtdqy" path="res://assets/island/objects/chest/chest_gold_open_05.png" id="7_al5sl"]
+[ext_resource type="Script" uid="uid://dfx3gph06sxoi" path="res://scripts/chest_gold.gd" id="1_b2kp7"]
+[ext_resource type="Texture2D" uid="uid://b25cckde0264v" path="res://scripts/item/chest/chest_gold_close_01.png" id="2_bpj1h"]
+[ext_resource type="Texture2D" uid="uid://bjd2vm2wg43n" path="res://scripts/item/chest/chest_gold_close_02.png" id="3_fwfrp"]
+[ext_resource type="Texture2D" uid="uid://typ8dtg6b2o4" path="res://scripts/item/chest/chest_gold_close_03.png" id="4_j73a6"]
+[ext_resource type="Texture2D" uid="uid://duwk5x5pje1x" path="res://scripts/item/chest/chest_gold_close_04.png" id="5_j4h70"]
+[ext_resource type="Texture2D" uid="uid://c1oe2ajw3hwdp" path="res://scripts/item/chest/chest_gold_open_01.png" id="6_lmhec"]
+[ext_resource type="Texture2D" uid="uid://cc8424juwfrr0" path="res://scripts/item/chest/chest_gold_open_02.png" id="7_i304b"]
+[ext_resource type="Texture2D" uid="uid://db1k53jjooxc0" path="res://scripts/item/chest/chest_gold_open_03.png" id="8_sqi1o"]
+[ext_resource type="Texture2D" uid="uid://c4m2ji6v3v1sj" path="res://scripts/item/chest/chest_gold_open_04.png" id="9_wfanh"]
+[ext_resource type="Texture2D" uid="uid://rklpp03vtdqy" path="res://scripts/item/chest/chest_gold_open_05.png" id="10_6hh57"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_trgia"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sv7"]
+size = Vector2(31, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7dlv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_c2cw3")
+"texture": ExtResource("2_bpj1h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fuksh")
+"texture": ExtResource("3_fwfrp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_o78g8")
+"texture": ExtResource("4_j73a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j4h70")
 }],
 "loop": true,
 "name": &"close",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_nosu4")
+"texture": ExtResource("6_lmhec")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_r35gt")
+"texture": ExtResource("7_i304b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_al5sl")
+"texture": ExtResource("8_sqi1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wfanh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6hh57")
 }],
 "loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uws6k"]
-size = Vector2(24, 20)
+[node name="ChestGold" type="Area2D" unique_id=1004402667]
+collision_mask = 2
+script = ExtResource("1_b2kp7")
 
-[node name="gold_chest" type="Area2D" unique_id=1483175264]
-collision_layer = 2
-script = ExtResource("1_7roh0")
-metadata/_custom_type_script = "uid://bfnn161rbp5k1"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034726777]
+position = Vector2(0.5, 10)
+shape = SubResource("RectangleShape2D_a8sv7")
 
-[node name="gold_chest" type="AnimatedSprite2D" parent="." unique_id=1331770252]
-sprite_frames = SubResource("SpriteFrames_trgia")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=718897758]
+sprite_frames = SubResource("SpriteFrames_a7dlv")
 animation = &"close"
-autoplay = "close"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1662082078]
-position = Vector2(0, 11)
-shape = SubResource("RectangleShape2D_uws6k")

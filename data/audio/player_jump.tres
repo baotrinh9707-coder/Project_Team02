@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://cy0ysxaako07m"]
+
+[ext_resource type="Script" uid="uid://chlphbiuq1gay" path="res://scripts/audio/audio_clip.gd" id="1_sm8u4"]
+[ext_resource type="AudioStream" uid="uid://xmadeot1iebn" path="res://assets/audio/sfx/player/jump.wav" id="2_jnkpe"]
+
+[resource]
+script = ExtResource("1_sm8u4")
+clip_id = "player_jump"
+stream = ExtResource("2_jnkpe")
+volume_db = 8.0
+randomize_pitch = true
+pitch_min = 0.2
+pitch_max = 1.2000000000000002
+metadata/_custom_type_script = "uid://chlphbiuq1gay"

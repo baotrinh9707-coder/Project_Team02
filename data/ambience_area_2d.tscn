@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dn0i223h8b2iy"]
+
+[ext_resource type="Script" uid="uid://b0w58ihsa6giw" path="res://scripts/ambience_area_2d.gd" id="1_o6mu2"]
+
+[node name="AmbienceArea2D" type="Area2D" unique_id=153130330]
+script = ExtResource("1_o6mu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=220451047]

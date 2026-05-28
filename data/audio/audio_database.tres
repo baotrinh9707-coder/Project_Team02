@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioDatabase" format=3 uid="uid://c1ope6ptf8yny"]
+
+[ext_resource type="Script" uid="uid://ovmtn36802i6" path="res://scripts/audio/audio_database.gd" id="1_nw313"]
+[ext_resource type="Script" uid="uid://chlphbiuq1gay" path="res://scripts/audio/audio_clip.gd" id="1_x0dso"]
+[ext_resource type="Resource" uid="uid://cy0ysxaako07m" path="res://data/audio/player_jump.tres" id="2_ut6nb"]
+[ext_resource type="Resource" uid="uid://l5gaihh37qdb" path="res://data/audio/player_attack.tres" id="3_hsaa8"]
+[ext_resource type="Resource" uid="uid://dgg748yr3yuu5" path="res://data/audio/boss_music.tres.tres" id="4_hsaa8"]
+
+[resource]
+script = ExtResource("1_nw313")
+clips = Array[ExtResource("1_x0dso")]([ExtResource("2_ut6nb"), ExtResource("3_hsaa8"), ExtResource("4_hsaa8")])
+metadata/_custom_type_script = "uid://ovmtn36802i6"

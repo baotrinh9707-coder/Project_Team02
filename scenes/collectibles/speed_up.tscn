@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dopqofudraho0"]
+
+[ext_resource type="Script" uid="uid://cja75jgjjjvgs" path="res://scripts/blade.gd" id="1_lg1om"]
+[ext_resource type="Texture2D" uid="uid://cvlk6y42qmydp" path="res://scripts/item/blade.png" id="2_n7iql"]
+
+[node name="Blade" type="Area2D" unique_id=1218088897]
+collision_mask = 2
+script = ExtResource("1_lg1om")
+metadata/_custom_type_script = "uid://de0cd1gykp80y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934515082]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=706347889]
+texture = ExtResource("2_n7iql")
