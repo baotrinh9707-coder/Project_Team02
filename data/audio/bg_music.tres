@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AudioClip" format=3 uid="uid://d3q1j5t0y4s6x"]
+
+[ext_resource type="Script" uid="uid://chlphbiuq1gay" path="res://scripts/audio/audio_clip.gd" id="1_sm8u4"]
+[ext_resource type="AudioStream" uid="uid://0cu2yfdmugja" path="res://assets/audio/music/music.ogg" id="2_jnkpe"]
+
+[resource]
+script = ExtResource("1_sm8u4")
+clip_id = "stage_music"
+stream = ExtResource("2_jnkpe")
+volume_db = 0.0
+randomize_pitch = false
+pitch_min = 0.9
+pitch_max = 1.1
+metadata/_custom_type_script = "uid://chlphbiuq1gay"

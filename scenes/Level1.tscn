@@ -20,6 +20,11 @@
 [ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="15_wnofu"]
 [ext_resource type="PackedScene" uid="uid://bf4il2oyk7kmd" path="res://scenes/collectibles/chest.tscn" id="16_av1gt"]
 [ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="18_2ouud"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="1_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="2_ambience"]
+[ext_resource type="PackedScene" uid="uid://d1gqk2l28m1k4" path="res://scripts/audio/background_music.tscn" id="3_bgm"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="4_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="5_ambience"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xqs2"]
 size = Vector2(35, 47)
@@ -662,3 +667,17 @@ position = Vector2(1512, -22)
 
 [node name="Mushroom6" parent="." unique_id=682283553 instance=ExtResource("12_0xqs2")]
 position = Vector2(1810, -51)
+
+
+[node name="SFXBusArea2D" parent="." instance=ExtResource("1_sfxarea")]
+position = Vector2(393, 179)
+target_bus_name = "SFXCave"
+scale = Vector2(10.0, 10.0)
+
+[node name="AmbienceArea2D" parent="." instance=ExtResource("2_ambience")]
+position = Vector2(500, 200)
+scale = Vector2(10.0, 10.0)
+ambience_music_id = "boss_music"
+
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("3_bgm")]

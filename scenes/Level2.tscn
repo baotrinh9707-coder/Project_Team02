@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="16_epefj"]
 [ext_resource type="PackedScene" uid="uid://bf4il2oyk7kmd" path="res://scenes/collectibles/chest.tscn" id="17_24quv"]
 [ext_resource type="PackedScene" uid="uid://dpd05b5ga8vp3" path="res://scenes/collectibles/chest_normal.tscn" id="18_h35wg"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="3_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="4_ambience"]
+[ext_resource type="PackedScene" uid="uid://d1gqk2l28m1k4" path="res://scripts/audio/background_music.tscn" id="5_bgm"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="6_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="7_ambience"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xqs2"]
 size = Vector2(35, 44)
@@ -739,3 +744,17 @@ position = Vector2(1081, -891)
 
 [node name="Chest_normal" parent="." unique_id=1001638918 instance=ExtResource("18_h35wg")]
 position = Vector2(1665, -1112)
+
+
+[node name="SFXBusArea2D" parent="." instance=ExtResource("3_sfxarea")]
+position = Vector2(393, 179)
+target_bus_name = "SFXCave"
+scale = Vector2(10.0, 10.0)
+
+[node name="AmbienceArea2D" parent="." instance=ExtResource("4_ambience")]
+position = Vector2(500, 200)
+scale = Vector2(10.0, 10.0)
+ambience_music_id = "boss_music"
+
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("5_bgm")]
