@@ -85,6 +85,10 @@ func play_music(music_id: String, volume_db: float = 0.0, fade_in: float = 0.0) 
 	current_music_id = music_id
 	# Stop current music if playing
 	if music_player.playing:
+		if fade_in > 0.0:
+			var fade_out_tween = create_tween()
+			fade_out_tween.tween_property(music_player, "volume_db", -80.0, fade_in)
+			await fade_out_tween.finished
 		music_player.stop()
 	
 	music_player.stream = audio_clip.stream

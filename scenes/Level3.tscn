@@ -16,6 +16,12 @@
 [ext_resource type="FontFile" uid="uid://c5owypvvwhlwq" path="res://assets/Fonts/upheaval/upheavtt.ttf" id="13_a5rop"]
 [ext_resource type="PackedScene" uid="uid://wmbuvix3vswc" path="res://scenes/collectibles/chest_gold.tscn" id="15_kid5y"]
 [ext_resource type="PackedScene" uid="uid://dxoqkly6l0hsm" path="res://scenes/collectibles/key.tscn" id="16_qtcjj"]
+[ext_resource type="PackedScene" uid="uid://d1gqk2l28m1k4" path="res://scripts/audio/background_music.tscn" id="1_bgm"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="2_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="3_ambience"]
+[ext_resource type="PackedScene" uid="uid://d1gqk2l28m1k4" path="res://scripts/audio/background_music.tscn" id="4_bgm"]
+[ext_resource type="PackedScene" path="res://data/sfx_bus_area_2d.tscn" id="5_sfxarea"]
+[ext_resource type="PackedScene" path="res://data/ambience_area_2d.tscn" id="6_ambience"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xqs2"]
 size = Vector2(35, 47)
@@ -787,3 +793,16 @@ position = Vector2(82, -1566)
 
 [node name="keyScene2" parent="." unique_id=696468764 instance=ExtResource("16_qtcjj")]
 position = Vector2(37, -2200)
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("1_bgm")]
+
+[node name="SFXBusArea2D" parent="." instance=ExtResource("2_sfxarea")]
+position = Vector2(393, 179)
+target_bus_name = "SFXCave"
+scale = Vector2(10.0, 10.0)
+
+[node name="AmbienceArea2D" parent="." instance=ExtResource("3_ambience")]
+position = Vector2(500, 200)
+scale = Vector2(10.0, 10.0)
+ambience_music_id = "boss_music"
+
